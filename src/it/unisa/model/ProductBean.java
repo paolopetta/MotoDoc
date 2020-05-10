@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class ProductBean implements Serializable {
 	
-	public enum Disponibilità{ y, n	}
 	
 	int codiceProd;		
     String descrizione;	
@@ -13,7 +12,8 @@ public class ProductBean implements Serializable {
     String disponibilità; 
     String p_iva;		
     String codiceAlfanumerico;	
-    int codice;		
+    int codice;	
+    String nome;
     
     public ProductBean() {
     	codiceProd= -1;
@@ -24,8 +24,16 @@ public class ProductBean implements Serializable {
     	p_iva="";
     	codiceAlfanumerico= "";
     	codice= -1;
+    	nome="";
     }
 
+    public String getNome() {
+    	return nome;
+    }
+    
+    public void setNome(String nome) {
+    	this.nome=nome;
+    }
 	public int getCodiceProd() {
 		return codiceProd;
 	}
@@ -89,10 +97,14 @@ public class ProductBean implements Serializable {
 	public void setCodice(int codice) {
 		this.codice = codice;
 	}
+	
+	public boolean isEmpty() {
+		return code == -1;
+	}
 
 	@Override
 	public String toString() {
-		return "ProductBean [Codice Prodotto=" + codiceProd + ", Descrizione=" + descrizione + ", Prezzo=" + prezzo
+		return "ProductBean [Nome Prodotto=" + nome + ", Codice Prodotto=" + codiceProd + ", Descrizione=" + descrizione + ", Prezzo=" + prezzo
 				+ ", Marca=" + marca + ", Disponibilità=" + disponibilità + ", Partita iva=" + p_iva + ", Codice Alfanumerico="
 				+ codiceAlfanumerico + ", Codice=" + codice + "]";
 	}
