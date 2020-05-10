@@ -17,6 +17,7 @@ public class ProductBean implements Serializable {
     
     public ProductBean() {
     	codiceProd= -1;
+    	nome="";
     	descrizione= "";
     	prezzo=0;
     	marca="";
@@ -24,7 +25,6 @@ public class ProductBean implements Serializable {
     	p_iva="";
     	codiceAlfanumerico= "";
     	codice= -1;
-    	nome="";
     }
 
     public String getNome() {
@@ -99,7 +99,7 @@ public class ProductBean implements Serializable {
 	}
 	
 	public boolean isEmpty() {
-		return code == -1;
+		return codiceProd == -1;
 	}
 
 	@Override

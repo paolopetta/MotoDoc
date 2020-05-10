@@ -4,7 +4,7 @@ use docmoto;
 
 DROP user IF EXISTS 'motoDoc'@'localhost';
 CREATE USER 'motoDoc'@'localhost' IDENTIFIED BY 'adminadmin';
-GRANT ALL ON storage.* TO 'motoDoc'@'localhost';
+GRANT ALL ON docmoto.* TO 'motoDoc'@'localhost';
 
 create table Fornitore(
 	p_iva		varchar(10)		not null primary key,
@@ -26,6 +26,7 @@ create table Scaffale(
 
 create table Prodotto(
 	codiceProd		int 		not null primary key,
+	nome		varchar(20),
     descrizione	varchar(100)	not null,
     prezzo 		double			not null,
     marca		varchar(10)		not null,

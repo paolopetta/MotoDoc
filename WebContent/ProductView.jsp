@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.*,it.unisa.model.ProductBean" %>  
+    pageEncoding="ISO-8859-1" import="java.util.*" %>  
+<%@ page import="it.unisa.model.ProductBean" %>
 <%
  	Collection<?> products = (Collection<?>) request.getAttribute("products");
  
@@ -11,7 +12,7 @@
  	} 
  	
  	ProductBean product = (ProductBean) request.getAttribute("product");
- 	//controllare provenienza di product
+ 	//controllare provenienza di product  (ok)
  	%>  
  
     
@@ -44,12 +45,12 @@
 				ProductBean bean = (ProductBean)it.next();	
 	%>
 			<tr>
-				<td><%=bean.getCodiceProd()%></td>
-				<td><%=bean.getNome()%></td>
+				<td align= "center"><%=bean.getCodiceProd()%></td>
+				<td align= "center"><%=bean.getNome()%></td>
 				<td><%=bean.getDescrizione()%></td>
-				<td><%=bean.getPrezzo()%></td>
-				<td><%=bean.getMarca()%></td>
-				<td><%=bean.getDisponibilità()%></td>
+				<td align= "center"><%=bean.getPrezzo()%></td>
+				<td align= "center"><%=bean.getMarca()%></td>
+				<td align= "center"><%=bean.getDisponibilità()%></td>
 				
 				<td>
 					<a href="<%=response.encodeURL("ProductControl?action=details&id=" + bean.getCodiceProd())%>">Dettagli</a>
@@ -116,26 +117,10 @@
 			</fieldset>
 		</form>		
 		
-		
-	<%  } %>
 	
-	<%
-	String message = (String)request.getAttribute("message");
-	if(message != null && !message.equals("")) {
-%>
-	<p style="color: green;"><%=message %></p>
-<%
-	}
-	if(error != null && !error.equals("")) {
-%>
-	<p style="color: red;">Error: <%= error%></p>
-<%
-	}
-%>
-
 <form action="<%=response.encodeURL("ProductControl")%>" method="POST">
 <fieldset>
-				<legend><b>Insert</b></legend>
+				 <legend><b>Insert</b></legend>
 				<input type="hidden" name="action" value="insert">
 				
 				<label for="nome">Nome:</label><br>
@@ -157,6 +142,23 @@
 				<input type="reset" value="Reset">
 			</fieldset>
 </form>
+
+
+	<%  } %>
+	
+	<%
+	String message = (String)request.getAttribute("message");
+	if(message != null && !message.equals("")) {
+%>
+	<p style="color: green;"><%=message %></p>
+<%
+	}
+	if(error != null && !error.equals("")) {
+%>
+	<p style="color: red;">Error: <%= error%></p>
+<%
+	}
+%>
 
 
 	
