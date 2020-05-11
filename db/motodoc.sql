@@ -25,8 +25,8 @@ create table Scaffale(
     );
 
 create table Prodotto(
-	codiceProd		int 		not null primary key,
-	nome		varchar(20),
+	codiceProd	varchar(10) 	not null primary key,
+	nome		varchar(20)		not null,
     descrizione	varchar(100)	not null,
     prezzo 		double			not null,
     marca		varchar(10)		not null,
@@ -41,14 +41,14 @@ create table Prodotto(
 
 create table Meccanica (
 	impiego		varchar(10)		not null,
-    codiceProd 		int				not null,
+    codiceProd 	varchar(10) 				not null,
     foreign key (codiceProd) references Prodotto (codiceProd)
 );    
 
 create table Pneumatici(
 	misura		varchar(9)			not null,
     stagione	varchar(10)			not null,
-    codiceProd 		int				not null,
+    codiceProd 	varchar(10) 			not null,
     foreign key (codiceProd) references Prodotto (codiceProd)
     );
     
@@ -75,7 +75,7 @@ create table Ordine(
 
 create table Composto(
 	codice 				int				not null,
-    codiceProd 			int				not null,
+    codiceProd 		varchar(10) 			not null,
     foreign key(codice) references Ordine(codice),
 	foreign key(codiceProd) references Prodotto(codiceProd)    
 );

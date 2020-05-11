@@ -6,7 +6,7 @@ import java.util.Collection;
 //per ogni tab
 public interface ProductModel<T> {
 
-	public T doRetriveByKey(int codice) throws SQLException;
+	public T doRetrieveByKey(String codiceProd) throws SQLException;
 	
 	public Collection<T> doRetriveAll(String order) throws SQLException;
 	

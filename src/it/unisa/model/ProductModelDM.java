@@ -10,9 +10,46 @@ import java.util.LinkedList;
 public class ProductModelDM implements ProductModel<ProductBean> {
 
 	@Override
-	public ProductBean doRetriveByKey(int codice) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public ProductBean doRetrieveByKey(String codiceProd) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		ProductBean bean= new ProductBean();
+		
+		String selectSQL="SELECT * FROM product WHERE code= ?";
+		
+		try {
+			connection = DriverManagerConnectionPool.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, Integer.parseInt(codiceProd));
+			
+			System.out.println("doRetrieveByKey:" + preparedStatement.toString());
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			while(rs.next()) {
+				
+				bean.setCodiceProd(rs.getString("codiceProd"));
+				bean.setNome(rs.getString("nome"));
+				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setPrezzo(rs.getDouble("prezzo"));
+				bean.setMarca(rs.getString("marca"));
+				bean.setDisponibilità(rs.getString("disponibilità"));
+				bean.setP_iva(rs.getString("p_iva"));
+				bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
+				bean.setCodice(rs.getInt("codice"));
+				
+			}
+		} finally {
+			try {
+				if(preparedStatement != null) 
+					preparedStatement.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		
+		return bean;
+		
 	}
 
 	@Override
@@ -38,7 +75,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
 			while(rs.next()) {
 				ProductBean bean = new ProductBean();
 				
-				bean.setCodiceProd(rs.getInt("codiceProd"));
+				bean.setCodiceProd(rs.getString("codiceProd"));
 				bean.setNome(rs.getString("nome"));
 				bean.setDescrizione(rs.getString("descrizione"));
 				bean.setPrezzo(rs.getDouble("prezzo"));

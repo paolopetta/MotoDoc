@@ -11,8 +11,8 @@
  		return;
  	} 
  	
- 	ProductBean product = (ProductBean) request.getAttribute("product");
- 	//controllare provenienza di product  (ok)
+ 	ProductBean product = (ProductBean) request.getAttribute("Prodotto");
+ 	//da dove proviene?
  	%>  
  
     
@@ -21,13 +21,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="ProductStyle.css" rel="stylesheet" type="text/css">
 <title>MotoDoc</title>
 </head>
 <body>
 	<h1>MotoDoc</h1>
 	
 	<h2>Products</h2>
-<table>
+<table border="1">
 	<tr>
 		<th>Codice Prodotto <a href="<%=response.encodeURL("ProductControl?sort=codiceProd")%>">Sort</a></th>
 		<th>Nome <a href="<%=response.encodeURL("ProductControl?sort=nome")%>">Sort</a></th>
@@ -88,7 +89,7 @@
 				<td><%=product.getMarca()%></td>
 				<td><%=product.getDisponibilità()%></td>
 				
-					</tr>
+			</tr>
 		</table>
 	
 			<form action="<%=response.encodeURL("ProductControl")%>" method="POST">
@@ -116,7 +117,22 @@
 				<input type="reset" value="Reset">
 			</fieldset>
 		</form>		
+		<%  } %>
 		
+	<%
+		String message = (String)request.getAttribute("message");
+		if(message != null && !message.equals("")) {
+	%>
+		<p style="color: green;"><%=message %></p>
+	<%
+		}
+		if(error != null && !error.equals("")) {
+	%>
+		<p style="color: red;">Error: <%= error%></p>
+	<%
+		}
+	%>
+	
 	
 <form action="<%=response.encodeURL("ProductControl")%>" method="POST">
 <fieldset>
@@ -125,7 +141,7 @@
 				
 				<label for="nome">Nome:</label><br>
 				<input name="nome" type="text" maxlength="20" placeholder="Inserisci nome" required value="<%=product.getNome()%>"><br>
-				
+				 
 				<label for="descrizione">Descrizione:</label><br>
 				<textarea name="descrizione" maxlength="100" rows="3" placeholder="Inserisci descrizione" required><%=product.getDescrizione()%></textarea><br>
 				
@@ -142,25 +158,7 @@
 				<input type="reset" value="Reset">
 			</fieldset>
 </form>
+ 
 
-
-	<%  } %>
-	
-	<%
-	String message = (String)request.getAttribute("message");
-	if(message != null && !message.equals("")) {
-%>
-	<p style="color: green;"><%=message %></p>
-<%
-	}
-	if(error != null && !error.equals("")) {
-%>
-	<p style="color: red;">Error: <%= error%></p>
-<%
-	}
-%>
-
-
-	
 </body>
 </html>

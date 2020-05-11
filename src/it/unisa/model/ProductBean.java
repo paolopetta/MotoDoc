@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class ProductBean implements Serializable {
 	
 	
-	int codiceProd;		
+	String codiceProd;		
     String descrizione;	
     double prezzo; 		
     String marca;		
@@ -16,7 +16,7 @@ public class ProductBean implements Serializable {
     String nome;
     
     public ProductBean() {
-    	codiceProd= -1;
+    	codiceProd= "-1";
     	nome="";
     	descrizione= "";
     	prezzo=0;
@@ -34,11 +34,11 @@ public class ProductBean implements Serializable {
     public void setNome(String nome) {
     	this.nome=nome;
     }
-	public int getCodiceProd() {
+	public String getCodiceProd() {
 		return codiceProd;
 	}
 
-	public void setCodiceProd(int codiceProd) {
+	public void setCodiceProd(String codiceProd) {
 		this.codiceProd = codiceProd;
 	}
 
@@ -99,7 +99,7 @@ public class ProductBean implements Serializable {
 	}
 	
 	public boolean isEmpty() {
-		return codiceProd == -1;
+		return codiceProd.equals("-1");
 	}
 
 	@Override
