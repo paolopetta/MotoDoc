@@ -35,9 +35,10 @@ public class ProductControl extends HttpServlet {
 			if(action != null) {
 				if(action.equals("details")) {
 					String id = request.getParameter("id");
-					request.removeAttribute("product");
-					request.setAttribute("product", model.doRetrieveByKey(id));
-				} /*else if(action.equals("addCart")) {
+					request.removeAttribute("Prodotto");
+					request.setAttribute("Prodotto", model.doRetrieveByKey(id));
+				}
+				/*else if(action.equals("addCart")) {
 					String id = request.getParameter("id");
 					ProductBean bean = model.doRetrieveByKey(id);
 					if(bean != null && !bean.isEmpty()) {
