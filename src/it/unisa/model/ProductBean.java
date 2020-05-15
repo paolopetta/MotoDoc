@@ -4,8 +4,10 @@ import java.io.Serializable;
 
 public class ProductBean implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	
-	String codiceProd;		
+	String codiceProd;	
+	String nome;
     String descrizione;	
     double prezzo; 		
     String marca;		
@@ -13,7 +15,7 @@ public class ProductBean implements Serializable {
     String p_iva;		
     String codiceAlfanumerico;	
     int codice;	
-    String nome;
+    
     
     public ProductBean() {
     	codiceProd= "-1";
@@ -27,13 +29,7 @@ public class ProductBean implements Serializable {
     	codice= -1;
     }
 
-    public String getNome() {
-    	return nome;
-    }
     
-    public void setNome(String nome) {
-    	this.nome=nome;
-    }
 	public String getCodiceProd() {
 		return codiceProd;
 	}
@@ -41,6 +37,14 @@ public class ProductBean implements Serializable {
 	public void setCodiceProd(String codiceProd) {
 		this.codiceProd = codiceProd;
 	}
+	
+	public String getNome() {
+    	return nome;
+    }
+    
+    public void setNome(String nome) {
+    	this.nome = nome;
+    }
 
 	public String getDescrizione() {
 		return descrizione;
