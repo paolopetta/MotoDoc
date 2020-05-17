@@ -25,9 +25,10 @@ create table Scaffale(
     );
 
 create table Prodotto(
-	codiceProd	varchar(10) 	not null primary key,
-	nome		varchar(20)		not null,
+	codiceProd		varchar(10)	not null primary key,
+    nome			varchar(20)	not null,
     descrizione	varchar(100)	not null,
+    img			varchar(100)	,
     prezzo 		double			not null,
     marca		varchar(10)		not null,
     disponibilità enum('y' , 'n') not null,
@@ -41,20 +42,20 @@ create table Prodotto(
 
 create table Meccanica (
 	impiego		varchar(10)		not null,
-    codiceProd 	varchar(10) 				not null,
+    codiceProd 	varchar(10)					not null,
     foreign key (codiceProd) references Prodotto (codiceProd)
 );    
 
 create table Pneumatici(
 	misura		varchar(9)			not null,
     stagione	varchar(10)			not null,
-    codiceProd 	varchar(10) 			not null,
+    codiceProd 	varchar(10)			not null,
     foreign key (codiceProd) references Prodotto (codiceProd)
     );
     
 create table Carrozzeria(
 	materiale 	varchar(10)			not null,
-    codiceProd 		int					not null,
+    codiceProd 	varchar(10)				not null,
     foreign key (codiceProd) references Prodotto(codiceProd)
     );
     
@@ -75,7 +76,7 @@ create table Ordine(
 
 create table Composto(
 	codice 				int				not null,
-    codiceProd 		varchar(10) 			not null,
+    codiceProd 		varchar(10)				not null,
     foreign key(codice) references Ordine(codice),
 	foreign key(codiceProd) references Prodotto(codiceProd)    
 );
@@ -110,26 +111,26 @@ values ( 'A', 'Via aztori'),
 insert into Scaffale (codice, codiceAlfanumerico)
 values (123, 'A'), (124, 'A'), (125, 'A'),(126, 'A'),(127, 'A'), (145, 'B'), (146, 'B'), (147, 'B'), (148, 'B'), (149, 'B');
 
-insert into Prodotto (codiceProd, descrizione, prezzo, marca, disponibilità, p_iva, codiceAlfanumerico, codice)
-values (2452, 'pilot', 55.00, 'Michelin', 'y', '54555', 'A', 123),
-		(1574, 'free', 50.00, 'Pirelli', 'y', '54555', 'A', 124 ), 
-        (1577, 'candela motore', 15.00, 'NGK', 'y', '54758', 'A', 125), 
-        (1478, 'cambio elettronico', 200.50, 'Hirace', 'n', '54758', 'B', 145), 
-        (1457, 'fianchetto', 50.0, 'Hirace', 'y', '54758', 'B', 146 ),
-        (1744, 'serbatoio', 150.0, 'Hirace', 'n', '54758', 'B', 147),
-		(1745, 'cavalletto', 25.0, 'Hirace', 'y', '54758', 'B', 148),
-        (1845, 'parafango', 75.0, 'Hirace', 'y', '54758', 'A', 126),
-        (1888, '4stag', 60.0, 'Michelin', 'n', '54758', 'A', 127);
+insert into Prodotto (codiceProd, nome, descrizione, img, prezzo, marca, disponibilità, p_iva, codiceAlfanumerico, codice)
+values ('2452', 'Gomme','pilot', './pilot', 55.00, 'Michelin', 'y', '54555', 'A', 123),
+		('1574', 'Gomme Pirelli','free', 'https://d3nv2arudvw7ln.cloudfront.net/images/870/855/diablo_rosso_III_3_4,0.jpg', 50.00, 'Pirelli', 'y', '54555', 'A', 124 ), 
+        ('1577', 'Candela', 'candela motore', './pirelli',15.00, 'NGK', 'y', '54758', 'A', 125), 
+        ('1478', 'Cambio','cambio elettronico', './pirelli',200.50, 'Hirace', 'n', '54758', 'B', 145), 
+        ('1457', 'Fianchetto duke','fianchetto', './pirelli',50.00, 'Hirace', 'y', '54758', 'B', 146 ),
+        ('1744', 'Serbatoio','serbatoio ktm', './pirelli',150.00, 'Hirace', 'n', '54758', 'B', 147),
+		('1745', 'Cavalletto','cavalletto per z900', './pirelli',25.00, 'Hirace', 'y', '54758', 'B', 148),
+        ('1845', 'Parafango','parafango per vespa', './pirelli',75.00, 'Hirace', 'y', '54758', 'A', 126),
+        ('1888', 'Pneumatici ducati','4stag-all seasons', './pirelli',60.00, 'Michelin', 'n', '54758', 'A', 127);
         
     
 insert into Pneumatici(misura, stagione, codiceProd)
-values ('155\75R15', 'estiva', 2452), ('165\55R15', 'invernale', 1574), ('160\55R16', '4stagioni', 1888);
+values ('155\75R15', 'estiva', '2452'), ('165\55R15', 'invernale', '1574'), ('160\55R16', '4stagioni', '1888');
 
 insert into Meccanica (impiego, codiceProd)
-values ('candela', 1577), ('cambio', 1478), ('cavalletto', 1745);
+values ('candela', '1577'), ('cambio', '1478'), ('cavalletto', '1745');
 
 insert into Carrozzeria (materiale, codiceProd)
-values ('carbonio', 1457), ('alluminio', 1744), ('alluminio', 1845);
+values ('carbonio', '1457'), ('alluminio', '1744'), ('alluminio', '1845');
 
 insert into Ordine (codice, dataOrd, npezzi, CF)
 values (1234,  '2020-01-10', 2, 'PTTNTN56E24G230B'),
@@ -141,7 +142,7 @@ values (1234,  '2020-01-10', 2, 'PTTNTN56E24G230B'),
        
 
 insert into Composto (codice, codiceProd)
-values (1234, 2452), (1234, 1574), (1235, 1577), (1235, 1574), (1235, 1478), (1236, 1574), (1236, 2452), (1237, 1745),(1237, 1577),(1238, 2452), (1239, 1577), (1239, 1888);
+values (1234, '2452'), (1234, '1574'), (1235, '1577'), (1235, '1574'), (1235, '1478'), (1236, '1574'), (1236, '2452'), (1237, '1745'),(1237, '1577'),(1238, '2452'), (1239, '1577'), (1239, '1888');
 
 insert into Spedizione ( codice, dataSpedizione)
 values (1234, '2020-01-12'), (1235, '2020-01-05'), (1238, '2020-01-22'), (1239, '2020-01-23');
@@ -153,12 +154,3 @@ values ('3243757854', 'PTTPLA00A24F912W'),
 		('3549876895', 'GPPNTN56E24G230B'),
         ('3405697858', 'LGLNTN56E24G230B');
         
-
-		
-
-
-
-
-
-
-    

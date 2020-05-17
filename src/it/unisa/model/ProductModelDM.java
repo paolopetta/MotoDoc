@@ -78,6 +78,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
 				bean.setCodiceProd(rs.getString("codiceProd"));
 				bean.setNome(rs.getString("nome"));
 				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setImg(rs.getString("img"));
 				bean.setPrezzo(rs.getDouble("prezzo"));
 				bean.setMarca(rs.getString("marca"));
 				bean.setDisponibilità(rs.getString("disponibilità"));

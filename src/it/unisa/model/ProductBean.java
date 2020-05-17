@@ -9,6 +9,8 @@ public class ProductBean implements Serializable {
 	String codiceProd;	
 	String nome;
     String descrizione;	
+   	String img;
+   	String boh;
     double prezzo; 		
     String marca;		
     String disponibilità; 
@@ -21,6 +23,7 @@ public class ProductBean implements Serializable {
     	codiceProd= "-1";
     	nome="";
     	descrizione= "";
+    	img= "";
     	prezzo=0;
     	marca="";
     	disponibilità="";
@@ -52,6 +55,22 @@ public class ProductBean implements Serializable {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+	
+	public String getImg() {
+		return img;
+	}
+	
+	public void setImg(String img) {
+		this.img=img;
+	}
+	
+	public String getBoh() {
+		return boh;
+	}
+	
+	public void setBoh(String boh) {
+		this.boh= boh;
 	}
 
 	public double getPrezzo() {
