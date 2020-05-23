@@ -28,7 +28,7 @@ create table Prodotto(
 	codiceProd		varchar(10)	not null primary key,
     nome			varchar(20)	not null,
     descrizione	varchar(100)	not null,
-    img			varchar(100)	,
+    img			varchar(300)	,
     prezzo 		double			not null,
     marca		varchar(10)		not null,
     disponibilità enum('y' , 'n') not null,
@@ -112,16 +112,15 @@ insert into Scaffale (codice, codiceAlfanumerico)
 values (123, 'A'), (124, 'A'), (125, 'A'),(126, 'A'),(127, 'A'), (145, 'B'), (146, 'B'), (147, 'B'), (148, 'B'), (149, 'B');
 
 insert into Prodotto (codiceProd, nome, descrizione, img, prezzo, marca, disponibilità, p_iva, codiceAlfanumerico, codice)
-values ('2452', 'Gomme','pilot', './pilot', 55.00, 'Michelin', 'y', '54555', 'A', 123),
-		('1574', 'Gomme Pirelli','free', 'https://d3nv2arudvw7ln.cloudfront.net/images/870/855/diablo_rosso_III_3_4,0.jpg', 50.00, 'Pirelli', 'y', '54555', 'A', 124 ), 
-        ('1577', 'Candela', 'candela motore', './pirelli',15.00, 'NGK', 'y', '54758', 'A', 125), 
-        ('1478', 'Cambio','cambio elettronico', './pirelli',200.50, 'Hirace', 'n', '54758', 'B', 145), 
-        ('1457', 'Fianchetto duke','fianchetto', './pirelli',50.00, 'Hirace', 'y', '54758', 'B', 146 ),
-        ('1744', 'Serbatoio','serbatoio ktm', './pirelli',150.00, 'Hirace', 'n', '54758', 'B', 147),
-		('1745', 'Cavalletto','cavalletto per z900', './pirelli',25.00, 'Hirace', 'y', '54758', 'B', 148),
-        ('1845', 'Parafango','parafango per vespa', './pirelli',75.00, 'Hirace', 'y', '54758', 'A', 126),
-        ('1888', 'Pneumatici ducati','4stag-all seasons', './pirelli',60.00, 'Michelin', 'n', '54758', 'A', 127);
-        
+values ('2452', 'Gomme','pilot', 'https://aecbmesvcm.cloudimg.io/cdno/n/webp.png-lossless/https://blobs.dgadteamdev.com/b2c-experience-production/attachments/cjfv2om9u0rg40hqmmc9xb11o-moto-tyres-pilot-power-3-persp.full.png', 55.00, 'Michelin', 'y', '54555', 'A', 123),
+    ('1574', 'Gomme Pirelli','free', 'https://d3nv2arudvw7ln.cloudfront.net/images/870/855/diablo_rosso_III_3_4,0.jpg', 50.00, 'Pirelli', 'y', '54555', 'A', 124 ),
+        ('1577', 'Candela', 'candela motore', 'https://images-na.ssl-images-amazon.com/images/I/61Lj6AA7BeL._AC_SX466_.jpg',15.00, 'NGK', 'y', '54758', 'A', 125),
+        ('1478', 'Cambio','cambio elettronico', 'https://www.carpimoto.it/Images/Products/Detail/Dynojet_Quick_Shifter_Sensor_Cambio_Elettronico_E4-103.jpg',200.50, 'Hirace', 'n', '54758', 'B', 145),
+        ('1457', 'Fianchetto duke','fianchetto', 'https://www.motoricambiservice.com/ebay/readyproebayimages/CARENA-CODINO-SINISTRA-KTM-390-DUKE-ABS-2017-2019-9300804110028-LEFT-SIDE-REAR_462479.jpg',50.00, 'Hirace', 'y', '54758', 'B', 146 ),
+        ('1744', 'Serbatoio','serbatoio ktm', 'https://static.bakeca.it/immagini/edf/edf788f7f5a206a5402962374cc575ca.jpg',150.00, 'Hirace', 'n', '54758', 'B', 147),
+    ('1745', 'Cavalletto','cavalletto per z900', 'https://images.wemoto.com/full/CENTRESTAND/10060403.jpg',25.00, 'Hirace', 'y', '54758', 'B', 148),
+        ('1845', 'Parafango','parafango per vespa', 'https://www.ricambimotopalermo.it/wp-content/uploads/imported/PARAFANGO-VESPA-PX-FRENO-A-DISCO-RMS-142680130-161241378094.jpg',75.00, 'Hirace', 'y', '54758', 'A', 126),
+        ('1888', 'Gomme diavel','4stag-all seasons', 'https://i.ebayimg.com/images/g/oVMAAOSwhpZaIfJc/s-l300.jpg',60.00, 'Michelin', 'n', '54758', 'A', 127);
     
 insert into Pneumatici(misura, stagione, codiceProd)
 values ('155\75R15', 'estiva', '2452'), ('165\55R15', 'invernale', '1574'), ('160\55R16', '4stagioni', '1888');
