@@ -7,8 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="129c05c4-10cb-4d9b-8db2-238bc295c846" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b61321b7-f38a-4173-a945-174e88eb4f8e.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b61321b7-f38a-4173-a945-174e88eb4f8e/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/ProductView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ProductView.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +142,18 @@
       </method>
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -155,11 +167,12 @@
       <workItem from="1590145328023" duration="13594000" />
       <workItem from="1590255763120" duration="15000" />
       <workItem from="1590256189074" duration="1363000" />
+      <workItem from="1590310767927" duration="386000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Project_Structure" timestamp="1590171556826">
