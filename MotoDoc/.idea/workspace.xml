@@ -6,12 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="129c05c4-10cb-4d9b-8db2-238bc295c846" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/ProductView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/ProductView.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/ProductView.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/ProductView.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="129c05c4-10cb-4d9b-8db2-238bc295c846" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,7 +177,7 @@
       <workItem from="1590256189074" duration="1363000" />
       <workItem from="1590307819378" duration="4000" />
       <workItem from="1590310962458" duration="1695000" />
-      <workItem from="1590435380925" duration="4312000" />
+      <workItem from="1590435380925" duration="4662000" />
     </task>
     <servers />
   </component>
