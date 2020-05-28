@@ -25,15 +25,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="129c05c4-10cb-4d9b-8db2-238bc295c846" name="Default Changelist" comment="">
-
-      <change afterPath="$PROJECT_DIR$/db/motodocVecchio.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/it/unisa/model/Bean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/it/unisa/model/UserBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/it/unisa/model/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/it/unisa/model/dao/DaoModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/motodoc.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/motodoc.sql" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/src/it/unisa/model/Bean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unisa/model/Bean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unisa/model/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unisa/model/UserBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/it/unisa/model/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unisa/model/dao/UserDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +54,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -87,7 +84,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.18060201" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -103,8 +100,8 @@
       <recent name="C:\Users\pavil\OneDrive\Desktop\TSW\MotoDoc\src\it\unisa\model" />
     </key>
   </component>
-  <component name="RunManager" selected="Database Script.motodoc.sql">
-    <configuration name="motodoc.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.31">
+    <configuration name="motodoc.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/db/motodoc.sql" />
       <script-mode>FILE</script-mode>
       <method v="2" />
@@ -180,33 +177,6 @@
         </option>
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Database Script.motodoc.sql" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -223,10 +193,9 @@
       <workItem from="1590256189074" duration="1363000" />
       <workItem from="1590307819378" duration="4000" />
       <workItem from="1590310962458" duration="1695000" />
-
       <workItem from="1590394743383" duration="776000" />
       <workItem from="1590651071373" duration="3134000" />
-
+      <workItem from="1590660756874" duration="8875000" />
     </task>
     <servers />
   </component>
@@ -243,6 +212,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Project_Structure" timestamp="1590171556826">
@@ -253,19 +223,23 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#SQL_Dialects/0.0.1366.728@0.0.1366.728" timestamp="1590168121918" />
-    <state x="-7" y="0" width="826" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590254912276">
+    <state x="-7" y="0" width="826" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590674628067">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="-7" y="0" width="826" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1590254912276" />
-    <state x="-7" y="0" width="697" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1590170765301" />
+    <state x="-7" y="0" width="697" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1590674628066" />
+    <state x="829" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1590672213918">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="829" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1590672213918" />
     <state x="0" y="22" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable" timestamp="1590254576160">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="22" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable/0.0.1366.728/1366.-312.1920.1040@0.0.1366.728" timestamp="1590254576160" />
-    <state x="392" y="13" key="#motodoc.sql" timestamp="1590652487258">
+    <state x="392" y="13" key="#motodoc.sql" timestamp="1590676189723">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="392" y="13" key="#motodoc.sql/0.0.1366.728@0.0.1366.728" timestamp="1590652487258" />
+    <state x="392" y="13" key="#motodoc.sql/0.0.1366.728@0.0.1366.728" timestamp="1590676189723" />
     <state x="389" y="105" key="FileChooserDialogImpl" timestamp="1590183484080">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -322,10 +296,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1366.728@0.0.1366.728" timestamp="1590170624406" />
-    <state x="436" y="0" width="930" height="728" key="SettingsEditor" timestamp="1590436040904">
+    <state x="436" y="0" width="930" height="728" key="SettingsEditor" timestamp="1590664072068">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="436" y="0" width="930" height="728" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590436040904" />
+    <state x="436" y="0" width="930" height="728" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590664072068" />
     <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1590435406537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
