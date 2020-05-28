@@ -5,24 +5,6 @@
       <artifact name="MotoDoc:war exploded" />
     </artifacts-to-build>
   </component>
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="129c05c4-10cb-4d9b-8db2-238bc295c846" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
@@ -65,24 +47,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/db" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.18060201" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\pavil\OneDrive\Desktop\TSW\MotoDoc\web\WEB-INF\lib" />
-      <recent name="C:\Users\pavil\OneDrive\Desktop\TSW\MotoDoc\web" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pavil\OneDrive\Desktop\TSW\MotoDoc\db" />
+      <recent name="C:\Users\pavil\OneDrive\Desktop\TSW\MotoDoc\src\it\unisa\model" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="it.unisa.control" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Roberta\Documents\GitHub\MotoDoc\MotoDoc\db" />
-      <recent name="C:\Users\pavil\OneDrive\Desktop\TSW\MotoDoc\db" />
-      <recent name="C:\Users\pavil\OneDrive\Desktop\TSW\MotoDoc\src\it\unisa\model" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pavil\OneDrive\Desktop\TSW\MotoDoc\web\WEB-INF\lib" />
+      <recent name="C:\Users\pavil\OneDrive\Desktop\TSW\MotoDoc\web" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.31">
@@ -163,6 +144,23 @@
       </method>
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -230,6 +228,7 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="389" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590183484080" />
+
     <state width="905" height="159" key="GridCell.Tab.0.bottom" timestamp="1590679778538">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -279,6 +278,7 @@
     </state>
     <state width="905" height="159" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1590679778539" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1590679240930">
+
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1366.728@0.0.1366.728" timestamp="1590679240930" />
@@ -289,11 +289,11 @@
     <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1590435406537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1590435406537" />
-    <state x="65" y="0" key="new project wizard" timestamp="1590145415864">
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1590662139195" />
+    <state x="65" y="0" key="new project wizard" timestamp="1590662164894">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1590145415864" />
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1590662164894" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1590439320777">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
