@@ -37,12 +37,14 @@
     <meta charset="ISO-8859-1">
     <link href="./ProductStyle.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="Style.css">
     <title>MotoDoc</title>
 </head>
 <body>
 <h1 align= "center">MotoDoc</h1>
 <h6 align="center">Lo shop che ti coccola</h6>
 
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -67,6 +69,63 @@
         </form>
     </div>
 </nav>
+
+<!-- Categorie -->
+<div class="container" align="center">
+    <div class="row">
+        <div class="col">
+            <a href="#" class="bottom-Cat" align="center"><img src="https://cdn2.iconfinder.com/data/icons/elasto-motorcycle-gear-and-parts/26/motorcycle-512.png" alt="Carrozzeria" width="70" height="70" ></a>
+            <h5>Carrozzeria</h5>
+        </div>
+        <div class="col">
+            <a href="#" class="bottom-Cat" align="center"><img src="https://i.ya-webdesign.com/images/vector-rims-motorbike-wheel-9.png" alt="Pneumatici" width="70" height="70" ></a>
+            <h5>Pneumatici</h5>
+        </div>
+        <div class="col">
+            <a href="#" class="bottom-Cat" align="center"><img src="https://image.flaticon.com/icons/png/512/2061/2061866.png" alt="Motore" width="70" height="70" ></a>
+            <h5>Motore</h5>
+        </div>
+
+</div>
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://www.clicmotor.it/skin/frontend/clicmotor/default/images/banner/banner_home1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://i.imgur.com/3bnXd8w.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://i.imgur.com/mepXO3E.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 
 <h2>Carrello</h2>
 <%
@@ -115,7 +174,7 @@
 
     <div class="col mb-4">
         <div class="card" >
-            <img src="<%=bean.getImg()%>" class="card-img-top" alt="...">
+            <img src="<%=bean.getImg()%>" class="card-img-top" alt="..." width="500" height="300">
             <div class="card-body">
                 <h5 class="card-title" align="center"><%=bean.getNome()%></h5>
                 <p class="card-text" align="center"><%=bean.getPrezzo()%></p>
