@@ -44,7 +44,7 @@ create table Meccanica (
 	impiego		varchar(10)		not null,
     codiceProd 	varchar(10)					not null,
     foreign key (codiceProd) references Prodotto (codiceProd)
-);
+);    
 
 create table Pneumatici(
 	misura		varchar(9)			not null,
@@ -52,40 +52,33 @@ create table Pneumatici(
     codiceProd 	varchar(10)			not null,
     foreign key (codiceProd) references Prodotto (codiceProd)
     );
-
+    
 create table Carrozzeria(
 	materiale 	varchar(10)			not null,
     codiceProd 	varchar(10)				not null,
     foreign key (codiceProd) references Prodotto(codiceProd)
     );
-
-    create table Users(
-    id integer unsigned auto_increment not null,
-    username varchar(192) not null unique,
-    email varchar(255) not null unique,
-    password varchar(255) not null,
-    auth enum('user', 'premium', 'admin') default 'user',
-    active boolean default true,
-	CF			varchar(16) 	,
-    nome		varchar(15)		,
-    cognome		varchar(15)		,
-    indirizzo	varchar(50)		,
-    primary key(id)
-) auto_increment = 1;
+    
+    create table Cliente(
+	CF			varchar(16) 	not null primary key,
+    nome		varchar(15)		not null,
+    cognome		varchar(15)		not null,
+    indirizzo	varchar(50)		not null
+);
 
 create table Ordine(
 	codice		int				not null primary key,
     dataOrd		date			not null,
     npezzi		int 			not null,
-    Users_id			integer unsigned not null,
-    foreign key(Users_id) references Users(id)
+    CF			varchar(16)		not null,
+    foreign key(CF) references Cliente(CF)
 );
 
 create table Composto(
 	codice 				int				not null,
     codiceProd 		varchar(10)				not null,
     foreign key(codice) references Ordine(codice),
-	foreign key(codiceProd) references Prodotto(codiceProd)
+	foreign key(codiceProd) references Prodotto(codiceProd)    
 );
 
 create table Spedizione(
@@ -96,22 +89,21 @@ create table Spedizione(
 
 create table Telefono(
 	numero 		varchar(10)		not null primary key,
-	Users_id			integer unsigned not null,
-    foreign key(Users_id) references Users(id)
+    CF			varchar(16) 	not null,
+    foreign key (CF) references Cliente(CF)
 );
-
-insert into Users (username, email, password, auth, CF, nome, cognome, indirizzo)
-values ('Paolo00', 'paolo.petta00@gmail.com', md5("password"), 'user','PTTPLA00A24F912W', 'Paolo', 'Petta', 'Via s rocco 8');
-
-insert into Users (username, email, password, auth)
-values ('admin','admin@admin.it', md5("password"), 'admin');
-
-set global max_allowed_packet=20971520;
-
+    
+insert into Cliente (CF, nome, cognome, indirizzo)
+values 	('PTTPLA00A24F912W', 'Paolo', 'Petta', 'Via s rocco 8'),
+		('PTTNTN56E24G230A', 'Antonio', 'Petta', 'Via s rocco 8'),
+        ('PTTNTN56E24G230B', 'Giuseppe', 'Amato', 'Via corallo 9'),
+		('GPPNTN56E24G230B', 'Peppe', 'Cuofano', 'Via Franco 7'),
+        ('LGLNTN56E24G230B', 'Luigi', 'Coppola', 'Via Napoli 9');
+        
 insert into Fornitore (p_iva, nome, indirizzo, fax)
 values ('54555', 'Motopertutti', 'Via aztori', '0275468578'),
 		('54758', 'Ricambidueruote', 'Via Clmente', '0452428745');
-
+        
 insert into Deposito (codiceAlfanumerico, indirizzo)
 values ( 'A', 'Via aztori'),
 		('B', 'Via lamia');
@@ -129,7 +121,7 @@ values ('2452', 'Gomme','pilot', 'https://aecbmesvcm.cloudimg.io/cdno/n/webp.png
     ('1745', 'Cavalletto','cavalletto per z900', 'https://images.wemoto.com/full/CENTRESTAND/10060403.jpg',25.00, 'Hirace', 'y', '54758', 'B', 148),
         ('1845', 'Parafango','parafango per vespa', 'https://www.ricambimotopalermo.it/wp-content/uploads/imported/PARAFANGO-VESPA-PX-FRENO-A-DISCO-RMS-142680130-161241378094.jpg',75.00, 'Hirace', 'y', '54758', 'A', 126),
         ('1888', 'Gomme diavel','4stag-all seasons', 'https://i.ebayimg.com/images/g/oVMAAOSwhpZaIfJc/s-l300.jpg',60.00, 'Michelin', 'n', '54758', 'A', 127);
-
+    
 insert into Pneumatici(misura, stagione, codiceProd)
 values ('155\75R15', 'estiva', '2452'), ('165\55R15', 'invernale', '1574'), ('160\55R16', '4stagioni', '1888');
 
@@ -138,3 +130,26 @@ values ('candela', '1577'), ('cambio', '1478'), ('cavalletto', '1745');
 
 insert into Carrozzeria (materiale, codiceProd)
 values ('carbonio', '1457'), ('alluminio', '1744'), ('alluminio', '1845');
+
+insert into Ordine (codice, dataOrd, npezzi, CF)
+values (1234,  '2020-01-10', 2, 'PTTNTN56E24G230B'),
+		(1235, '2020-01-02', 3, 'PTTPLA00A24F912W'),
+        (1236, '2020-01-03', 2, 'PTTPLA00A24F912W'),
+        (1237, '2020-01-20', 2, 'LGLNTN56E24G230B'),
+		(1238, '2020-01-15', 1, 'GPPNTN56E24G230B'),
+        (1239, '2020-01-16', 2, 'GPPNTN56E24G230B');
+       
+
+insert into Composto (codice, codiceProd)
+values (1234, '2452'), (1234, '1574'), (1235, '1577'), (1235, '1574'), (1235, '1478'), (1236, '1574'), (1236, '2452'), (1237, '1745'),(1237, '1577'),(1238, '2452'), (1239, '1577'), (1239, '1888');
+
+insert into Spedizione ( codice, dataSpedizione)
+values (1234, '2020-01-12'), (1235, '2020-01-05'), (1238, '2020-01-22'), (1239, '2020-01-23');
+
+insert into Telefono (numero, CF)
+values ('3243757854', 'PTTPLA00A24F912W'),
+		('3243875956', 'PTTNTN56E24G230A'),
+        ('3459865748', 'PTTNTN56E24G230B'),
+		('3549876895', 'GPPNTN56E24G230B'),
+        ('3405697858', 'LGLNTN56E24G230B');
+        
