@@ -10,6 +10,12 @@ public interface ProductModel<T> {
 
     public Collection<T> doRetriveAll(String order) throws SQLException;
 
+    public Collection<T> doRetriveOfferte(String order) throws SQLException;
+
+    public Collection<ProductBean> doRetrivePneumatici(String order) throws SQLException;
+
+    public Collection<ProductBean> doRetriveCarrozzeria(String order) throws SQLException;
+
     public void doSave(T product) throws SQLException;
 
     public void doUpdate(T product) throws SQLException;

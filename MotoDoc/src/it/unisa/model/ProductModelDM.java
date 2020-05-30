@@ -16,7 +16,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
 
         ProductBean bean= new ProductBean();
 
-        String selectSQL="SELECT * FROM product WHERE codiceProd= ?";
+        String selectSQL="SELECT * FROM Prodotto WHERE codiceProd= ?";
 
         try {
             connection = DriverManagerConnectionPool.getConnection();
@@ -54,7 +54,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
 
     @Override
     public Collection<ProductBean> doRetriveAll(String order) throws SQLException {
-        Connection connection = null;
+       Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         Collection<ProductBean> products = new LinkedList<ProductBean>();
@@ -96,11 +96,159 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 DriverManagerConnectionPool.releaseConnection(connection);
             }
         }
-
         return products;
-
-
     }
+
+
+    @Override
+    public Collection<ProductBean> doRetriveOfferte(String order) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        Collection<ProductBean> offerte = new LinkedList<ProductBean>();
+
+
+        String selectSQL = "select *\n" +
+                "from Prodotto as P\n" +
+                "where P.offerta ='y'";
+
+        if(order != null && !order.equals("")) {
+            selectSQL += " ORDER BY " + order;
+        }
+
+        try {
+            connection = DriverManagerConnectionPool.getConnection();
+            preparedStatement = connection.prepareStatement(selectSQL);
+
+            System.out.println("doRetrieveOfferte:" + preparedStatement.toString());
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()) {
+                ProductBean bean = new ProductBean();
+
+                bean.setCodiceProd(rs.getString("codiceProd"));
+                bean.setNome(rs.getString("nome"));
+                bean.setDescrizione(rs.getString("descrizione"));
+                bean.setImg(rs.getString("img"));
+                bean.setPrezzo(rs.getDouble("prezzo"));
+                bean.setMarca(rs.getString("marca"));
+                bean.setDisponibilità(rs.getString("disponibilità"));
+                bean.setP_iva(rs.getString("p_iva"));
+                bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
+                bean.setCodice(rs.getInt("codice"));
+
+                offerte.add(bean);
+            }
+        } finally {
+            try {
+                if(preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                DriverManagerConnectionPool.releaseConnection(connection);
+            }
+        }
+        return offerte;
+    }
+
+    @Override
+    public Collection<ProductBean> doRetrivePneumatici(String order) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        Collection<ProductBean> pneumatici = new LinkedList<ProductBean>();
+
+        String selectSQL = "SELECT *\n" +
+                "FROM Pneumatici as PN, Prodotto as P\n" +
+                "WHERE P.codiceProd = PN.codiceProd";
+
+        if(order != null && !order.equals("")) {
+            selectSQL += " ORDER BY " + order;
+        }
+
+        try {
+            connection = DriverManagerConnectionPool.getConnection();
+            preparedStatement = connection.prepareStatement(selectSQL);
+
+            System.out.println("doRetrievePneumatici:" + preparedStatement.toString());
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()) {
+                ProductBean bean = new ProductBean();
+
+                bean.setCodiceProd(rs.getString("codiceProd"));
+                bean.setNome(rs.getString("nome"));
+                bean.setDescrizione(rs.getString("descrizione"));
+                bean.setImg(rs.getString("img"));
+                bean.setPrezzo(rs.getDouble("prezzo"));
+                bean.setMarca(rs.getString("marca"));
+                bean.setDisponibilità(rs.getString("disponibilità"));
+                bean.setP_iva(rs.getString("p_iva"));
+                bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
+                bean.setCodice(rs.getInt("codice"));
+
+                pneumatici.add(bean);
+            }
+        } finally {
+            try {
+                if(preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                DriverManagerConnectionPool.releaseConnection(connection);
+            }
+        }
+        return pneumatici;
+    }
+
+    @Override
+    public Collection<ProductBean> doRetriveCarrozzeria(String order) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        Collection<ProductBean> carrozzerie = new LinkedList<ProductBean>();
+
+
+        String selectSQL = "select *\n" +
+                "from Carrozzeria as C, Prodotto as P\n" +
+                "where P.codiceProd = C.codiceProd";
+
+        if(order != null && !order.equals("")) {
+            selectSQL += " ORDER BY " + order;
+        }
+
+        try {
+            connection = DriverManagerConnectionPool.getConnection();
+            preparedStatement = connection.prepareStatement(selectSQL);
+
+            System.out.println("doRetrieveCarrozzeria:" + preparedStatement.toString());
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()) {
+                ProductBean bean = new ProductBean();
+
+                bean.setCodiceProd(rs.getString("codiceProd"));
+                bean.setNome(rs.getString("nome"));
+                bean.setDescrizione(rs.getString("descrizione"));
+                bean.setImg(rs.getString("img"));
+                bean.setPrezzo(rs.getDouble("prezzo"));
+                bean.setMarca(rs.getString("marca"));
+                bean.setDisponibilità(rs.getString("disponibilità"));
+                bean.setP_iva(rs.getString("p_iva"));
+                bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
+                bean.setCodice(rs.getInt("codice"));
+
+                carrozzerie.add(bean);
+            }
+        } finally {
+            try {
+                if(preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                DriverManagerConnectionPool.releaseConnection(connection);
+            }
+        }
+        return carrozzerie;
+    }
+
 
     @Override
     public void doSave(ProductBean product) throws SQLException {

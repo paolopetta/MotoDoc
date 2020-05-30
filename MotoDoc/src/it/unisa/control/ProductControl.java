@@ -107,8 +107,33 @@ public class ProductControl extends HttpServlet {
         request.setAttribute("cart", cart);
 
         try {
+            request.removeAttribute("offerte");
+            request.setAttribute("offerte", model.doRetriveOfferte(sort));
+        } catch(SQLException e) {
+            System.out.println("Error: "+ e.getMessage());
+            request.setAttribute("error", e.getMessage());
+        }
+
+
+        try {
+            request.removeAttribute("pneumatici");
+            request.setAttribute("pneumatici", model.doRetrivePneumatici(sort));
+        } catch(SQLException e) {
+            System.out.println("Error: "+ e.getMessage());
+            request.setAttribute("error", e.getMessage());
+        }
+
+        try {
             request.removeAttribute("products");
             request.setAttribute("products", model.doRetriveAll(sort));
+        } catch(SQLException e) {
+            System.out.println("Error: "+ e.getMessage());
+            request.setAttribute("error", e.getMessage());
+        }
+
+        try {
+            request.removeAttribute("carrozzerie");
+            request.setAttribute("carrozzerie", model.doRetriveCarrozzeria(sort));
         } catch(SQLException e) {
             System.out.println("Error: "+ e.getMessage());
             request.setAttribute("error", e.getMessage());

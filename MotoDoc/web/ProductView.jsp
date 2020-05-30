@@ -9,6 +9,9 @@
 <%@ page import="it.unisa.model.*" %>
 <%
     Collection<?> products = (Collection<?>) request.getAttribute("products");
+    Collection<?> offerte= (Collection<?>) request.getAttribute("offerte");
+    Collection<?> pneumatici= (Collection<?>) request.getAttribute("pneumatici");
+    Collection<?> carrozzerie= (Collection<?>) request.getAttribute("carrozzerie");
 
     String error = (String)request.getAttribute("error");
 
@@ -19,6 +22,10 @@
         return;
     }
 
+    if(pneumatici == null && carrozzerie == null && offerte == null && error == null && carrello == null) {
+        response.sendRedirect(response.encodeRedirectURL("./ProductControl"));
+        return;
+    }
 
 
     if( carrello == null){
@@ -27,6 +34,10 @@
     }
 
     ProductBean product = (ProductBean) request.getAttribute("Prodotto");
+    ProductBean pneumatico= (ProductBean) request.getAttribute("Pneumatici");
+    ProductBean carrozzeria= (ProductBean) request.getAttribute("Carrozzeria");
+    ProductBean offerta=(ProductBean) request.getAttribute("Prodotto");
+
 
 %>
 
@@ -88,6 +99,8 @@
 
 </div>
 
+
+    <!--   CAROUSEL  -->
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -127,6 +140,8 @@
         </a>
     </div>
 
+
+
 <h2>Carrello</h2>
 <%
     List<ProductBean> prodCarrello = carrello.getItems();
@@ -158,8 +173,9 @@
     %>
 </table>
 
-<h2>Prodotti</h2>
 
+
+<h2>Prodotti</h2>
 <%
     if(products != null && products.size() > 0) {
 
@@ -183,11 +199,103 @@
         </div>
     </div>
 
-
-
     <% 		} %>
 </div>
 <% }%>
+
+
+    <!-- OFFERTE-->
+    <h1>Offerte</h1>
+        <%
+    if(offerte != null && offerte.size() > 0) {
+
+        Iterator<?> it  = offerte.iterator();
+%>
+    <div class="row row-cols-1 row-cols-md-4">
+
+        <%
+            while(it.hasNext()) {
+                ProductBean bean = (ProductBean)it.next();
+        %>
+
+        <div class="col mb-4">
+            <div class="card" >
+                <img src="<%=bean.getImg()%>" class="card-img-top" alt="..." width="500" height="300">
+                <div class="card-body">
+                    <h5 class="card-title" align="center"><%=bean.getNome()%></h5>
+                    <p class="card-text" align="center">€ <%=bean.getPrezzo()%></p>
+                    <a href="#" class="btn btn-primary" align="center">Aggiungi al carrello</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <% 		} %>
+    </div>
+        <% } //fine offerte  %>
+
+    <!-- PNEUMATICI-->
+    <h1>Pneumatici</h1>
+        <%
+    if(pneumatici != null && pneumatici.size() > 0) {
+
+        Iterator<?> it  = pneumatici.iterator();
+%>
+    <div class="row row-cols-1 row-cols-md-4">
+
+        <%
+            while(it.hasNext()) {
+                ProductBean bean = (ProductBean)it.next();
+        %>
+
+        <div class="col mb-4">
+            <div class="card" >
+                <img src="<%=bean.getImg()%>" class="card-img-top" alt="..." width="500" height="300">
+                <div class="card-body">
+                    <h5 class="card-title" align="center"><%=bean.getNome()%></h5>
+                    <p class="card-text" align="center"><%=bean.getPrezzo()%></p>
+                    <a href="#" class="btn btn-primary" align="center">Aggiungi al carrello</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <% 		} %>
+    </div>
+        <% } //fine pneumatici  %>
+
+    <!-- Carrozzeria-->
+    <h1>Carrozzeria</h1>
+        <%
+    if(carrozzerie != null && carrozzerie.size() > 0) {
+
+        Iterator<?> it  = carrozzerie.iterator();
+%>
+    <div class="row row-cols-1 row-cols-md-4">
+
+        <%
+            while(it.hasNext()) {
+                ProductBean bean = (ProductBean)it.next();
+        %>
+
+        <div class="col mb-4">
+            <div class="card" >
+                <img src="<%=bean.getImg()%>" class="card-img-top" alt="..." width="500" height="300">
+                <div class="card-body">
+                    <h5 class="card-title" align="center"><%=bean.getNome()%></h5>
+                    <p class="card-text" align="center"><%=bean.getPrezzo()%></p>
+                    <a href="#" class="btn btn-primary" align="center">Aggiungi al carrello</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <% 		} %>
+    </div>
+        <% } //fine pneumatici  %>
 
 <!-- ciao -->
 
