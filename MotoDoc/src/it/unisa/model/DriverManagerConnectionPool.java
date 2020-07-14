@@ -31,7 +31,7 @@ public class DriverManagerConnectionPool {
         newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+
                 port+"/"+db+"?serverTimezone=UTC",username, password);
 
-        System.out.println("Create a new DB connection");
+        System.out.println("Create a new DB connection"); //set Transaction
         newConnection.setAutoCommit(false);
         return newConnection;
     }
@@ -60,6 +60,12 @@ public class DriverManagerConnectionPool {
     public static synchronized void releaseConnection(Connection connection)
             throws SQLException {
         if(connection != null) freeDbConnections.add(connection);
+    }
+
+    public void destroyPool() throws SQLException{
+        for(Connection c : freeDbConnections)
+            if(c != null && c.isClosed())
+                c.close();
     }
 
 

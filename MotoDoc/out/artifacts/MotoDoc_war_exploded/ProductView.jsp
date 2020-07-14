@@ -99,6 +99,7 @@
 
 </div>
 
+    <img src="https://imgur.com/Gv5DUL2" alt="logo MotoDoc">
 
     <!--   CAROUSEL  -->
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -112,14 +113,14 @@
                 <img src="https://www.clicmotor.it/skin/frontend/clicmotor/default/images/banner/banner_home1.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <p>Ci prendiamo cura di te e della tua moto</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="https://i.imgur.com/3bnXd8w.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide label</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p></p>
                 </div>
             </div>
             <div class="carousel-item">
