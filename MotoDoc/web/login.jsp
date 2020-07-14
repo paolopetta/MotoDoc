@@ -8,9 +8,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Login</title>
 </head>
 <body>
-$END$
+<form action="login" method="post">
+
+    <div class="container">
+        <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
+        <label for="uname"><b>Username</b></label>
+
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+        <button type="submit">Login</button>
+    </div>
+
+
+</form>
+
 </body>
 </html>

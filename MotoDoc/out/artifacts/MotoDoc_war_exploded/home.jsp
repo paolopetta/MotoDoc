@@ -9,17 +9,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-
-<% Collection<?> offerte= (Collection<?>) request.getAttribute("offerte");
-
-
-ProductBean offerta=(ProductBean) request.getAttribute("Prodotto");
+<%
+    Collection<?> offerte= (Collection<?>) request.getAttribute("offerte");
+    ProductBean offerta=(ProductBean) request.getAttribute("Prodotto");
 %>
 
 <% String pageTitle= "Home";
     request.setAttribute("pageTitle", pageTitle);
 %>
-<%@ include file= "_header.jsp" %>3
+<%@ include file= "_header.jsp" %>
 <link rel="stylesheet" href="Style.css">
 
 <!-- Categorie -->

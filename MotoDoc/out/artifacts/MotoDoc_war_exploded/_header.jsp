@@ -9,8 +9,11 @@
 
 <header>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="Style.css">
 
-    <h1 align= "center">MotoDoc</h1>
+    <p align="center">
+    <img src="https://i.imgur.com/p90VrIH.png" alt="logo MotoDoc" width="400px">
+    </p>
     <h6 align="center">Lo shop che ti coccola</h6>
 
     <!-- Navbar -->
@@ -18,7 +21,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">MotoDoc</a>
+        <a class="navbar-brand" href="#"><img src="https://i.imgur.com/p90VrIH.png" alt="logo MotoDoc" width="100px"></a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">

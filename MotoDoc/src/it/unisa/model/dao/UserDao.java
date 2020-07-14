@@ -21,7 +21,6 @@ public class UserDao implements DaoModel {
 
     public UserDao(DriverManagerConnectionPool pool) {
         this.pool = pool;
-
     }
 
     @Override
@@ -280,6 +279,47 @@ public class UserDao implements DaoModel {
         }
 
         return number;
+    }
+
+    public Bean getUserByMail(String email) {
+        PreparedStatement ps = null;
+        Connection con = null;
+        ResultSet rs = null;
+        UserBean bean = null;
+        String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE email=?";
+
+        try {
+            con = pool.getConnection();
+            ps = con.prepareStatement(selectQuery);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                bean = new UserBean();
+                bean.setUsername(rs.getString("username"));
+                bean.setId(rs.getLong("id"));
+                bean.setEmail(rs.getString("email"));
+                bean.setAuth(rs.getString("auth"));
+                bean.setPassword(rs.getString("password"));
+                bean.setActive(rs.getBoolean("active"));
+                bean.setCF(rs.getString("CF"));
+                bean.setNome(rs.getString("nome"));
+                bean.setCognome(rs.getString("cognome"));
+                bean.setIndirizzo(rs.getString("indirizzo"));
+                list.add(bean);
+            }
+
+            if (comparator != null)
+                list.sort(comparator);
+
+        } finally {
+            try {
+                if (ps != null)
+                    ps.close();
+            } finally {
+                pool.releaseConnection(con);
+            }
+        }
     }
 
 

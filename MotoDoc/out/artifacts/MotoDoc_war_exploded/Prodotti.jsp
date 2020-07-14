@@ -15,8 +15,6 @@
         return;
     }
     ProductBean product = (ProductBean) request.getAttribute("Prodotto");
-
-    String categoria= request.getParameter("categoria");
 %>
 <html>
 <head>
@@ -56,22 +54,12 @@
         xmlhttp.onreadystatechange= function(){
             if(this.readyState==4 && this.status==200){
                 //mostro quello che chiede
-                document.getElementById( )
             }
         }
         xmlhttp.open("GET", "", true);
         xmlhttp.send();
     }
 </script>
-
-
-<div>
-    <script>
-        creaTabella("<%=categoria%>"){
-            //fatto con Ale
-        }
-    </script>
-</div>
 
 <div class="row row-cols-1 row-cols-md-4" >
 

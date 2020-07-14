@@ -99,6 +99,7 @@
 
 </div>
 
+    <img src="https://imgur.com/Gv5DUL2" alt="logo MotoDoc">
 
     <!--   CAROUSEL  -->
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
