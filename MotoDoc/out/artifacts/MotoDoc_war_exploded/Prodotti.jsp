@@ -15,6 +15,8 @@
         return;
     }
     ProductBean product = (ProductBean) request.getAttribute("Prodotto");
+
+    String categoria= request.getParameter("categoria");
 %>
 <html>
 <head>
@@ -54,12 +56,22 @@
         xmlhttp.onreadystatechange= function(){
             if(this.readyState==4 && this.status==200){
                 //mostro quello che chiede
+                document.getElementById( )
             }
         }
         xmlhttp.open("GET", "", true);
         xmlhttp.send();
     }
 </script>
+
+
+<div>
+    <script>
+        creaTabella("<%=categoria%>"){
+            //fatto con Ale
+        }
+    </script>
+</div>
 
 <div class="row row-cols-1 row-cols-md-4" >
 
@@ -74,7 +86,9 @@
             <div class="card-body">
                 <h5 class="card-title" align="center"><%=bean.getNome()%></h5>
                 <p class="card-text" align="center"><%=bean.getPrezzo()%></p>
-                <a href="#" class="btn btn-primary" align="center">Aggiungi al carrello</a>
+                <button onclick="addToCart(this)">Aggiungi al carrello</button>
+                <a href="<%=response.encodeURL("ProductControl?action=addCart&id=" + bean.getCodiceProd())%>">Aggiungi al carrello</a>
+                <!--<a href="#" class="btn btn-primary" align="center">Aggiungi al carrello</a> -->
             </div>
         </div>
     </div>

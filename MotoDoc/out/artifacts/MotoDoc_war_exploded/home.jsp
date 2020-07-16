@@ -24,7 +24,7 @@
 <div class="container" align="center">
     <div class="row">
         <div class="col">
-            <a href="#" class="bottom-Cat" align="center"><img src="https://cdn2.iconfinder.com/data/icons/elasto-motorcycle-gear-and-parts/26/motorcycle-512.png" alt="Carrozzeria" width="70" height="70" ></a>
+            <a href="/prodotti?categoria=carrozzeria" class="bottom-Cat" align="center"><img src="https://cdn2.iconfinder.com/data/icons/elasto-motorcycle-gear-and-parts/26/motorcycle-512.png" alt="Carrozzeria" width="70" height="70" ></a>
             <h5>Carrozzeria</h5>
         </div>
         <div class="col">

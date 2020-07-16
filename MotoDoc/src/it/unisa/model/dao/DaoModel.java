@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import it.unisa.model.Bean;
+import it.unisa.model.UserBean;
 
 public interface DaoModel {
 
@@ -17,5 +18,9 @@ public interface DaoModel {
     public Bean doRetrieveByKey(List<String> keys) throws SQLException;
 
     public List<Bean> doRetrieveAll(Comparator<Bean> comparator) throws SQLException;
+
+    public static UserBean doRetrieveByEmail(String email) throws SQLException {
+        return null;
+    }
 }
 

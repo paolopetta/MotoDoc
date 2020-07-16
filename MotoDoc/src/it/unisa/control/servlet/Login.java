@@ -11,15 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/login")
 public class Login extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    //private final UserDao utenteDAO = new UserDao();
+    private final UserDao utenteDAO = new UserDao();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /*HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
         String action = request.getParameter("action");
         UserBean userBean= (UserBean) session.getAttribute("user");
         switch(action) {
@@ -27,8 +28,14 @@ public class Login extends HttpServlet {
                 if(userBean == null) { // non c'é nessun utente loggato
                     String email = request.getParameter("email");
                     String password = request.getParameter("password");
-
-                    UserBean userRequested = UserDao.getUserByMail(email); //creo un nuovo userBean
+                    System.out.println("non c'é utente");
+                    UserBean userRequested = null; //creo un nuovo userBean
+                    try {
+                        userRequested = UserDao.doRetrieveByEmail(email);
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                        System.out.println("funziona"); //da eliminare
+                    }
 
                     //assegno al nuovo bean tutti i campi
                     if(userRequested != null) {
@@ -63,11 +70,10 @@ public class Login extends HttpServlet {
                 }
                 response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/home.jsp"));
                 break;
-
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    }*/
     }
+
 }
