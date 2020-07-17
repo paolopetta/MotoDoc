@@ -15,13 +15,15 @@ import it.unisa.model.UserBean;
 
 public class UserDao implements DaoModel {
 
-    private static final String TABLE_NAME="Users";
-    private DriverManagerConnectionPool pool = null;
+    private static final String TABLE_NAME = "Users";
+    private static DriverManagerConnectionPool pool = null;
 
 
-    public UserDao(DriverManagerConnectionPool pool) {
+    /*public UserDao(DriverManagerConnectionPool pool) {
         this.pool = pool;
-    }
+    }*/
+
+
 
     @Override
     public synchronized void doSave(Bean bean) throws SQLException {
@@ -46,11 +48,11 @@ public class UserDao implements DaoModel {
             ps.setString(9, userBean.getIndirizzo());
             int result = ps.executeUpdate();
 
-            if(result != 0)
+            if (result != 0)
                 con.commit();
         } finally {
             try {
-                if(ps != null)
+                if (ps != null)
                     ps.close();
             } finally {
                 pool.releaseConnection(con);
@@ -85,11 +87,11 @@ public class UserDao implements DaoModel {
 
             int result = ps.executeUpdate();
 
-            if(result != 0)
+            if (result != 0)
                 con.commit();
         } finally {
             try {
-                if(ps != null)
+                if (ps != null)
                     ps.close();
             } finally {
                 pool.releaseConnection(con);
@@ -115,7 +117,7 @@ public class UserDao implements DaoModel {
             con.commit();
         } finally {
             try {
-                if(ps != null)
+                if (ps != null)
                     ps.close();
             } finally {
                 pool.releaseConnection(con);
@@ -137,12 +139,12 @@ public class UserDao implements DaoModel {
             ps = con.prepareStatement(selectQuery);
 
             ps.setString(1, keys.get(0));
-            if(keys.size() == 2)
+            if (keys.size() == 2)
                 ps.setString(2, keys.get(1));
 
             rs = ps.executeQuery();
 
-            if(rs.next()) {
+            if (rs.next()) {
                 bean = new UserBean();
                 bean.setUsername(rs.getString("username"));
                 bean.setId(rs.getLong("id"));
@@ -158,7 +160,7 @@ public class UserDao implements DaoModel {
 
         } finally {
             try {
-                if(ps != null)
+                if (ps != null)
                     ps.close();
             } finally {
                 pool.releaseConnection(con);
@@ -173,7 +175,7 @@ public class UserDao implements DaoModel {
         Connection con = null;
         ResultSet rs = null;
         UserBean bean = null;
-        String selectQuery = "SELECT * FROM " + TABLE_NAME+ " WHERE username=? ";
+        String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE username=? ";
 
         try {
             con = pool.getConnection();
@@ -183,7 +185,7 @@ public class UserDao implements DaoModel {
 
             rs = ps.executeQuery();
 
-            if(rs.next()) {
+            if (rs.next()) {
                 bean = new UserBean();
                 bean.setUsername(rs.getString("username"));
                 bean.setId(rs.getLong("id"));
@@ -198,7 +200,7 @@ public class UserDao implements DaoModel {
 
         } finally {
             try {
-                if(ps != null)
+                if (ps != null)
                     ps.close();
             } finally {
                 pool.releaseConnection(con);
@@ -213,80 +215,9 @@ public class UserDao implements DaoModel {
         PreparedStatement ps = null;
         Connection con = null;
         ResultSet rs = null;
-        List<Bean> list =  new ArrayList<Bean>();
+        List<Bean> list = new ArrayList<Bean>();
         UserBean bean = null;
         String selectQuery = "SELECT * FROM " + TABLE_NAME;
-
-        try {
-            con = pool.getConnection();
-            ps = con.prepareStatement(selectQuery);
-
-            rs = ps.executeQuery();
-
-            while(rs.next()) {
-                bean = new UserBean();
-                bean.setUsername(rs.getString("username"));
-                bean.setId(rs.getLong("id"));
-                bean.setEmail(rs.getString("email"));
-                bean.setAuth(rs.getString("auth"));
-                bean.setPassword(rs.getString("password"));
-                bean.setActive(rs.getBoolean("active"));
-                bean.setCF(rs.getString("CF"));
-                bean.setNome(rs.getString("nome"));
-                bean.setCognome(rs.getString("cognome"));
-                bean.setIndirizzo(rs.getString("indirizzo"));
-                list.add(bean);
-            }
-
-            if(comparator != null)
-                list.sort(comparator);
-
-        } finally {
-            try {
-                if(ps != null)
-                    ps.close();
-            } finally {
-                pool.releaseConnection(con);
-            }
-        }
-
-        return list;
-    }
-
-    public synchronized long getNumbersOfUsers() throws SQLException {
-        PreparedStatement ps = null;
-        Connection con = null;
-        ResultSet rs = null;
-        long number = 0;
-        String selectQuery = "SELECT count(*) FROM " + TABLE_NAME + " WHERE auth='user' AND active='1'";
-
-        try {
-            con = pool.getConnection();
-            ps = con.prepareStatement(selectQuery);
-
-            rs = ps.executeQuery();
-
-            if(rs.next())
-                number = rs.getLong(1);
-
-        } finally {
-            try {
-                if(ps != null)
-                    ps.close();
-            } finally {
-                pool.releaseConnection(con);
-            }
-        }
-
-        return number;
-    }
-
-    public Bean getUserByMail(String email) {
-        PreparedStatement ps = null;
-        Connection con = null;
-        ResultSet rs = null;
-        UserBean bean = null;
-        String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE email=?";
 
         try {
             con = pool.getConnection();
@@ -320,6 +251,77 @@ public class UserDao implements DaoModel {
                 pool.releaseConnection(con);
             }
         }
+
+        return list;
+    }
+
+    public synchronized long getNumbersOfUsers() throws SQLException {
+        PreparedStatement ps = null;
+        Connection con = null;
+        ResultSet rs = null;
+        long number = 0;
+        String selectQuery = "SELECT count(*) FROM " + TABLE_NAME + " WHERE auth='user' AND active='1'";
+
+        try {
+            con = pool.getConnection();
+            ps = con.prepareStatement(selectQuery);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                number = rs.getLong(1);
+
+        } finally {
+            try {
+                if (ps != null)
+                    ps.close();
+            } finally {
+                pool.releaseConnection(con);
+            }
+        }
+
+        return number;
+    }
+
+
+    public static synchronized UserBean doRetrieveByEmail(String email) throws SQLException {
+        PreparedStatement ps = null;
+        Connection con = null;
+        ResultSet rs = null;
+        UserBean bean = null;
+        String selectQuery = "SELECT * FROM " + TABLE_NAME + " WHERE email=? ";
+
+        try {
+            con = pool.getConnection();
+            ps = con.prepareStatement(selectQuery);
+
+            ps.setString(1, email);
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                bean = new UserBean();
+                bean.setUsername(rs.getString("username"));
+                bean.setId(rs.getLong("id"));
+                bean.setEmail(rs.getString("email"));
+                bean.setAuth(rs.getString("auth"));
+                bean.setActive(rs.getBoolean("active"));
+                bean.setCF(rs.getString("CF"));
+                bean.setNome(rs.getString("nome"));
+                bean.setCognome(rs.getString("cognome"));
+                bean.setIndirizzo(rs.getString("indirizzo"));
+            }
+
+        } finally {
+            try {
+                if (ps != null)
+                    ps.close();
+            } finally {
+                pool.releaseConnection(con);
+            }
+        }
+
+        return bean;
     }
 
 

@@ -110,6 +110,11 @@ public class UserBean extends Bean implements Serializable, Cloneable {
         this.indirizzo = indirizzo;
     }
 
+    public Boolean isAdmin(){
+        if( auth == "admin") return true;
+        else return false;
+    }
+
 
     @Override
     public boolean equals(Object otherOb) {
