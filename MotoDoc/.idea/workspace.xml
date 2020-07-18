@@ -25,33 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="129c05c4-10cb-4d9b-8db2-238bc295c846" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/it/unisa/control/filter/AuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/it/unisa/control/filter/JspFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/it/unisa/control/filter/ServletFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/it/unisa/control/servlet/CartServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/Cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/pavil.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/pavil.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/ChiSiamo.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/Prodotti.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/Prodotti.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/control/servlet/Prodotti.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/control/servlet/Prodotti.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/model/UserBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/model/UserBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/model/dao/DaoModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/model/dao/DaoModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/model/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/model/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/control/servlet/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/control/servlet/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/model/UserBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/model/UserBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/model/dao/DaoModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/model/dao/DaoModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unisa/control/servlet/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unisa/control/servlet/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unisa/model/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unisa/model/UserBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unisa/model/dao/DaoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unisa/model/dao/DaoModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unisa/model/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unisa/model/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Prodotti.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Prodotti.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/Pneumatici.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Pneumatici.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,6 +245,7 @@
       <workItem from="1593354055507" duration="15966000" />
       <workItem from="1594657175881" duration="26409000" />
       <workItem from="1594929390103" duration="39000" />
+      <workItem from="1594976463693" duration="6199000" />
     </task>
     <servers />
   </component>
@@ -292,10 +269,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="187" y="169" key="#BuildArtifactsBeforeRunChooser/0.0.1536.824@0.0.1536.824" timestamp="1592932280911" />
-    <state x="309" y="0" key="#Project_Structure" timestamp="1592931982685">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="275" y="0" key="#Project_Structure" timestamp="1595088698769">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="22" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1590171556826" />
+    <state x="275" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1595088698769" />
     <state x="309" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1592931982685" />
     <state x="275" y="22" key="#SQL_Dialects" timestamp="1590168121918">
       <screen x="0" y="0" width="1366" height="728" />
