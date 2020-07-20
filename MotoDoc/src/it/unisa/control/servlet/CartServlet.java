@@ -16,13 +16,14 @@ import java.sql.SQLException;
 
 @WebServlet("/CartServlet")
 public class CartServlet extends HttpServlet {
-
     private static final long serialVersionUID = 1L;
 
-    ProductModelDM model = new ProductModelDM();
+    static ProductModelDM model = new ProductModelDM();
 
-    public CartServlet(){super(); }
 
+    public CartServlet() {
+        super();
+    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -30,28 +31,30 @@ public class CartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         @SuppressWarnings("unchecked")
-        Cart<ProductBean> cart = (Cart<ProductBean>) request.getSession().getAttribute("carrello");
-
-        //ancora non ho nessun carrello abbinato alla sessione
-        if (cart == null) {
+        Cart<ProductBean> cart = (Cart<ProductBean>)request.getSession().getAttribute("carrello");
+        if(cart == null) {
             cart = new Cart<ProductBean>();
             request.getSession().setAttribute("carrello", cart);
         }
 
+        String sort = request.getParameter("sort");
+
         String action = request.getParameter("action");
 
-        try { //crea switch
-            if (action != null) {
-                if (action.equals("addCart")) {
+        try {
+            if(action != null) {
+                if(action.equals("details")) {
                     String id = request.getParameter("id");
-                    ProductBean bean = null;
-                    bean = model.doRetrieveByKey(id);
-
-                    if (bean != null && !bean.isEmpty()) {
+                    request.removeAttribute("product");
+                    request.setAttribute("product", model.doRetrieveByKey(id));
+                } else if(action.equals("addCart")) {
+                    String id = request.getParameter("id");
+                    ProductBean bean = model.doRetrieveByKey(id);
+                    if(bean != null && !bean.isEmpty()) {
                         cart.addItem(bean);
-                        request.setAttribute("message", "Product " + bean.getNome() + " added to cart");
+                        request.setAttribute("message", "Product "+ bean.getNome()+" added to cart");
                     }
-                }else if(action.equals("clearCart")) {
+                } else if(action.equals("clearCart")) {
                     cart.deleteItems();
                     request.setAttribute("message", "Cart cleaned");
                 } else if(action.equals("deleteCart")) {
@@ -61,16 +64,86 @@ public class CartServlet extends HttpServlet {
                         cart.deleteItem(bean);
                         request.setAttribute("message", "Product "+ bean.getNome()+" deleted from cart");
                     }
+                } else if(action.equals("insert")) {
+                    String nome = request.getParameter("nome");
+                    String descrizione = request.getParameter("descrizione");
+                    int prezzo = Integer.parseInt(request.getParameter("prezzo"));
+
+                    ProductBean bean = new ProductBean();
+                    bean.setNome(nome);
+                    bean.setDescrizione(descrizione);
+                    bean.setPrezzo(prezzo);
+
+                    model.doSave(bean);
+                    request.setAttribute("message", "Product "+ bean.getNome()+" added");
+                } else if(action.equals("delete")) {
+                    String id = request.getParameter("id");
+                    ProductBean bean = model.doRetrieveByKey(id);
+                    if(bean != null && !bean.isEmpty()) {
+                        model.doDelete(bean);
+                        request.setAttribute("message", "Product "+ bean.getNome()+" deleted");
+                    }
+                } else if(action.equals("update")) {
+                    String id = request.getParameter("id");
+                    String nome = request.getParameter("nome");
+                    String descrizione= request.getParameter("descrizione");
+                    int prezzo = Integer.parseInt(request.getParameter("prezzo"));
+
+                    ProductBean bean = new ProductBean();
+                    bean.setCodiceProd(id);
+                    bean.setNome(nome);
+                    bean.setDescrizione(descrizione);
+                    bean.setPrezzo(prezzo);
+
+                    model.doUpdate(bean);
+                    request.setAttribute("message", "Product "+ bean.getNome()+" updated");
                 }
             }
-        }catch(SQLException e) {
+        } catch(NumberFormatException | SQLException e) {
             System.out.println("Error: "+ e.getMessage());
             request.setAttribute("error", e.getMessage());
         }
+
         request.setAttribute("cart", cart);
+
+        try {
+            request.removeAttribute("offerte");
+            request.setAttribute("offerte", model.doRetriveOfferte(sort));
+        } catch(SQLException e) {
+            System.out.println("Error: "+ e.getMessage());
+            request.setAttribute("error", e.getMessage());
+        }
+
+
+        try {
+            request.removeAttribute("pneumatici");
+            request.setAttribute("pneumatici", model.doRetrivePneumatici(sort));
+        } catch(SQLException e) {
+            System.out.println("Error: "+ e.getMessage());
+            request.setAttribute("error", e.getMessage());
+        }
+
+        try {
+            request.removeAttribute("products");
+            request.setAttribute("products", model.doRetriveAll(sort));
+        } catch(SQLException e) {
+            System.out.println("Error: "+ e.getMessage());
+            request.setAttribute("error", e.getMessage());
+        }
+
+        try {
+            request.removeAttribute("carrozzerie");
+            request.setAttribute("carrozzerie", model.doRetriveCarrozzeria(sort));
+        } catch(SQLException e) {
+            System.out.println("Error: "+ e.getMessage());
+            request.setAttribute("error", e.getMessage());
+        }
+
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/Cart.jsp");
         dispatcher.forward(request, response);
+
     }
+
 }
 
 

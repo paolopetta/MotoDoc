@@ -105,4 +105,6 @@
 </div>
 <% } //fine offerte  %>
 
+    <%@ include file= "_footer.jsp" %>
+
 

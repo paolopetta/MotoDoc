@@ -6,10 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<@page import="java.time.LocalDate"%>
+
+
 <footer>
+    <link rel="stylesheet" href="Style.css">
     <div class="footer-info">
-        <span><%=LocalDate.now().getYear()%> MotoDoc &copy; </span>
+        <span>MotoDoc &copy; </span>
     </div>
 
 </footer>

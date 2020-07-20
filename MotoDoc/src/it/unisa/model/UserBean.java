@@ -1,6 +1,10 @@
 package it.unisa.model;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +60,17 @@ public class UserBean extends Bean implements Serializable, Cloneable {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setPasswordhash(String passwordNew) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-1");
+            digest.reset();
+            digest.update(passwordNew.getBytes(StandardCharsets.UTF_8));
+            this.password = String.format("%040x", new BigInteger(1, digest.digest()));
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void setPassword(String password) {

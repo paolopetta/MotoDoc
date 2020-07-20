@@ -13,18 +13,22 @@
 <%
     String error = (String)request.getAttribute("error");
     UserBean user = (UserBean)session.getAttribute("user");
-    Cart<ProductBean> carrello = (Cart<ProductBean>) session.getAttribute("cart");
+    Cart<ProductBean> carrello = (Cart<ProductBean>) session.getAttribute("carrello");
 
     if( carrello == null){
         response.sendRedirect(response.encodeRedirectURL("./CartServlet"));
         return;
     }
 %>
-<html>
-<head>
+
+<% String pageTitle= "Home";
+    request.setAttribute("pageTitle", pageTitle);
+%>
+<%@ include file= "_header.jsp" %>
+<link rel="stylesheet" href="Style.css">
+
     <title>Carrello</title>
-</head>
-<body>
+
 
 <h2>Carrello</h2>
 
@@ -58,5 +62,4 @@
     %>
 </table>
 
-</body>
-</html>
+
