@@ -302,6 +302,7 @@ public class UserDao implements DaoModel {
             if (rs.next()) {
                 bean = new UserBean();
                 bean.setUsername(rs.getString("username"));
+                bean.setPassword(rs.getString("password"));
                 bean.setId(rs.getLong("id"));
                 bean.setEmail(rs.getString("email"));
                 bean.setAuth(rs.getString("auth"));

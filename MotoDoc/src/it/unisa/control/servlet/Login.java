@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 @WebServlet("/login")
@@ -23,54 +27,64 @@ public class Login extends HttpServlet {
         HttpSession session = request.getSession();
         String action = request.getParameter("action");
         UserBean userBean= (UserBean) session.getAttribute("user");
-        switch(action) {
-            case "login":
-                if(userBean == null) { // non c'é nessun utente loggato
-                    String email = request.getParameter("email");
-                    String password = request.getParameter("password");
-                    System.out.println("non c'é utente");
-                    UserBean userRequested = null; //creo un nuovo userBean
+        if(action.equals("login")){
+            if(userBean == null) { // non c'é nessun utente loggato
+                String email = request.getParameter("email");
+                String password = request.getParameter("password");
+                UserBean userRequested = null; //creo un nuovo userBean
+                try {
+                    userRequested = UserDao.doRetrieveByEmail(email);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+
+                //assegno al nuovo bean tutti i campi
+                if(userRequested != null) {
+
+                    MessageDigest digest = null;
                     try {
-                        userRequested = UserDao.doRetrieveByEmail(email);
-                    } catch (SQLException throwables) {
-                        throwables.printStackTrace();
-                        System.out.println("funziona"); //da eliminare
+                        digest = MessageDigest.getInstance("SHA-1");
+                    } catch (NoSuchAlgorithmException e) {
+                        e.printStackTrace();
                     }
+                    digest.reset();
+                        digest.update(password.getBytes(StandardCharsets.UTF_8));
+                        String passHash = String.format("%040x", new BigInteger(1, digest.digest()));
 
-                    //assegno al nuovo bean tutti i campi
-                    if(userRequested != null) {
-                        if(userRequested.getPassword().equals(password)) {
-                            userBean = new UserBean();
-                            userBean.setAuth(userRequested.getAuth());
-                            userBean.setEmail(userRequested.getEmail());
-                            userBean.setPassword(userRequested.getPassword());
-                            userBean.setCF(userRequested.getCF());
+                    if(userRequested.getPassword().equals(passHash)) {
+                        userBean = new UserBean();
+                        userBean.setAuth(userRequested.getAuth());
+                        userBean.setEmail(userRequested.getEmail());
+                        userBean.setPassword(userRequested.getPassword());
+                        userBean.setCF(userRequested.getCF());
 
-                            //assegno l'user alla sessione
-                            session.setAttribute("user", userBean);
-                            // dopo che si é loggato lo rimando ad home
-                            response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/home.jsp"));
-                        }
-                        else { //passw sbagliata
-                            RequestDispatcher requestDispatcher= request.getServletContext().getRequestDispatcher("/login/login.jsp");
-                            request.setAttribute("error", "password");
-                            requestDispatcher.forward(request, response);
-                        }
+                        //assegno l'user alla sessione
+                        session.setAttribute("user", userBean);
+                        // dopo che si é loggato lo rimando ad home
+                        //response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/home.jsp"));
                     }
-                    else { // utente non esiste
-                        RequestDispatcher requestDispatcher= request.getServletContext().getRequestDispatcher("/login/login.jsp");
-                        request.setAttribute("error", "notfound");
+                    else { //passw sbagliata
+                        RequestDispatcher requestDispatcher= request.getServletContext().getRequestDispatcher("/login.jsp");
+                        request.setAttribute("error", "password");
+                        requestDispatcher.forward(request, response);
                     }
                 }
-                else response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/home.jsp"));
-                break;
-            case "logout":
-                if(userBean != null) {
-                    session.removeAttribute("user");
+                else { // utente non esiste
+                    RequestDispatcher requestDispatcher= request.getServletContext().getRequestDispatcher("/login.jsp");
+                    request.setAttribute("error", "notfound");
                 }
-                response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/home.jsp"));
-                break;
+            }
+            response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/home.jsp"));
+
         }
+
+        else if(action.equals("logout")){
+            if (userBean != null) {
+                session.removeAttribute("user");
+            }
+            response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/home.jsp"));
+        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
