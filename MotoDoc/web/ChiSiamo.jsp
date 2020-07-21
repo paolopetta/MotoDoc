@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@ include file= "_header.jsp"%>
-<link rel="stylesheet" href="Style.css">
-
+<style type="text/css"> @import url(Style.css);</style>
 <html>
 <head>
+    <style type="text/css"> @import url(Style.css);</style>
     <title>Chi siamo</title>
 </head>
 <body>
@@ -30,8 +30,9 @@
             <div class="card">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">Assistenza Clienti</h5>
+                    <p class="card-text"> Per qualsiasi esigenza puoi contattarci al numero <span style="color:blue">3459686772</span> o mandarci un e_mail <span style="color:blue">motodoc@gmail.com</span>.
+                    </p>
                 </div>
             </div>
         </div>
@@ -39,8 +40,8 @@
             <div class="card">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">Spedizioni e reso</h5>
+                    <p class="card-text">Si effettuano spedizioni in tutta italia, con possibilità di reso gratuito entro 30 giorni.</p>
                 </div>
             </div>
         </div>
@@ -48,8 +49,8 @@
             <div class="card">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title">Prodotti certificati</h5>
+                    <p class="card-text">I nostri prodotti sono sempre certificati e garantiti, per offrire il meglio ai nostri clienti.</p>
                 </div>
             </div>
         </div>
@@ -57,8 +58,8 @@
             <div class="card">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">Store</h5>
+                    <p class="card-text">E-Commerce dedicato a privati e rivenditori, con una vasta gamma di marchi.</p>
                 </div>
             </div>
         </div>
