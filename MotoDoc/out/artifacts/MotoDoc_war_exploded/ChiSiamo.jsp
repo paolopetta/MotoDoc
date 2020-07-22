@@ -8,11 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@ include file= "_header.jsp"%>
-<link rel="stylesheet" href="Style.css">
+
 
 <html>
 <head>
+    <link rel="stylesheet" href="Style.css" type="text/css">
     <title>Chi siamo</title>
+
 </head>
 <body>
 

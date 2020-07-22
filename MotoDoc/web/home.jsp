@@ -12,6 +12,7 @@
 <%
     Collection<?> offerte= (Collection<?>) request.getAttribute("offerte");
     ProductBean offerta=(ProductBean) request.getAttribute("Prodotto");
+
 %>
 
 <% String pageTitle= "Home";
@@ -37,7 +38,6 @@
         </div>
 
     </div>
-
 
     <!--   CAROUSEL  -->
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
