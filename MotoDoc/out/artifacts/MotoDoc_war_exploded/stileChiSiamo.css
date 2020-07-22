@@ -1,0 +1,33 @@
+#capo{
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+#icons{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+div.card{
+    border: hidden;
+}
+
+h1{
+    margin: 15px;
+    background-image: url('https://images.pexels.com/photos/3930091/pexels-photo-3930091.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    text-align: left;
+    line-height: 750px;
+    width: 1225px;
+    height: 400px;
+}
+#capo p{
+    padding-right: 65px;
+    padding-left: 65px;
+}
+
+.card-img-top {
+    padding-left: 50px;
+    width: 85px;
+    height: 75px;
+}
