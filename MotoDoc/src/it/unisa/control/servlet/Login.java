@@ -56,6 +56,8 @@ public class Login extends HttpServlet {
                         userBean.setAuth(userRequested.getAuth());
                         userBean.setEmail(userRequested.getEmail());
                         userBean.setPassword(userRequested.getPassword());
+                        userBean.setNome(userRequested.getNome());
+                        userBean.setCognome(userRequested.getCognome());
                         userBean.setCF(userRequested.getCF());
 
                         //assegno l'user alla sessione
@@ -79,6 +81,7 @@ public class Login extends HttpServlet {
         }
 
         else if(action.equals("logout")){
+            System.out.println("Dentro logout");
             if (userBean != null) {
                 session.removeAttribute("user");
             }
@@ -88,6 +91,16 @@ public class Login extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        String action = request.getParameter("action");
+        UserBean userBean= (UserBean) session.getAttribute("user");
+
+        if(action.equals("logout")){
+            if (userBean != null) {
+                session.removeAttribute("user");
+            }
+            response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/home.jsp"));
+        }
     }
 
 }

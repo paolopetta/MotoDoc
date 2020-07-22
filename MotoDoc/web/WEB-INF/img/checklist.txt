@@ -1,0 +1,33 @@
+CHECKLIST
+
+    o	Attivare la gestione della sicurezza in Tomcat;
+
+    o	Gestire le sessioni per realizzare il carrello;
+
+•	Utilizzare l’URL rewriting dove è possibile;
+
+•	I form sono controllati con Javascript. Il form viene inviato al server solo se corretto (validazione);
+    o	Eseguire la validazione dei parametri anche lato server (nelle servlet);
+
+•	Usare JQuery per modificare il DOM in qualche pagina;
+•	Usare JQuery + AJAX per scambiare piccole informazioni con il server;
+    o	Utilizzare XML o JSON come formato per il trasporto delle informazioni quando si utilizza AJAX;
+
+•	Usare JQuery o Animazioni CSS per animare le immagini al passaggio del mouse;
+
+•	Va prevista la figura dell'amministratore e delle pagine a lui dedicate, accessibili solo dopo autenticazione (esempio Security).
+    o	Usare l’autenticazione programmata (si possono utilizzare anche i filtri).
+
+
+*****************COMPLETATI********************************************************
+•	Il sito deve girare su Tomcat direttamente;
+•	Il sito deve essere responsive;
+
+•	Utilizzare i file CSS;
+•	Usare il modello MVC;
+    o	Creare almeno due package: uno per le servlet, chiamato Control, ed uno per il model, chiamato Model;
+    o	Il Model deve contenere i bean, il carrello e la logica dell’applicazione;
+    o	Utilizzare il modello DAO per implementare le operazioni CRUD;
+•	Il codice HTML viene creato esclusivamente dalle JSP. JSP e HTML che formano il view;
+•	Usare il connection pool per connettersi al DB (esempio Storage);
+    o	Utilizzare i servlet listener per inizializzare la connessione al DB;

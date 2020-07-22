@@ -46,7 +46,7 @@
             </div>
             <% if(user != null){%>
             <a class="nav-link" href="#">Ciao <%=user.getNome()%> <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="<%=response.encodeURL("login?action=logout")%>">Logout <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="${pageContext.request.contextPath}/login?action=logout">Logout </a>
             <%}else{%>
             <a class="nav-link" href="login.jsp">Login <span class="sr-only">(current)</span></a>
             <%}%>
