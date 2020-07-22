@@ -12,14 +12,17 @@ div.card{
 }
 
 h1{
-    margin: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     background-image: url('https://images.pexels.com/photos/3930091/pexels-photo-3930091.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
     background-repeat: no-repeat;
     color: #FFFFFF;
     text-align: left;
     line-height: 750px;
-    width: 1225px;
+    width: 1250px;
     height: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 #capo p{
     padding-right: 65px;
@@ -27,7 +30,8 @@ h1{
 }
 
 .card-img-top {
-    padding-left: 50px;
+    margin-left: auto;
+    margin-right: auto;
     width: 85px;
     height: 75px;
 }
