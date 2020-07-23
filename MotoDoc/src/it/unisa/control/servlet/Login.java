@@ -1,5 +1,7 @@
 package it.unisa.control.servlet;
 
+import it.unisa.model.Cart;
+import it.unisa.model.ProductBean;
 import it.unisa.model.UserBean;
 import it.unisa.model.dao.UserDao;
 
@@ -27,6 +29,8 @@ public class Login extends HttpServlet {
         HttpSession session = request.getSession();
         String action = request.getParameter("action");
         UserBean userBean= (UserBean) session.getAttribute("user");
+        Cart<ProductBean> cart= (Cart<ProductBean>) session.getAttribute("cart");
+
         if(action.equals("login")){
             if(userBean == null) { // non c'é nessun utente loggato
                 String email = request.getParameter("email");
@@ -84,6 +88,8 @@ public class Login extends HttpServlet {
             System.out.println("Dentro logout");
             if (userBean != null) {
                 session.removeAttribute("user");
+                cart.deleteItems();
+                session.removeAttribute("cart");
             }
             response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/home.jsp"));
         }
@@ -94,10 +100,15 @@ public class Login extends HttpServlet {
         HttpSession session = request.getSession();
         String action = request.getParameter("action");
         UserBean userBean= (UserBean) session.getAttribute("user");
+        Cart<ProductBean> cart= (Cart<ProductBean>) session.getAttribute("cart");
 
         if(action.equals("logout")){
+
             if (userBean != null) {
                 session.removeAttribute("user");
+                cart.deleteItems();
+                session.removeAttribute("cart");
+
             }
             response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/home.jsp"));
         }

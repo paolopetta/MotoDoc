@@ -12,13 +12,17 @@
 <%
     Collection<?> offerte= (Collection<?>) request.getAttribute("offerte");
     ProductBean offerta=(ProductBean) request.getAttribute("Prodotto");
-
+    if(offerte == null ) {
+        response.sendRedirect(response.encodeRedirectURL("./home"));
+        return;
+    }
 %>
 
 <% String pageTitle= "Home";
     request.setAttribute("pageTitle", pageTitle);
 %>
 <%@ include file= "_header.jsp" %>
+<title>MotoDoc</title>
 <link rel="stylesheet" href="Style.css">
 
 <!-- Categorie -->
@@ -97,7 +101,7 @@
             <div class="card-body">
                 <h5 class="card-title" align="center"><%=bean.getNome()%></h5>
                 <p class="card-text" align="center">€ <%=bean.getPrezzo()%></p>
-                <a href="#" class="btn btn-primary" align="center">Aggiungi al carrello</a>
+                <a href="<%=response.encodeURL("CartServlet?action=addCart&id=" + bean.getCodiceProd())%>" class="btn btn-primary" align="center">Aggiungi al carrello</a>
             </div>
         </div>
     </div>

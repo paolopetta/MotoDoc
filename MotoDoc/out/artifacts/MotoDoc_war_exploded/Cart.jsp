@@ -12,23 +12,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String error = (String)request.getAttribute("error");
-    UserBean user = (UserBean)session.getAttribute("user");
+
     Cart<ProductBean> carrello = (Cart<ProductBean>) session.getAttribute("carrello");
+    UserBean userBean = (UserBean) session.getAttribute("user");
+
 
     if( carrello == null){
         response.sendRedirect(response.encodeRedirectURL("./CartServlet"));
         return;
     }
+    /*if( userBean == null){
+        response.sendRedirect(response.encodeRedirectURL("./CartServlet"));
+        return;
+    }*/
 %>
 
-<% String pageTitle= "Home";
+<% String pageTitle= "Carrello";
     request.setAttribute("pageTitle", pageTitle);
 %>
 <%@ include file= "_header.jsp" %>
 <link rel="stylesheet" href="Style.css">
-
-    <title>Carrello</title>
-
 
 <h2>Carrello</h2>
 

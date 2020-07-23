@@ -3,6 +3,7 @@ package it.unisa.control.servlet;
 import it.unisa.model.Cart;
 import it.unisa.model.ProductBean;
 import it.unisa.model.ProductModelDM;
+import it.unisa.model.UserBean;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,7 +32,13 @@ public class CartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         @SuppressWarnings("unchecked")
+        HttpSession session = request.getSession();
         Cart<ProductBean> cart = (Cart<ProductBean>)request.getSession().getAttribute("carrello");
+        UserBean userBean= (UserBean) session.getAttribute("user");
+
+        if(userBean == null)
+            response.sendRedirect(response.encodeRedirectURL(getServletContext().getContextPath()+"/login"));
+
         if(cart == null) {
             cart = new Cart<ProductBean>();
             request.getSession().setAttribute("carrello", cart);
@@ -106,38 +113,6 @@ public class CartServlet extends HttpServlet {
 
         request.setAttribute("cart", cart);
 
-        try {
-            request.removeAttribute("offerte");
-            request.setAttribute("offerte", model.doRetriveOfferte(sort));
-        } catch(SQLException e) {
-            System.out.println("Error: "+ e.getMessage());
-            request.setAttribute("error", e.getMessage());
-        }
-
-
-        try {
-            request.removeAttribute("pneumatici");
-            request.setAttribute("pneumatici", model.doRetrivePneumatici(sort));
-        } catch(SQLException e) {
-            System.out.println("Error: "+ e.getMessage());
-            request.setAttribute("error", e.getMessage());
-        }
-
-        try {
-            request.removeAttribute("products");
-            request.setAttribute("products", model.doRetriveAll(sort));
-        } catch(SQLException e) {
-            System.out.println("Error: "+ e.getMessage());
-            request.setAttribute("error", e.getMessage());
-        }
-
-        try {
-            request.removeAttribute("carrozzerie");
-            request.setAttribute("carrozzerie", model.doRetriveCarrozzeria(sort));
-        } catch(SQLException e) {
-            System.out.println("Error: "+ e.getMessage());
-            request.setAttribute("error", e.getMessage());
-        }
 
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/Cart.jsp");
         dispatcher.forward(request, response);
