@@ -42,6 +42,9 @@
 <table>
     <tr>
         <th>Name</th>
+        <th>Codice</th>
+        <th>Quantità</th>
+        <th>Prezzo</th>
         <th>Action</th>
     </tr>
     <%
@@ -50,6 +53,9 @@
     %>
     <tr>
         <td><%=prod.getNome()%></td>
+        <th><%=prod.getCodiceProd()%></th>
+        <td> </td>
+        <td><%=prod.getPrezzo()%></td>
         <td><a href="<%=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>">Delete from cart</a>
     </tr>
     <% 		}
