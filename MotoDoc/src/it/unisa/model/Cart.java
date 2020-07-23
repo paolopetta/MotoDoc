@@ -16,13 +16,13 @@ public class Cart<T> {
 
     public void deleteItem(T item) {
         items.remove(item);
-		/*
+
 		for(T it: items) {
 			if(it.equals(item)) {
 				items.remove(it);
 				break;
 			}
-		}*/
+		}
     }
 
     public List<T> getItems() {
