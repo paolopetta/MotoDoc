@@ -7,34 +7,34 @@ CREATE USER 'motoDoc'@'localhost' IDENTIFIED BY 'adminadmin';
 GRANT ALL ON docmoto.* TO 'motoDoc'@'localhost';
 
 create table Fornitore(
-	p_iva		varchar(10)		not null primary key,
-    nome		varchar(30) 	not null,
-    indirizzo	varchar(50)		not null,
-    fax			varchar(10)			not null
+  p_iva    varchar(10)    not null primary key,
+    nome    varchar(30)   not null,
+    indirizzo  varchar(50)    not null,
+    fax      varchar(10)      not null
 );
 
 create table Deposito(
-	codiceAlfanumerico varchar(4)	not null primary key,
-    indirizzo	varchar(50)		not null
+  codiceAlfanumerico varchar(4)  not null primary key,
+    indirizzo  varchar(50)    not null
     );
 
 create table Scaffale(
-	codice				int			not null primary key,
-    codiceAlfanumerico varchar(4)	not null,
+  codice        int      not null primary key,
+    codiceAlfanumerico varchar(4)  not null,
     foreign key (codiceAlfanumerico) references Deposito(codiceAlfanumerico)
     );
 
 create table Prodotto(
-	codiceProd		varchar(10)	not null primary key,
-    nome			varchar(20)	not null,
-    descrizione	varchar(100)	not null,
-    img			varchar(300)	,
-    prezzo 		double			not null,
-    marca		varchar(10)		not null,
+  codiceProd    varchar(10)  not null primary key,
+    nome      varchar(20)  not null,
+    descrizione  varchar(100)  not null,
+    img      varchar(300)  ,
+    prezzo     double      not null,
+    marca    varchar(10)    not null,
     disponibilità enum('y' , 'n') not null,
-    p_iva		varchar(10)			not null,
-    codiceAlfanumerico	varchar(4)	not null,
-    codice		int				not null,
+    p_iva    varchar(10)      not null,
+    codiceAlfanumerico  varchar(4)  not null,
+    codice    int        not null,
     offerta    varchar(1),
     foreign key (p_iva) references Fornitore (p_iva),
     foreign key (codiceAlfanumerico) references Deposito(codiceAlfanumerico),
@@ -42,21 +42,21 @@ create table Prodotto(
 );
 
 create table Meccanica (
-	impiego		varchar(10)		not null,
-    codiceProd 	varchar(10)					not null,
+  impiego    varchar(10)    not null,
+    codiceProd   varchar(10)          not null,
     foreign key (codiceProd) references Prodotto (codiceProd)
 );
 
 create table Pneumatici(
-	misura		varchar(9)			not null,
-    stagione	varchar(10)			not null,
-    codiceProd 	varchar(10)			not null,
+  misura    varchar(9)      not null,
+    stagione  varchar(10)      not null,
+    codiceProd   varchar(10)      not null,
     foreign key (codiceProd) references Prodotto (codiceProd)
     );
 
 create table Carrozzeria(
-	materiale 	varchar(10)			not null,
-    codiceProd 	varchar(10)				not null,
+  materiale   varchar(10)      not null,
+    codiceProd   varchar(10)        not null,
     foreign key (codiceProd) references Prodotto(codiceProd)
     );
 
@@ -67,55 +67,55 @@ create table Carrozzeria(
     password varchar(255) not null,
     auth enum('user', 'premium', 'admin') default 'user',
     active boolean default true,
-	CF			varchar(16) 	,
-    nome		varchar(15)		,
-    cognome		varchar(15)		,
-    indirizzo	varchar(50)		,
+	CF      varchar(16)   ,
+    nome    varchar(15)    ,
+    cognome    varchar(15)    ,
+    indirizzo  varchar(50)    ,
     primary key(id)
 ) auto_increment = 1;
 
 create table Ordine(
-	codice		int				not null primary key,
-    dataOrd		date			not null,
-    npezzi		int 			not null,
-    Users_id			integer unsigned not null,
+  codice    int        not null primary key,
+    dataOrd    date      not null,
+    npezzi    int       not null,
+    Users_id      integer unsigned not null,
     foreign key(Users_id) references Users(id)
 );
 
 create table Composto(
-	codice 				int				not null,
-    codiceProd 		varchar(10)				not null,
+  codice         int        not null,
+    codiceProd     varchar(10)        not null,
     foreign key(codice) references Ordine(codice),
-	foreign key(codiceProd) references Prodotto(codiceProd)
+  foreign key(codiceProd) references Prodotto(codiceProd)
 );
 
 create table Spedizione(
-	codice			int  		not null primary key,
-    dataSpedizione	date		not null,
-	foreign key (codice) references Ordine (codice)
+  codice      int      not null primary key,
+    dataSpedizione  date    not null,
+  foreign key (codice) references Ordine (codice)
 );
 
 create table Telefono(
-	numero 		varchar(10)		not null primary key,
-	Users_id			integer unsigned not null,
+  numero     varchar(10)    not null primary key,
+  Users_id      integer unsigned not null,
     foreign key(Users_id) references Users(id)
 );
 
 insert into Users (username, email, password, auth, CF, nome, cognome, indirizzo)
-values ('Paolo00', 'paolo.petta00@gmail.com', md5("password"), 'user','PTTPLA00A24F912W', 'Paolo', 'Petta', 'Via s rocco 8');
+values ('Paolo00', 'paolo.petta00@gmail.com', sha1("password"), 'user','PTTPLA00A24F912W', 'Paolo', 'Petta', 'Via s rocco 8');
 
 insert into Users (username, email, password, auth)
-values ('admin','admin@admin.it', md5("password"), 'admin');
+values ('admin','admin@admin.it', sha1("password"), 'admin');
 
 set global max_allowed_packet=20971520;
 
 insert into Fornitore (p_iva, nome, indirizzo, fax)
 values ('54555', 'Motopertutti', 'Via aztori', '0275468578'),
-		('54758', 'Ricambidueruote', 'Via Clmente', '0452428745');
+    ('54758', 'Ricambidueruote', 'Via Clmente', '0452428745');
 
 insert into Deposito (codiceAlfanumerico, indirizzo)
 values ( 'A', 'Via aztori'),
-		('B', 'Via lamia');
+    ('B', 'Via lamia');
 
 insert into Scaffale (codice, codiceAlfanumerico)
 values (123, 'A'), (124, 'A'), (125, 'A'),(126, 'A'),(127, 'A'), (145, 'B'), (146, 'B'), (147, 'B'), (148, 'B'), (149, 'B');
@@ -128,8 +128,10 @@ values ('2452', 'Gomme','pilot', 'https://aecbmesvcm.cloudimg.io/cdno/n/webp.png
         ('1457', 'Fianchetto duke','fianchetto', 'https://www.motoricambiservice.com/ebay/readyproebayimages/CARENA-CODINO-SINISTRA-KTM-390-DUKE-ABS-2017-2019-9300804110028-LEFT-SIDE-REAR_462479.jpg',50.00, 'Hirace', 'y', '54758', 'B', 146 ),
         ('1744', 'Serbatoio','serbatoio ktm', 'https://static.bakeca.it/immagini/edf/edf788f7f5a206a5402962374cc575ca.jpg',150.00, 'Hirace', 'n', '54758', 'B', 147),
     ('1745', 'Cavalletto','cavalletto per z900', 'https://images.wemoto.com/full/CENTRESTAND/10060403.jpg',25.00, 'Hirace', 'y', '54758', 'B', 148),
-        ('1845', 'Parafango','parafango per vespa', 'https://www.ricambimotopalermo.it/wp-content/uploads/imported/PARAFANGO-VESPA-PX-FRENO-A-DISCO-RMS-142680130-161241378094.jpg',75.00, 'Hirace', 'y', '54758', 'A', 126),
-        ('1888', 'Gomme diavel','4stag-all seasons', 'https://i.ebayimg.com/images/g/oVMAAOSwhpZaIfJc/s-l300.jpg',60.00, 'Michelin', 'n', '54758', 'A', 127);
+        ('1845', 'Parafango','parafango per vespa', 'https://www.ricambimotopalermo.it/wp-content/uploads/imported/PARAFANGO-VESPA-PX-FRENO-A-DISCO-RMS-142680130-161241378094.jpg',75.00, 'Hirace', 'y', '54758', 'A', 126);
+
+insert into Prodotto (codiceProd, nome, descrizione, img, prezzo, marca, disponibilità, p_iva, codiceAlfanumerico, codice, offerta)
+values ('1888', 'Gomme diavel','4stag-all seasons', 'https://i.ebayimg.com/images/g/oVMAAOSwhpZaIfJc/s-l300.jpg',60.00, 'Michelin', 'n', '54758', 'A', 127, 'y');
 
 insert into Pneumatici(misura, stagione, codiceProd)
 values ('155\75R15', 'estiva', '2452'), ('165\55R15', 'invernale', '1574'), ('160\55R16', '4stagioni', '1888');
