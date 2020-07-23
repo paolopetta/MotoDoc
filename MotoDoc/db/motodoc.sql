@@ -35,6 +35,7 @@ create table Prodotto(
     p_iva		varchar(10)			not null,
     codiceAlfanumerico	varchar(4)	not null,
     codice		int				not null,
+    offerta    varchar(1),
     foreign key (p_iva) references Fornitore (p_iva),
     foreign key (codiceAlfanumerico) references Deposito(codiceAlfanumerico),
     foreign key (codice) references Scaffale(codice)
