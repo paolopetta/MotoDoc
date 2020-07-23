@@ -21,10 +21,6 @@
         response.sendRedirect(response.encodeRedirectURL("./CartServlet"));
         return;
     }
-    /*if( userBean == null){
-        response.sendRedirect(response.encodeRedirectURL("./CartServlet"));
-        return;
-    }*/
 %>
 
 <% String pageTitle= "Carrello";
