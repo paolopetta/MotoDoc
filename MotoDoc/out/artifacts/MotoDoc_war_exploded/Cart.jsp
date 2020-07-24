@@ -54,9 +54,9 @@
     <tr>
         <td><%=prod.getNome()%></td>
         <th><%=prod.getCodiceProd()%></th>
-        <td> </td>
+        <td><input type="number" min="1" max="20"></td>
         <td><%=prod.getPrezzo()%></td>
-        <td><a href="<%=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>">X</a>
+        <td><a href="<%=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>">   x   </a>
     </tr>
     <% 		}
     } else {
