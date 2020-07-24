@@ -32,10 +32,13 @@
                     <a class="nav-link" href="home.jsp">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/prodotti" >Prodotti</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="ChiSiamo.jsp">Chi Siamo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/prodotti" >Prodotti</a>
+                    <a class="nav-link" href="CartServlet?action=addCart&id=1457">Carrello</a>
                 </li>
             </ul>
             <div id="form" align="center">

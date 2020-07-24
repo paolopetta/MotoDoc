@@ -45,7 +45,7 @@
         <th>Codice</th>
         <th>Quantità</th>
         <th>Prezzo</th>
-        <th>Action</th>
+        <th>Elimina</th>
     </tr>
     <%
         if(prodCarrello.size() > 0) {
@@ -56,15 +56,16 @@
         <th><%=prod.getCodiceProd()%></th>
         <td> </td>
         <td><%=prod.getPrezzo()%></td>
-        <td><a href="<%=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>">Delete from cart</a>
+        <td><a href="<%=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>">X</a>
     </tr>
     <% 		}
     } else {
     %>
-    <tr><td colspan="2">Non ci sono prodotti nel carrello</td></tr>
+    <tr><td colspan="2">Il tuo carrello è vuoto</td></tr>
     <%
         }
     %>
+    <a href="${pageContext.request.contextPath}/prodotti">Continua lo shopping</a>
 </table>
 
 
