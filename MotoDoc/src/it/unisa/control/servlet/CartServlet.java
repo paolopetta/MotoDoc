@@ -34,11 +34,6 @@ public class CartServlet extends HttpServlet {
         @SuppressWarnings("unchecked")
         HttpSession session = request.getSession();
         Cart<ProductBean> cart = (Cart<ProductBean>)request.getSession().getAttribute("carrello");
-        UserBean userBean= (UserBean) session.getAttribute("user");
-
-        if(userBean == null)
-            response.sendRedirect(response.encodeRedirectURL(getServletContext().getContextPath()+"/login"));
-
         if(cart == null) {
             cart = new Cart<ProductBean>();
             request.getSession().setAttribute("carrello", cart);
@@ -111,7 +106,7 @@ public class CartServlet extends HttpServlet {
             request.setAttribute("error", e.getMessage());
         }
 
-        request.setAttribute("cart", cart);
+        session.setAttribute("cart", cart);
 
 
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/Cart.jsp");

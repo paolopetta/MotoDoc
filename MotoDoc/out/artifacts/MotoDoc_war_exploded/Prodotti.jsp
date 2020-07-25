@@ -90,9 +90,7 @@
             <div class="card-body">
                 <h5 class="card-title" align="center"><%=bean.getNome()%></h5>
                 <p class="card-text" align="center"><%=bean.getPrezzo()%></p>
-                <button onclick="addToCart(this)">Aggiungi al carrello</button>
-                <a href="<%=response.encodeURL("CartServlet?action=addCart&id=" + bean.getCodiceProd())%>">Aggiungi al carrello</a>
-                <!--<a href="#" class="btn btn-primary" align="center">Aggiungi al carrello</a> -->
+                <a href="<%=response.encodeURL("CartServlet?action=addCart&id=" + bean.getCodiceProd())%>" class="btn btn-primary" align="center">Aggiungi al carrello</a>
             </div>
         </div>
     </div>
@@ -101,7 +99,7 @@
 </div>
 <%}%>   <!--chiusura if-->
 
-
+<script type="text/javascript" src="Img.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

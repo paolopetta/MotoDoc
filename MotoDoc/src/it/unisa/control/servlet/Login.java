@@ -29,7 +29,7 @@ public class Login extends HttpServlet {
         HttpSession session = request.getSession();
         String action = request.getParameter("action");
         UserBean userBean= (UserBean) session.getAttribute("user");
-        Cart<ProductBean> cart= (Cart<ProductBean>) session.getAttribute("cart");
+        Cart<ProductBean> cart= (Cart<ProductBean>) session.getAttribute("carrello");
 
         if(action.equals("login")){
             if(userBean == null) { // non c'é nessun utente loggato
@@ -44,7 +44,6 @@ public class Login extends HttpServlet {
 
                 //assegno al nuovo bean tutti i campi
                 if(userRequested != null) {
-
                     MessageDigest digest = null;
                     try {
                         digest = MessageDigest.getInstance("SHA-1");
@@ -66,6 +65,7 @@ public class Login extends HttpServlet {
 
                         //assegno l'user alla sessione
                         session.setAttribute("user", userBean);
+                        session.setAttribute("carrello", cart); //prima cart cart
                         // dopo che si é loggato lo rimando ad home
                         //response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/home.jsp"));
                     }
@@ -89,7 +89,7 @@ public class Login extends HttpServlet {
             if (userBean != null) {
                 session.removeAttribute("user");
                 cart.deleteItems();
-                session.removeAttribute("cart");
+                //session.removeAttribute("cart");
             }
             response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/home.jsp"));
         }
@@ -100,14 +100,14 @@ public class Login extends HttpServlet {
         HttpSession session = request.getSession();
         String action = request.getParameter("action");
         UserBean userBean= (UserBean) session.getAttribute("user");
-        Cart<ProductBean> cart= (Cart<ProductBean>) session.getAttribute("cart");
+        //Cart<ProductBean> cart= (Cart<ProductBean>) session.getAttribute("cart");
 
         if(action.equals("logout")){
 
             if (userBean != null) {
                 session.removeAttribute("user");
-                cart.deleteItems();
-                session.removeAttribute("cart");
+                //cart.deleteItems();
+                //session.removeAttribute("cart");
 
             }
             response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/home.jsp"));

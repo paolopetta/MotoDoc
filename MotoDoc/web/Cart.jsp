@@ -33,6 +33,7 @@
 
 <%
     List<ProductBean> prodCarrello = carrello.getItems();
+    int quantita= carrello.getQuantita();
 
     if(prodCarrello.size() > 0) {
 %>

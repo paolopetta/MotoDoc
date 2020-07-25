@@ -4,7 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cart<T> {
+    public static class ProdottoQuantita {
+        private ProductBean prodotto;
+        private int quantita;
+
+        private ProdottoQuantita(ProductBean prodotto, int quantita) {
+            this.prodotto = prodotto;
+            this.quantita = quantita;
+        }
+
+        public int getQuantita() {
+            return quantita;
+        }
+
+        public void setQuantita(int quantita) {
+            this.quantita = quantita;
+        }
+
+        public ProductBean getProdotto() {
+            return prodotto;
+        }
+
+        public double getPrezzo() {
+            return (quantita * prodotto.getPrezzo());
+        }
+    }
     List<T> items;
+
 
     public Cart() {
         items = new ArrayList<T>();
@@ -32,5 +58,7 @@ public class Cart<T> {
     public void deleteItems() {
         items.clear();
     }
+
+    public int getQuantita() {return quantita;}
 }
 

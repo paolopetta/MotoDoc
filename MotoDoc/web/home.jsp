@@ -29,15 +29,15 @@
 <div class="container" align="center">
     <div class="row">
         <div class="col">
-            <a href="/prodotti?categoria=carrozzeria" class="bottom-Cat" align="center"><img src="https://cdn2.iconfinder.com/data/icons/elasto-motorcycle-gear-and-parts/26/motorcycle-512.png" alt="Carrozzeria" width="70" height="70" ></a>
+            <a href="/prodotti?categoria=carrozzeria" class="bottom-Cat1" align="center"><img src="https://cdn2.iconfinder.com/data/icons/elasto-motorcycle-gear-and-parts/26/motorcycle-512.png" alt="Carrozzeria" width="70" height="70" ></a>
             <h5>Carrozzeria</h5>
         </div>
         <div class="col">
-            <a href="#" class="bottom-Cat" align="center"><img src="https://i.ya-webdesign.com/images/vector-rims-motorbike-wheel-9.png" alt="Pneumatici" width="70" height="70" ></a>
+            <a href="#" class="bottom-Cat2" align="center"><img src="https://i.ya-webdesign.com/images/vector-rims-motorbike-wheel-9.png" alt="Pneumatici" width="70" height="70" ></a>
             <h5>Pneumatici</h5>
         </div>
         <div class="col">
-            <a href="#" class="bottom-Cat" align="center"><img src="https://image.flaticon.com/icons/png/512/2061/2061866.png" alt="Motore" width="70" height="70" ></a>
+            <a href="#" class="bottom-Cat3" align="center"><img src="https://image.flaticon.com/icons/png/512/2061/2061866.png" alt="Motore" width="70" height="70" ></a>
             <h5>Motore</h5>
         </div>
 
@@ -111,4 +111,39 @@
 
     <%@ include file= "_footer.jsp" %>
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".bottom-Cat1").hover(function(){
+                $(".bottom-Cat1").css({
+                    "opacity": "0.5"
+                });
+            }, function(){
+                $(this).css({
+                    "opacity": "1"
+                });
+            });
+        });
+        $(document).ready(function(){
+            $(".bottom-Cat2").hover(function(){
+                $(".bottom-Cat2").css({
+                    "opacity": "0.5"
+                });
+            }, function(){
+                $(this).css({
+                    "opacity": "1"
+                });
+            });
+        });
+        $(document).ready(function(){
+            $(".bottom-Cat3").hover(function(){
+                $(".bottom-Cat3").css({
+                    "opacity": "0.5"
+                });
+            }, function(){
+                $(this).css({
+                    "opacity": "1"
+                });
+            });
+        });
 
+    </script>
