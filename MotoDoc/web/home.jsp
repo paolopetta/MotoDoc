@@ -66,8 +66,7 @@
             <div class="carousel-item">
                 <img src="https://i.imgur.com/mepXO3E.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    <h5><span style="color:orangered";>Quattro ruote muovono il corpo, due ruote muovono l’anima.</span></h5>
                 </div>
             </div>
         </div>
