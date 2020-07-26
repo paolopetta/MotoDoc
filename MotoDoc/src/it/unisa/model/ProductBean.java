@@ -17,6 +17,7 @@ public class ProductBean implements Serializable {
     String p_iva;
     String codiceAlfanumerico;
     int codice;
+    int quantita;
 
 
     public ProductBean() {
@@ -30,6 +31,7 @@ public class ProductBean implements Serializable {
         p_iva="";
         codiceAlfanumerico= "";
         codice= -1;
+        quantita= 0;
     }
 
 
@@ -117,11 +119,17 @@ public class ProductBean implements Serializable {
         return codiceProd.equals("-1");
     }
 
+    public int getQuantita(){return quantita;}
+
+    public void setQuantita(int quantita){
+        this.quantita= quantita;
+    }
+
     @Override
     public String toString() {
         return "ProductBean [Nome Prodotto=" + nome + ", Codice Prodotto=" + codiceProd + ", Descrizione=" + descrizione + ", Prezzo=" + prezzo
                 + ", Marca=" + marca + ", Disponibilità=" + disponibilità + ", Partita iva=" + p_iva + ", Codice Alfanumerico="
-                + codiceAlfanumerico + ", Codice=" + codice + "]";
+                + codiceAlfanumerico + ", Codice=" + codice +", Quantitá=" + quantita + "]";
     }
 
     @Override

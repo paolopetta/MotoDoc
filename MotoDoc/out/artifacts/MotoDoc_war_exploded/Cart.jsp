@@ -41,7 +41,7 @@
 <%  } %>
 <table>
     <tr>
-        <th>Name</th>
+        <th>Nome</th>
         <th>Codice</th>
         <th>Quantità</th>
         <th>Prezzo</th>
@@ -56,7 +56,7 @@
         <th><%=prod.getCodiceProd()%></th>
         <td><input type="number" min="1" max="20"></td>
         <td><%=prod.getPrezzo()%></td>
-        <td><a href="<%=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>">   x   </a>
+        <td><a align="center" class= "eliminaprod" href="<%=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>">   x   </a>
     </tr>
     <% 		}
     } else {
@@ -67,5 +67,6 @@
     %>
     <a href="${pageContext.request.contextPath}/prodotti">Continua lo shopping</a>
 </table>
-
-
+<%if(request.getAttribute("message").equals("deleted from cart")){ // non funziona %>
+    <script>alert("Il prodotto é stato cancellato correttamente")</script>
+    <%}%>
