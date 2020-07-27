@@ -27,7 +27,7 @@
     request.setAttribute("pageTitle", pageTitle);
 %>
 <%@ include file= "_header.jsp" %>
-<link rel="stylesheet" href="Style.css">
+<style type="text/css"> @import url(stileChiSiamo.css);</style>
 
 <h2>Carrello</h2>
 
@@ -36,8 +36,9 @@
 
     if(prodCarrello.size() > 0) {
 %>
-<a href="<%=response.encodeURL("CartServlet?action=clearCart")%>">Clear</a>
-<a href="">Buy</a>
+<button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=clearCart")%>'">Clear</button>
+<!--<a href="<%=response.encodeURL("CartServlet?action=clearCart")%>">Clear</a>-->
+<button onclick="window.location.href=''">Buy</button>   <!-- da inserire il link-->
 <%  } %>
 <table>
     <tr>
@@ -54,8 +55,8 @@
     <tr>
         <td><%=prod.getNome()%></td>
         <th><%=prod.getCodiceProd()%></th>
-        <td><input type="number" min="1" max="20"></td>
-        <td><%=prod.getPrezzo()%></td>
+        <td><%=prod.getQuantita()%>></td>    <!-- input type="number" min="1" max="20" -->
+        <td><%=prod.getPrezzo()*prod.getQuantita()%></td>
         <td><a align="center" class= "eliminaprod" href="<%=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>">   x   </a>
     </tr>
     <% 		}
@@ -65,7 +66,7 @@
     <%
         }
     %>
-    <a href="${pageContext.request.contextPath}/prodotti">Continua lo shopping</a>
+    <button onclick="window.location.href='http://localhost:8080/MotoDoc_war_exploded/prodotti'">Continua lo Shopping</button>
 </table>
 <%if(request.getAttribute("message").equals("deleted from cart")){ // non funziona %>
     <script>alert("Il prodotto é stato cancellato correttamente")</script>
