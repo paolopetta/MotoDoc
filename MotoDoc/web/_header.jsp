@@ -20,7 +20,7 @@
     <h6 align="center">Lo shop che ti coccola</h6>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -48,10 +48,11 @@
             </form>
             </div>
             <% if(user != null){%>
-            <a class="nav-link" href="#">Ciao <%=user.getNome()%> <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="${pageContext.request.contextPath}/login?action=logout">Logout </a>
+            <a class="nav-link" id= "login" href="#">Ciao <%=user.getNome()%> <span class="sr-only">(current)</span></a>
+            <a class="nav-link" id= "login" href="${pageContext.request.contextPath}/login?action=logout">Logout </a>
             <%}else{%>
-            <a class="nav-link" href="login.jsp">Login <span class="sr-only">(current)</span></a>
+            <a class="nav-link" id= "login" href="login.jsp">Accedi </a>
+            <a class="nav-link" id= "login" href="Register.jsp">Registrati <span class="sr-only">(current)</span></a>
             <%}%>
         </div>
     </nav>

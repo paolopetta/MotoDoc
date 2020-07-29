@@ -9,6 +9,8 @@
     height: 100px;
     background-color: #ce6e31;
     color: black;
+    position: absolute;
+    text-align: center;
 }
 
 #corpo{

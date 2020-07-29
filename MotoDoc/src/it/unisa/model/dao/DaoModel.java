@@ -11,6 +11,8 @@ public interface DaoModel {
 
     public void doSave(Bean bean) throws SQLException;
 
+    public void doSavePar(Bean bean) throws SQLException;
+
     public void doUpdate(Bean bean) throws SQLException;
 
     public boolean doDelete(List<String> keys) throws SQLException;

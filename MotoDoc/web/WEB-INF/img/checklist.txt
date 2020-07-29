@@ -1,11 +1,6 @@
 CHECKLIST
 
-    o	Attivare la gestione della sicurezza in Tomcat;
-
     o	Gestire le sessioni per realizzare il carrello; (dovrebbe essere giá stato implementato)
-
-•	I form sono controllati con Javascript. Il form viene inviato al server solo se corretto (validazione);
-    o	Eseguire la validazione dei parametri anche lato server (nelle servlet);
 
 •	Usare JQuery per modificare il DOM in qualche pagina;
 •	Usare JQuery + AJAX per scambiare piccole informazioni con il server;
@@ -28,3 +23,6 @@ CHECKLIST
 •	Usare il connection pool per connettersi al DB (esempio Storage);
     o	Utilizzare i servlet listener per inizializzare la connessione al DB;
 •	Usare JQuery o Animazioni CSS per animare le immagini al passaggio del mouse;
+    o	Attivare la gestione della sicurezza in Tomcat;
+•	I form sono controllati con Javascript. Il form viene inviato al server solo se corretto (validazione);
+    o	Eseguire la validazione dei parametri anche lato server (nelle servlet);

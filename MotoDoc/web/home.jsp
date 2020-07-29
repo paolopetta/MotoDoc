@@ -24,9 +24,9 @@
 <%@ include file= "_header.jsp" %>
 <title>MotoDoc</title>
 <link rel="stylesheet" href="Style.css">
-
-<!-- Categorie -->
-<div class="container" align="center">
+<body>
+    <!-- Categorie -->
+    <div class="container" align="center">
     <div class="row">
         <div class="col">
             <a href="/prodotti?categoria=carrozzeria" class="bottom-Cat1" align="center"><img src="https://cdn2.iconfinder.com/data/icons/elasto-motorcycle-gear-and-parts/26/motorcycle-512.png" alt="Carrozzeria" width="70" height="70" ></a>
@@ -40,7 +40,6 @@
             <a href="#" class="bottom-Cat3" align="center"><img src="https://image.flaticon.com/icons/png/512/2061/2061866.png" alt="Motore" width="70" height="70" ></a>
             <h5>Motore</h5>
         </div>
-
     </div>
 
     <!--   CAROUSEL  -->
@@ -108,8 +107,8 @@
 </div>
 <% } //fine offerte  %>
 
-    <%@ include file= "_footer.jsp" %>
-
+<%@ include file= "_footer.jsp" %>
+</body>
     <script type="text/javascript">
         $(document).ready(function(){
             $(".bottom-Cat1").hover(function(){

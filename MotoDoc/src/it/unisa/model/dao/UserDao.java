@@ -19,10 +19,42 @@ public class UserDao implements DaoModel {
     private static DriverManagerConnectionPool pool = null;
 
 
-    /*public UserDao(DriverManagerConnectionPool pool) {
+   /* public UserDao(DriverManagerConnectionPool pool) {
         this.pool = pool;
     }*/
 
+    public synchronized void doSavePar(Bean bean) throws SQLException {
+        PreparedStatement ps = null;
+        Connection con = null;
+
+        String insertQuery = "INSERT INTO " + TABLE_NAME + " (username,email,password,nome,cognome) VALUES (?,?,SHA1(?),?,?)";
+
+        try {
+            con = pool.getConnection();
+            ps = con.prepareStatement(insertQuery);
+            UserBean userBean = (UserBean) bean;
+
+            ps.setString(1, userBean.getUsername());
+            ps.setString(2, userBean.getEmail());
+            ps.setString(3, userBean.getPassword());
+            ps.setString(4, userBean.getNome());
+            ps.setString(5, userBean.getCognome());
+
+            int result = ps.executeUpdate();
+
+            if (result != 0)
+                con.commit();
+        } finally {
+            try {
+                if (ps != null)
+                    ps.close();
+            } finally {
+                pool.releaseConnection(con);
+            }
+        }
+
+
+    }
 
 
     @Override
@@ -30,7 +62,7 @@ public class UserDao implements DaoModel {
         PreparedStatement ps = null;
         Connection con = null;
 
-        String insertQuery = "INSERT INTO " + TABLE_NAME + " (username,email,password,auth,active,CF,nome,cognome,indirizzo) VALUES (?,?,MD5(?),?,?,?,?,?,?)";
+        String insertQuery = "INSERT INTO " + TABLE_NAME + " (username,email,password,auth,active,CF,nome,cognome,indirizzo) VALUES (?,?,SHA1(?),?,?,?,?,?,?)";
 
         try {
             con = pool.getConnection();
@@ -132,7 +164,7 @@ public class UserDao implements DaoModel {
         Connection con = null;
         ResultSet rs = null;
         UserBean bean = null;
-        String selectQuery = (keys.size() == 2) ? "SELECT * FROM " + TABLE_NAME + " WHERE email=? and password=MD5(?)" : "SELECT * FROM " + TABLE_NAME + " WHERE id=?";
+        String selectQuery = (keys.size() == 2) ? "SELECT * FROM " + TABLE_NAME + " WHERE email=? and password=SHA1(?)" : "SELECT * FROM " + TABLE_NAME + " WHERE id=?";
 
         try {
             con = pool.getConnection();
