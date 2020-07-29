@@ -9,6 +9,8 @@
     height: 100px;
     background-color: #ce6e31;
     color: black;
+    position: absolute;
+    text-align: center;
 }
 
 #corpo{
@@ -19,5 +21,9 @@
 .row{
     margin-left: 0px;
     margin-right: 0px;
+}
+
+#login{
+    color: #ce6e31;
 }
 

@@ -23,7 +23,6 @@ import java.sql.SQLException;
 public class Login extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private final UserDao utenteDAO = new UserDao();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -85,7 +84,6 @@ public class Login extends HttpServlet {
         }
 
         else if(action.equals("logout")){
-            System.out.println("Dentro logout");
             if (userBean != null) {
                 session.removeAttribute("user");
                 cart.deleteItems();
