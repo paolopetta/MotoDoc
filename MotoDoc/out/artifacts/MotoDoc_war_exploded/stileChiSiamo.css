@@ -37,11 +37,3 @@ h1{
     width: 85px;
     height: 75px;
 }
-
-table {
-    border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid black;
-}
