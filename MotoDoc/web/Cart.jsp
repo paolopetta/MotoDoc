@@ -27,7 +27,7 @@
     request.setAttribute("pageTitle", pageTitle);
 %>
 <%@ include file= "_header.jsp" %>
-<style type="text/css"> @import url(stileChiSiamo.css);</style>
+<style type="text/css"> @import url(Style.css);</style>
 
 <h2>Carrello</h2>
 
