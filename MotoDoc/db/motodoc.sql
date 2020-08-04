@@ -105,7 +105,114 @@ insert into Users (username, email, password, auth, CF, nome, cognome, indirizzo
 values ('Paolo00', 'paolo.petta00@gmail.com', sha1("password"), 'user','PTTPLA00A24F912W', 'Paolo', 'Petta', 'Via s rocco 8');
 
 insert into Users (username, email, password, auth)
-values ('admin','admin@admin.it', sha1("password"), 'admin');
+drop database if exists docmoto;
+create database docmoto;
+use docmoto;
+
+DROP user IF EXISTS 'motoDoc'@'localhost';
+CREATE USER 'motoDoc'@'localhost' IDENTIFIED BY 'adminadmin';
+GRANT ALL ON docmoto.* TO 'motoDoc'@'localhost';
+
+create table Fornitore(
+  p_iva    varchar(10)    not null primary key,
+    nome    varchar(30)   not null,
+    indirizzo  varchar(50)    not null,
+    fax      varchar(10)      not null
+);
+
+create table Deposito(
+  codiceAlfanumerico varchar(4)  not null primary key,
+    indirizzo  varchar(50)    not null
+    );
+
+create table Scaffale(
+  codice        int      not null primary key,
+    codiceAlfanumerico varchar(4)  not null,
+    foreign key (codiceAlfanumerico) references Deposito(codiceAlfanumerico)
+    );
+
+create table Prodotto(
+  codiceProd    varchar(10)  not null primary key,
+    nome      varchar(20)  not null,
+    descrizione  varchar(100)  not null,
+    img      varchar(300)  ,
+    prezzo     double      not null,
+    marca    varchar(10)    not null,
+    disponibilità enum('y' , 'n') not null,
+    p_iva    varchar(10)      not null,
+    codiceAlfanumerico  varchar(4)  not null,
+    codice    int        not null,
+    offerta    varchar(1),
+    foreign key (p_iva) references Fornitore (p_iva),
+    foreign key (codiceAlfanumerico) references Deposito(codiceAlfanumerico),
+    foreign key (codice) references Scaffale(codice)
+);
+
+create table Meccanica (
+  impiego    varchar(10)    not null,
+    codiceProd   varchar(10)          not null,
+    foreign key (codiceProd) references Prodotto (codiceProd)
+);
+
+create table Pneumatici(
+  misura    varchar(9)      not null,
+    stagione  varchar(10)      not null,
+    codiceProd   varchar(10)      not null,
+    foreign key (codiceProd) references Prodotto (codiceProd)
+    );
+
+create table Carrozzeria(
+  materiale   varchar(10)      not null,
+    codiceProd   varchar(10)        not null,
+    foreign key (codiceProd) references Prodotto(codiceProd)
+    );
+
+    create table Users(
+    id integer unsigned auto_increment not null,
+    username varchar(192) not null unique,
+    email varchar(255) not null unique,
+    password varchar(255) not null,
+    auth enum('user', 'premium', 'admin') default 'user',
+    active boolean default true,
+	CF      varchar(16)   ,
+    nome    varchar(15)    ,
+    cognome    varchar(15)    ,
+    indirizzo  varchar(50)    ,
+    primary key(id)
+) auto_increment = 1;
+
+create table Ordine(
+  codice    int        not null primary key,
+    dataOrd    date      not null,
+    npezzi    int       not null,
+    Users_id      integer unsigned not null,
+    foreign key(Users_id) references Users(id)
+);
+
+create table Composto(
+  codice         int        not null,
+    codiceProd     varchar(10)        not null,
+    foreign key(codice) references Ordine(codice),
+  foreign key(codiceProd) references Prodotto(codiceProd)
+);
+
+create table Spedizione(
+  codice      int      not null primary key,
+    dataSpedizione  date    not null,
+  foreign key (codice) references Ordine (codice)
+);
+
+create table Telefono(
+  numero     varchar(10)    not null primary key,
+  Users_id      integer unsigned not null,
+    foreign key(Users_id) references Users(id)
+);
+
+insert into Users (username, email, password, auth, CF, nome, cognome, indirizzo)
+values ('Paolo00', 'paolo.petta00@gmail.com', sha1("password"), 'user','PTTPLA00A24F912W', 'Paolo', 'Petta', 'Via s rocco 8');
+
+insert into Users (username, email, password, auth, nome)
+values ('admin','admin@admin.it', sha1("password"), 'admin', 'Admin');
 
 set global max_allowed_packet=20971520;
 
@@ -122,7 +229,6 @@ values (123, 'A'), (124, 'A'), (125, 'A'),(126, 'A'),(127, 'A'), (145, 'B'), (14
 
 insert into Prodotto (codiceProd, nome, descrizione, img, prezzo, marca, disponibilità, p_iva, codiceAlfanumerico, codice)
 values ('2452', 'Gomme','pilot', 'https://aecbmesvcm.cloudimg.io/cdno/n/webp.png-lossless/https://blobs.dgadteamdev.com/b2c-experience-production/attachments/cjfv2om9u0rg40hqmmc9xb11o-moto-tyres-pilot-power-3-persp.full.png', 55.00, 'Michelin', 'y', '54555', 'A', 123),
-    ('1574', 'Gomme Pirelli','free', 'https://d3nv2arudvw7ln.cloudfront.net/images/870/855/diablo_rosso_III_3_4,0.jpg', 50.00, 'Pirelli', 'y', '54555', 'A', 124 ),
         ('1577', 'Candela', 'candela motore', 'https://images-na.ssl-images-amazon.com/images/I/61Lj6AA7BeL._AC_SX466_.jpg',15.00, 'NGK', 'y', '54758', 'A', 125),
         ('1478', 'Cambio','cambio elettronico', 'https://www.carpimoto.it/Images/Products/Detail/Dynojet_Quick_Shifter_Sensor_Cambio_Elettronico_E4-103.jpg',200.50, 'Hirace', 'n', '54758', 'B', 145),
         ('1457', 'Fianchetto duke','fianchetto', 'https://www.motoricambiservice.com/ebay/readyproebayimages/CARENA-CODINO-SINISTRA-KTM-390-DUKE-ABS-2017-2019-9300804110028-LEFT-SIDE-REAR_462479.jpg',50.00, 'Hirace', 'y', '54758', 'B', 146 ),
@@ -131,7 +237,8 @@ values ('2452', 'Gomme','pilot', 'https://aecbmesvcm.cloudimg.io/cdno/n/webp.png
         ('1845', 'Parafango','parafango per vespa', 'https://www.ricambimotopalermo.it/wp-content/uploads/imported/PARAFANGO-VESPA-PX-FRENO-A-DISCO-RMS-142680130-161241378094.jpg',75.00, 'Hirace', 'y', '54758', 'A', 126);
 
 insert into Prodotto (codiceProd, nome, descrizione, img, prezzo, marca, disponibilità, p_iva, codiceAlfanumerico, codice, offerta)
-values ('1888', 'Gomme diavel','4stag-all seasons', 'https://i.ebayimg.com/images/g/oVMAAOSwhpZaIfJc/s-l300.jpg',60.00, 'Michelin', 'n', '54758', 'A', 127, 'y');
+values ('1888', 'Gomme diavel','4stag-all seasons', 'https://i.ebayimg.com/images/g/oVMAAOSwhpZaIfJc/s-l300.jpg',60.00, 'Michelin', 'y', '54758', 'A', 127, 'y'),
+		('1574', 'Gomme Pirelli','free', 'https://d3nv2arudvw7ln.cloudfront.net/images/870/855/diablo_rosso_III_3_4,0.jpg', 50.00, 'Pirelli', 'y', '54555', 'A', 124 );
 
 insert into Pneumatici(misura, stagione, codiceProd)
 values ('155\75R15', 'estiva', '2452'), ('165\55R15', 'invernale', '1574'), ('160\55R16', '4stagioni', '1888');

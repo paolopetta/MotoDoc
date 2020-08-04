@@ -31,7 +31,7 @@ public class ProductBean implements Serializable {
         p_iva="";
         codiceAlfanumerico= "";
         codice= -1;
-        quantita=1;
+        quantita=0;
     }
 
 

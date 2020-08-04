@@ -38,7 +38,7 @@
                     <a class="nav-link" href="ChiSiamo.jsp">Chi Siamo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="CartServlet?action=addCart&id=1457">Carrello</a>
+                    <a class="nav-link" href="CartServlet">Carrello</a>
                 </li>
             </ul>
             <div id="form" align="center">

@@ -66,6 +66,7 @@ public class CartServlet extends HttpServlet {
                         cart.deleteItem(bean);
                         request.setAttribute("message", "Product "+ bean.getNome()+" deleted from cart");
                     }
+
                 } else if(action.equals("insert")) {
                     String nome = request.getParameter("nome");
                     String descrizione = request.getParameter("descrizione");
@@ -109,8 +110,9 @@ public class CartServlet extends HttpServlet {
         session.setAttribute("cart", cart);
 
 
-        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/Cart.jsp");
-        dispatcher.forward(request, response);
+        /*RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Cart.jsp");
+        requestDispatcher.forward(request, response);*/
+        response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/Cart.jsp"));
 
     }
 

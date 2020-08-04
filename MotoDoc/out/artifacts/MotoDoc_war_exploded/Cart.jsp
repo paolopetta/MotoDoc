@@ -37,7 +37,7 @@
     if(prodCarrello.size() > 0) {
 %>
 <button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=clearCart")%>'">Clear</button>
-<!--<a href="<%=response.encodeURL("CartServlet?action=clearCart")%>">Clear</a>-->
+<!--<a href="<%//=response.encodeURL("CartServlet?action=clearCart")%>">Clear</a>-->
 <button onclick="window.location.href=''">Buy</button>   <!-- da inserire il link-->
 <%  } %>
 <table>
@@ -57,7 +57,8 @@
         <th><%=prod.getCodiceProd()%></th>
         <td><%=prod.getQuantita()%>></td>    <!-- input type="number" min="1" max="20" -->
         <td><%=prod.getPrezzo()*prod.getQuantita()%></td>
-        <td><a align="center" class= "eliminaprod" href="<%=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>">   x   </a>
+        <!--<td><a align="center" class= "eliminaprod" href="<%//=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>">   x   </a></td>-->
+        <td><button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>'">Elimina prod</button></td>
     </tr>
     <% 		}
     } else {
@@ -68,6 +69,6 @@
     %>
     <button onclick="window.location.href='http://localhost:8080/MotoDoc_war_exploded/prodotti'">Continua lo Shopping</button>
 </table>
-<%if(request.getAttribute("message").equals("deleted from cart")){ // non funziona %>
-    <script>alert("Il prodotto é stato cancellato correttamente")</script>
-    <%}%>
+
+
+

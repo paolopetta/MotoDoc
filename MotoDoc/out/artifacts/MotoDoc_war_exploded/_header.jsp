@@ -38,7 +38,7 @@
                     <a class="nav-link" href="ChiSiamo.jsp">Chi Siamo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="CartServlet?action=addCart&id=1457">Carrello</a>
+                    <a class="nav-link" href="CartServlet">Carrello</a>
                 </li>
             </ul>
             <div id="form" align="center">
@@ -52,7 +52,7 @@
             <a class="nav-link" id= "login" href="${pageContext.request.contextPath}/login?action=logout">Logout </a>
             <%}else{%>
             <a class="nav-link" id= "login" href="login.jsp">Accedi </a>
-            <a class="nav-link" href="Register.jsp">Registrati <span class="sr-only">(current)</span></a>
+            <a class="nav-link" id= "login" href="Register.jsp">Registrati <span class="sr-only">(current)</span></a>
             <%}%>
         </div>
     </nav>
