@@ -33,9 +33,9 @@ public class CartServlet extends HttpServlet {
 
         @SuppressWarnings("unchecked")
         HttpSession session = request.getSession();
-        Cart<ProductBean> cart = (Cart<ProductBean>)request.getSession().getAttribute("carrello");
+        Cart cart = (Cart)request.getSession().getAttribute("carrello");
         if(cart == null) {
-            cart = new Cart<ProductBean>();
+            cart = new Cart();
             request.getSession().setAttribute("carrello", cart);
         }
 
@@ -53,6 +53,10 @@ public class CartServlet extends HttpServlet {
                     String id = request.getParameter("id");
                     ProductBean bean = model.doRetrieveByKey(id);
                     if(bean != null && !bean.isEmpty()) {
+                        if(cart.alReadyIn(bean)){
+                           cart.getItems().get(cart.getItems().indexOf(bean)+1).setQuantita(cart.getItems().get(cart.getItems().indexOf(bean)+1).getQuantita()+1);
+                        }
+                        else
                         cart.addItem(bean);
                         request.setAttribute("message", "Product "+ bean.getNome()+" added to cart");
                     }

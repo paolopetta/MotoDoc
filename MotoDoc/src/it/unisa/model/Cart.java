@@ -3,29 +3,38 @@ package it.unisa.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cart<T> {
-    List<T> items;
+public class Cart {
+    ArrayList<ProductBean> items;
 
     public Cart() {
-        items = new ArrayList<T>();
+        items = new ArrayList<ProductBean>();
     }
 
-    public void addItem(T item) {
+    public void addItem(ProductBean item) {
         items.add(item);
     }
 
-    public void deleteItem(T item) {
-        //items.remove(item);
-
-		for(T it: items) {
-			if(it.equals(item)) {
-				items.remove(it);
-				break;
-			}
-		}
+    public boolean alReadyIn(ProductBean item) {
+        for(ProductBean it: items) {
+            if(it.getCodiceProd().equals(item.codiceProd)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public List<T> getItems() {
+    public void deleteItem(ProductBean item) {
+        //items.remove(item);
+
+        for(ProductBean it: items) {
+            if(it.equals(item)) {
+                items.remove(it);
+                break;
+            }
+        }
+    }
+
+    public ArrayList<ProductBean> getItems() {
         return items;
     }
 

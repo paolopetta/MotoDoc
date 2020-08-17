@@ -37,6 +37,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setP_iva(rs.getString("p_iva"));
                 bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
                 bean.setCodice(rs.getInt("codice"));
+                bean.setQuantita(1);
 
             }
         } finally {
