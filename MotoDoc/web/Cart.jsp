@@ -13,7 +13,7 @@
 <%
     String error = (String)request.getAttribute("error");
 
-    Cart<ProductBean> carrello = (Cart<ProductBean>) session.getAttribute("carrello");
+    Cart carrello = (Cart) session.getAttribute("carrello");
     UserBean userBean = (UserBean) session.getAttribute("user");
 
 
@@ -53,9 +53,9 @@
             for(ProductBean prod: prodCarrello) {
     %>
     <tr>
-        <td><%=prod.getNome()%></td>
-        <th><%=prod.getCodiceProd()%></th>
-        <td><%=prod.getQuantita()%>></td>    <!-- input type="number" min="1" max="20" -->
+        <th><%=prod.getNome()%></th>
+        <td><%=prod.getCodiceProd()%></td>
+        <td><%=prod.getQuantita()%></td>    <!-- input type="number" min="1" max="20" -->
         <td><%=prod.getPrezzo()*prod.getQuantita()%></td>
         <!--<td><a align="center" class= "eliminaprod" href="<%//=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>">   x   </a></td>-->
         <td><button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>'">Elimina prod</button></td>

@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
         HttpSession session = request.getSession();
         String action = request.getParameter("action");
         UserBean userBean= (UserBean) session.getAttribute("user");
-        Cart<ProductBean> cart= (Cart<ProductBean>) session.getAttribute("carrello");
+        Cart cart= (Cart) session.getAttribute("carrello");
 
         if(action.equals("login")){
             if(userBean == null) { // non c'é nessun utente loggato

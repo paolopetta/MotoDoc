@@ -31,9 +31,9 @@ public class ProductControl extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         @SuppressWarnings("unchecked")
-        Cart<ProductBean> cart = (Cart<ProductBean>)request.getSession().getAttribute("carrello");
+        Cart cart = (Cart)request.getSession().getAttribute("carrello");
         if(cart == null) {
-            cart = new Cart<ProductBean>();
+            cart = new Cart();
             request.getSession().setAttribute("carrello", cart);
         }
 
