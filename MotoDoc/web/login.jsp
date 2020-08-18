@@ -23,9 +23,10 @@
         }
         .login-form form {
             margin-bottom: 15px;
-            background: #f7f7f7;
+            background: #363a40;
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
             padding: 30px;
+            color: #ce6e31;
         }
         .login-form h2 {
             margin: 0 0 15px;
