@@ -1,4 +1,8 @@
-package it.unisa.model;
+package it.unisa.model.dao;
+
+import it.unisa.model.DriverManagerConnectionPool;
+import it.unisa.model.ProductBean;
+import it.unisa.model.dao.ProductModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -85,7 +89,9 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setDisponibilità(rs.getString("disponibilità"));
                 bean.setP_iva(rs.getString("p_iva"));
                 bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
+                bean.setOfferta(rs.getString("offerta"));
                 bean.setCodice(rs.getInt("codice"));
+
 
                 products.add(bean);
             }
@@ -136,6 +142,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setDisponibilità(rs.getString("disponibilità"));
                 bean.setP_iva(rs.getString("p_iva"));
                 bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
+                bean.setOfferta(rs.getString("offerta"));
                 bean.setCodice(rs.getInt("codice"));
 
                 offerte.add(bean);
@@ -185,6 +192,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setDisponibilità(rs.getString("disponibilità"));
                 bean.setP_iva(rs.getString("p_iva"));
                 bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
+                bean.setOfferta(rs.getString("offerta"));
                 bean.setCodice(rs.getInt("codice"));
 
                 pneumatici.add(bean);
@@ -235,6 +243,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setDisponibilità(rs.getString("disponibilità"));
                 bean.setP_iva(rs.getString("p_iva"));
                 bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
+                bean.setOfferta(rs.getString("offerta"));
                 bean.setCodice(rs.getInt("codice"));
 
                 carrozzerie.add(bean);
@@ -257,7 +266,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
         PreparedStatement preparedStatement = null;
 
         String insertSQL = "INSERT INTO Prodotto" +
-                " (codiceProd, nome, descrizione, img, prezzo, marca, disponibilità, p_iva, codiceAlfanumerico, codice) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                " (codiceProd, nome, descrizione, img, prezzo, marca, disponibilità, p_iva, codiceAlfanumerico, codice, offerta) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             connection = DriverManagerConnectionPool.getConnection();
@@ -273,6 +282,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
             preparedStatement.setString(8, product.getP_iva());
             preparedStatement.setString(9, product.getCodiceAlfanumerico());
             preparedStatement.setInt(10, product.getCodice());
+            preparedStatement.setString(11, product.getOfferta());
 
 
             System.out.println("doSave: "+ preparedStatement.toString());

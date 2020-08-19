@@ -2,7 +2,7 @@ package it.unisa.control;
 
 import it.unisa.model.Cart;
 import it.unisa.model.ProductBean;
-import it.unisa.model.ProductModelDM;
+import it.unisa.model.dao.ProductModelDM;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

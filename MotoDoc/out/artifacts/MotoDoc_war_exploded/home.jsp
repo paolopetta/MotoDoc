@@ -27,7 +27,7 @@
 <body>
     <!-- Categorie -->
     <div class="container" align="center">
-    <div class="row">
+        <div class="row">
         <div class="col">
             <a href="/prodotti?categoria=carrozzeria" class="bottom-Cat1" align="center"><img src="https://cdn2.iconfinder.com/data/icons/elasto-motorcycle-gear-and-parts/26/motorcycle-512.png" alt="Carrozzeria" width="70" height="70" ></a>
             <h5>Carrozzeria</h5>
@@ -107,8 +107,10 @@
 </div>
 <% } //fine offerte  %>
 
-<%@ include file= "_footer.jsp" %>
+    </div>
+    <%@ include file= "_footer.jsp" %>
 </body>
+
     <script type="text/javascript">
         $(document).ready(function(){
             $(".bottom-Cat1").hover(function(){

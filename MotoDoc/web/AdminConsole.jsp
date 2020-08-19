@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: pavil
-  Date: 23/07/2020
-  Time: 18:53
+  Date: 05/08/2020
+  Time: 16:43
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,8 +11,6 @@
     <title>Admin</title>
 </head>
 <body>
-<%@ include file= "_header.jsp" %>
-
-
+<p>Ciao</p>
 </body>
 </html>

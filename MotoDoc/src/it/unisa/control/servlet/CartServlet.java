@@ -2,10 +2,8 @@ package it.unisa.control.servlet;
 
 import it.unisa.model.Cart;
 import it.unisa.model.ProductBean;
-import it.unisa.model.ProductModelDM;
-import it.unisa.model.UserBean;
+import it.unisa.model.dao.ProductModelDM;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,8 +51,17 @@ public class CartServlet extends HttpServlet {
                     String id = request.getParameter("id");
                     ProductBean bean = model.doRetrieveByKey(id);
                     if(bean != null && !bean.isEmpty()) {
-                        if(cart.alReadyIn(bean)) {
-                            cart.incrementItem(bean);
+                        System.out.println(cart.contains(bean));
+                        if(cart.contains(bean)){
+                            bean.setQuantita(bean.getQuantita() + 1);
+                        }
+                        else {
+                            cart.addItem(bean);
+                            bean.setQuantita(bean.getQuantita() + 1);
+                            request.setAttribute("message", "Product " + bean.getNome() + " added to cart");
+                        }
+                        if(cart.alReadyIn(bean)){
+                           cart.getItems().get(cart.getItems().indexOf(bean)+1).setQuantita(cart.getItems().get(cart.getItems().indexOf(bean)+1).getQuantita()+1);
                         }
                         else
                         cart.addItem(bean);

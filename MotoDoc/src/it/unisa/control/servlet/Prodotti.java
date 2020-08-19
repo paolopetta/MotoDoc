@@ -1,6 +1,6 @@
 package it.unisa.control.servlet;
 
-import it.unisa.model.ProductModelDM;
+import it.unisa.model.dao.ProductModelDM;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

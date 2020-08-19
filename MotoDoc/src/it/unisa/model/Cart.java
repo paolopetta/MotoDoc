@@ -49,5 +49,14 @@ public class Cart {
     public void deleteItems() {
         items.clear();
     }
+
+    public boolean contains(T item){
+        for(T it: items) {
+            if(it.equals(item)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 

@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "LoginFilter", urlPatterns = {"/login/admin/*", "/login/user/*"})
+@WebFilter(filterName = "LoginFilter", urlPatterns = {"/Admin/*", "/User/*", "/UserServlet", "/AdminServlet"})
 public class AuthFilter implements Filter {
     public void destroy() {
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
-        chain.doFilter(req, resp);
+
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
 
@@ -24,14 +24,26 @@ public class AuthFilter implements Filter {
 
         String uri = request.getRequestURI();
         if (session != null) {
-            if (uri.contains("/user/")) { //qualcuno tenta di accedere alle pagine utente
+            if (uri.contains("/User/")) { //qualcuno tenta di accedere alle pagine utente
                 if (userBean != null && (userBean.isAdmin() || !userBean.isAdmin()))
                     chain.doFilter(req, resp); //se registrato vado avanti con i filtri
                 else
                     response.sendRedirect(response.encodeRedirectURL(request.getContextPath()) + "/home.jsp"); //se non é reg rimanda alla home
-            } else if (uri.contains("/admin/")) { //qualcuno tenta di accedere alle pagine admin
-                if (userBean != null && (userBean.isAdmin())) chain.doFilter(req, resp);
+            } else if (uri.contains("/Admin/")) { //qualcuno tenta di accedere alle pagine admin
+                if (userBean != null && (userBean.getAuth().equals("admin"))) chain.doFilter(req, resp);
                 else response.sendRedirect(response.encodeRedirectURL(request.getContextPath()) + "/home.jsp");
+            }
+            else if(uri.contains("/UserServlet")) {
+                if (userBean != null && (userBean.isAdmin() || !userBean.isAdmin()))
+                    chain.doFilter(req, resp); //se registrato vado avanti con i filtri
+                else
+                    response.sendRedirect(response.encodeRedirectURL(request.getContextPath()) + "/home.jsp"); //se non é reg rimanda alla home
+            }
+            else if(uri.contains("/AdminServlet")) {
+                if (userBean != null && userBean.isAdmin())
+                    chain.doFilter(req, resp); //se registrato vado avanti con i filtri
+                else
+                    response.sendRedirect(response.encodeRedirectURL(request.getContextPath()) + "/home.jsp"); //se non é reg rimanda alla home
             }
         } else response.sendRedirect(response.encodeRedirectURL(request.getContextPath()) + "/home.jsp");
     }

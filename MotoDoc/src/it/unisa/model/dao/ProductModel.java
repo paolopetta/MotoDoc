@@ -1,4 +1,6 @@
-package it.unisa.model;
+package it.unisa.model.dao;
+
+import it.unisa.model.ProductBean;
 
 import java.sql.SQLException;
 import java.util.Collection;

@@ -66,7 +66,9 @@
     <%
         }
     %>
+    <!--<button onclick="window.location.href='http://localhost:8080/MotoDoc_war_exploded/prodotti'">Continua lo Shopping</button>-->
 </table>
+<%@ include file= "_footer.jsp" %>
 
 <%
 if(prodCarrello.size() > 0) {

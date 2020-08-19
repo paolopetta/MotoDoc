@@ -17,6 +17,7 @@ public class ProductBean implements Serializable {
     String p_iva;
     String codiceAlfanumerico;
     int codice;
+    String offerta;
     int quantita;
 
 
@@ -31,7 +32,8 @@ public class ProductBean implements Serializable {
         p_iva="";
         codiceAlfanumerico= "";
         codice= -1;
-        quantita=1;
+        offerta= "";
+        quantita=0;
     }
 
 
@@ -118,6 +120,10 @@ public class ProductBean implements Serializable {
     public boolean isEmpty() {
         return codiceProd.equals("-1");
     }
+
+    public void setOfferta(String offerta){ this.offerta = offerta;}
+
+    public String getOfferta(){return offerta;}
 
     public int getQuantita(){return quantita;}
 
