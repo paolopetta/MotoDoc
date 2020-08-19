@@ -53,8 +53,8 @@ public class CartServlet extends HttpServlet {
                     String id = request.getParameter("id");
                     ProductBean bean = model.doRetrieveByKey(id);
                     if(bean != null && !bean.isEmpty()) {
-                        if(cart.alReadyIn(bean)){
-                           cart.getItems().get(cart.getItems().indexOf(bean)+1).setQuantita(cart.getItems().get(cart.getItems().indexOf(bean)+1).getQuantita()+1);
+                        if(cart.alReadyIn(bean)) {
+                            cart.incrementItem(bean);
                         }
                         else
                         cart.addItem(bean);
