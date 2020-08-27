@@ -29,25 +29,24 @@
 <%@ include file= "_header.jsp" %>
 <style type="text/css"> @import url(Style.css);</style>
 
-<h2>Carrello</h2>
+<h2 align="center" style="color: orangered">Carrello</h2>
 
 <%
     List<ProductBean> prodCarrello = carrello.getItems();
-
-    if(prodCarrello.size() > 0) {
 %>
-<button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=clearCart")%>'">Clear</button>
-<!--<a href="<%//=response.encodeURL("CartServlet?action=clearCart")%>">Clear</a>-->
-<button onclick="window.location.href=''">Buy</button>   <!-- da inserire il link-->
-<%  } %>
-<table>
+
+
+<table class="table">
+    <thead class="thead-light">
     <tr>
-        <th>Nome</th>
-        <th>Codice</th>
-        <th>Quantità</th>
-        <th>Prezzo</th>
-        <th>Elimina</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Codice</th>
+        <th scope="col">Quantità</th>
+        <th scope="col">Prezzo</th>
+        <th scope="col">Elimina</th>
     </tr>
+    </thead>
+
     <%
         if(prodCarrello.size() > 0) {
             for(ProductBean prod: prodCarrello) {
@@ -56,9 +55,9 @@
         <th><%=prod.getNome()%></th>
         <td><%=prod.getCodiceProd()%></td>
         <td><%=prod.getQuantita()%></td>    <!-- input type="number" min="1" max="20" -->
-        <td><%=prod.getPrezzo()*prod.getQuantita()%></td>
+        <td><%=prod.getPrezzo()*prod.getQuantita()+"&#8364"%></td>
         <!--<td><a align="center" class= "eliminaprod" href="<%//=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>">   x   </a></td>-->
-        <td><button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>'">Elimina prod</button></td>
+        <td><button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=deleteCart&id=" + prod.getCodiceProd())%>'" class="btn btn-outline-danger btn-sm">x</button></td>
     </tr>
     <% 		}
     } else {
@@ -70,6 +69,17 @@
     <!--<button onclick="window.location.href='http://localhost:8080/MotoDoc_war_exploded/prodotti'">Continua lo Shopping</button>-->
 </table>
 <%@ include file= "_footer.jsp" %>
+
+<%
+if(prodCarrello.size() > 0) {
+%>
+<button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=clearCart")%>'" class="btn btn-secondary btn-sm">Clear</button>
+<!--<a href="<%//=response.encodeURL("CartServlet?action=clearCart")%>">Clear</a>-->
+<button onclick="window.location.href=''" class="btn btn-secondary btn-sm">Buy</button>   <!-- da inserire il link-->
+<%  } %>
+
+<button onclick="window.location.href='http://localhost:8080/MotoDoc_war_exploded/prodotti'" class="btn btn-secondary btn-sm" >Continua lo Shopping</button>
+
 
 
 
