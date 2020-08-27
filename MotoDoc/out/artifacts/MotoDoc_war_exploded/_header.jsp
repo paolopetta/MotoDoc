@@ -48,7 +48,7 @@
             </form>
             </div>
             <% if(user != null){%>
-            <a class="nav-link" id= "login" href="#">Ciao <%=user.getNome()%> <span class="sr-only">(current)</span></a>
+            <a class="nav-link" id= "login" href="${pageContext.request.contextPath}/Admin/Admin.jsp">Ciao <%=user.getNome()%> <span class="sr-only">(current)</span></a>
             <a class="nav-link" id= "login" href="${pageContext.request.contextPath}/login?action=logout">Logout </a>
             <%}else{%>
             <a class="nav-link" id= "login" href="login.jsp">Accedi </a>

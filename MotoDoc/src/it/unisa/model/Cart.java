@@ -42,8 +42,8 @@ public class Cart {
         items.clear();
     }
 
-    public boolean contains(T item){
-        for(T it: items) {
+    public boolean contains(ProductBean item){
+        for(ProductBean it: items) {
             if(it.equals(item)) {
                 return true;
             }
