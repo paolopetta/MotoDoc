@@ -63,22 +63,25 @@
     } else {
     %>
     <tr><td colspan="2">Il tuo carrello è vuoto</td></tr>
+
     <%
         }
     %>
     <!--<button onclick="window.location.href='http://localhost:8080/MotoDoc_war_exploded/prodotti'">Continua lo Shopping</button>-->
 </table>
-<%@ include file= "_footer.jsp" %>
 
+<button onclick="window.location.href='http://localhost:8080/MotoDoc_war_exploded/prodotti'" class="btn btn-secondary btn-sm" >Continua lo Shopping</button>
 <%
 if(prodCarrello.size() > 0) {
 %>
+
 <button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=clearCart")%>'" class="btn btn-secondary btn-sm">Clear</button>
 <!--<a href="<%//=response.encodeURL("CartServlet?action=clearCart")%>">Clear</a>-->
 <button onclick="window.location.href=''" class="btn btn-secondary btn-sm">Buy</button>   <!-- da inserire il link-->
 <%  } %>
 
-<button onclick="window.location.href='http://localhost:8080/MotoDoc_war_exploded/prodotti'" class="btn btn-secondary btn-sm" >Continua lo Shopping</button>
+<%@ include file= "_footer.jsp" %>
+
 
 
 

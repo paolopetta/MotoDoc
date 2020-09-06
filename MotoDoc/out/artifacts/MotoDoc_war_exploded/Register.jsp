@@ -11,6 +11,14 @@
 <link rel="stylesheet" href="Style.css">
 <link href="./ProductStyle.css" rel="stylesheet" type="text/css">
 
+<style>
+    .w3-container{ margin: 15px 50px;
+        line-height: 2.0;
+    }
+    strong{ font-style: italic;
+        color: #363a40;}
+</style>
+
 <!-- Add a background color and large text to the whole page -->
 <div class="w3-sand w3-grayscale w3-large">
     <br><br>
@@ -20,13 +28,13 @@
     <section class="w3-container">
         <div class="w3-content" style="max-width:800px">
             <h5 class="w3-center w3-padding-48">
-                <span class="w3-tag w3-wide">REGISTRATI</span>
+                <span class="w3-tag w3-wide" style="color: orangered; margin: 50px" >REGISTRATI</span>
             </h5>
             <div class="w3-container w3-padding-48 w3-card">
                 <div class="w3-content">
                     <p>
                 		<span>
-                			<strong>Compila tutti i campi</strong>
+                			<strong >Compila tutti i campi</strong>
                 		</span>
                     </p>
                     <p>
