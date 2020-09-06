@@ -67,5 +67,17 @@ public class AdminServlet extends HttpServlet {
             }
             request.setAttribute("message", "Prodotto "+ bean.getNome()+" Aggiunto");
         }
+
+        if(action.equals("elimina")){
+            String codProd = request.getParameter("codProdEl");
+            ProductBean product= null;
+            try {
+                product =model.doRetrieveByKey(codProd);
+                model.doDelete(product);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            request.setAttribute("message", "Prodotto "+ product.getNome()+" Eliminato");
+        }
     }
 }

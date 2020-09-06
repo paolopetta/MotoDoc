@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "LoginFilter", urlPatterns = {"/Admin/*", "/User/*", "/UserServlet", "/AdminServlet"})
+@WebFilter(filterName = "LoginFilter", urlPatterns = {"/Admin/*", "/User/*", "/UserServlet"}) //, "/AdminServlet"
 public class AuthFilter implements Filter {
     public void destroy() {
     }
@@ -39,12 +39,12 @@ public class AuthFilter implements Filter {
                 else
                     response.sendRedirect(response.encodeRedirectURL(request.getContextPath()) + "/home.jsp"); //se non é reg rimanda alla home
             }
-            else if(uri.contains("/AdminServlet")) {
+            /*else if(uri.contains("/AdminServlet")) {
                 if (userBean != null && userBean.isAdmin())
                     chain.doFilter(req, resp); //se registrato vado avanti con i filtri
                 else
                     response.sendRedirect(response.encodeRedirectURL(request.getContextPath()) + "/home.jsp"); //se non é reg rimanda alla home
-            }
+            }*/
         } else response.sendRedirect(response.encodeRedirectURL(request.getContextPath()) + "/home.jsp");
     }
 
