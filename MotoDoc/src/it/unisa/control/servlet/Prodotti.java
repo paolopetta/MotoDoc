@@ -34,13 +34,19 @@ public class Prodotti extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String sort = request.getParameter("sort");
+        request.removeAttribute("products");
+        String categoria= request.getParameter("categoria");
 
-        try {
-            request.removeAttribute("products");
+        if(categoria == null)
             request.setAttribute("products", model.doRetriveAll(sort));
-        } catch(SQLException e) {
-            System.out.println("Error: "+ e.getMessage());
-            request.setAttribute("error", e.getMessage());
+        else if(categoria.equals("carrozzeria")){
+            request.setAttribute("products", model.doRetriveCarrozzeria(null));
+        }
+        else if(categoria.equals("pneumatici")){
+            request.setAttribute("products", model.doRetrivePneumatici(null));
+        }
+        else if(categoria.equals("meccanica")){
+            request.setAttribute("products", model.doRetriveMeccanica(null));
         }
 
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/Prodotti.jsp");

@@ -7,6 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<style>
+    .footer-info{
+        margin: 0px;
+        width: 100%;
+        height: 100px;
+        background-color: #ce6e31;
+        color: black;
+        position: absolute;
+        text-align: center;
+    }
+</style>
 
 <footer>
     <link rel="stylesheet" href="Style.css">

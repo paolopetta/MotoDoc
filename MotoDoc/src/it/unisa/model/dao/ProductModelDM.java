@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -58,11 +59,11 @@ public class ProductModelDM implements ProductModel<ProductBean> {
     }
 
     @Override
-    public Collection<ProductBean> doRetriveAll(String order) throws SQLException {
+    public Collection<ProductBean> doRetriveAll(String order){
        Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        Collection<ProductBean> products = new LinkedList<ProductBean>();
+        Collection<ProductBean> products = new ArrayList<ProductBean>();
 
         String selectSQL = "SELECT * FROM Prodotto";
 
@@ -95,12 +96,16 @@ public class ProductModelDM implements ProductModel<ProductBean> {
 
                 products.add(bean);
             }
-        } finally {
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        finally {
             try {
                 if(preparedStatement != null)
                     preparedStatement.close();
-            } finally {
                 DriverManagerConnectionPool.releaseConnection(connection);
+            }catch (SQLException e){
+                e.printStackTrace();
             }
         }
         return products;
@@ -159,11 +164,11 @@ public class ProductModelDM implements ProductModel<ProductBean> {
     }
 
     @Override
-    public Collection<ProductBean> doRetrivePneumatici(String order) throws SQLException {
+    public Collection<ProductBean> doRetrivePneumatici(String order){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        Collection<ProductBean> pneumatici = new LinkedList<ProductBean>();
+        Collection<ProductBean> pneumatici = new ArrayList<ProductBean>();
 
         String selectSQL = "SELECT *\n" +
                 "FROM Pneumatici as PN, Prodotto as P\n" +
@@ -197,23 +202,27 @@ public class ProductModelDM implements ProductModel<ProductBean> {
 
                 pneumatici.add(bean);
             }
-        } finally {
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        finally {
             try {
                 if(preparedStatement != null)
                     preparedStatement.close();
-            } finally {
                 DriverManagerConnectionPool.releaseConnection(connection);
+            }catch (SQLException e){
+                e.printStackTrace();
             }
         }
         return pneumatici;
     }
 
     @Override
-    public Collection<ProductBean> doRetriveCarrozzeria(String order) throws SQLException {
+    public Collection<ProductBean> doRetriveCarrozzeria(String order){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        Collection<ProductBean> carrozzerie = new LinkedList<ProductBean>();
+        Collection<ProductBean> carrozzerie = new ArrayList<ProductBean>();
 
 
         String selectSQL = "select *\n" +
@@ -248,15 +257,73 @@ public class ProductModelDM implements ProductModel<ProductBean> {
 
                 carrozzerie.add(bean);
             }
-        } finally {
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+            finally {
             try {
                 if(preparedStatement != null)
                     preparedStatement.close();
-            } finally {
                 DriverManagerConnectionPool.releaseConnection(connection);
+            }catch (SQLException e){
+                e.printStackTrace();
             }
         }
         return carrozzerie;
+    }
+
+    @Override
+    public Collection<ProductBean> doRetriveMeccanica(String order) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        Collection<ProductBean> meccanica = new ArrayList<ProductBean>();
+
+        String selectSQL = "SELECT *\n" +
+                "FROM meccanica as M, Prodotto as P\n" +
+                "WHERE P.codiceProd = M.codiceProd";
+
+        if(order != null && !order.equals("")) {
+            selectSQL += " ORDER BY " + order;
+        }
+
+        try {
+            connection = DriverManagerConnectionPool.getConnection();
+            preparedStatement = connection.prepareStatement(selectSQL);
+
+            System.out.println("doRetrieveMeccanica:" + preparedStatement.toString());
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()) {
+                ProductBean bean = new ProductBean();
+
+                bean.setCodiceProd(rs.getString("codiceProd"));
+                bean.setNome(rs.getString("nome"));
+                bean.setDescrizione(rs.getString("descrizione"));
+                bean.setImg(rs.getString("img"));
+                bean.setPrezzo(rs.getDouble("prezzo"));
+                bean.setMarca(rs.getString("marca"));
+                bean.setDisponibilità(rs.getString("disponibilità"));
+                bean.setP_iva(rs.getString("p_iva"));
+                bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
+                bean.setOfferta(rs.getString("offerta"));
+                bean.setCodice(rs.getInt("codice"));
+
+                meccanica.add(bean);
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                if(preparedStatement != null)
+                    preparedStatement.close();
+                DriverManagerConnectionPool.releaseConnection(connection);
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        return meccanica;
     }
 
 

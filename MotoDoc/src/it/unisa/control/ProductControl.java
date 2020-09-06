@@ -115,29 +115,18 @@ public class ProductControl extends HttpServlet {
         }
 
 
-        try {
+
             request.removeAttribute("pneumatici");
             request.setAttribute("pneumatici", model.doRetrivePneumatici(sort));
-        } catch(SQLException e) {
-            System.out.println("Error: "+ e.getMessage());
-            request.setAttribute("error", e.getMessage());
-        }
 
-        try {
-            request.removeAttribute("products");
-            request.setAttribute("products", model.doRetriveAll(sort));
-        } catch(SQLException e) {
-            System.out.println("Error: "+ e.getMessage());
-            request.setAttribute("error", e.getMessage());
-        }
 
-        try {
-            request.removeAttribute("carrozzerie");
+        request.removeAttribute("products");
+        request.setAttribute("products", model.doRetriveAll(sort));
+
+
+        request.removeAttribute("carrozzerie");
             request.setAttribute("carrozzerie", model.doRetriveCarrozzeria(sort));
-        } catch(SQLException e) {
-            System.out.println("Error: "+ e.getMessage());
-            request.setAttribute("error", e.getMessage());
-        }
+
 
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/ProductView.jsp");
         dispatcher.forward(request, response);

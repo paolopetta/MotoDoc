@@ -18,6 +18,8 @@ public interface ProductModel<T> {
 
     public Collection<ProductBean> doRetriveCarrozzeria(String order) throws SQLException;
 
+    public Collection<ProductBean> doRetriveMeccanica(String order) throws SQLException;
+
     public void doSave(T product) throws SQLException;
 
     public void doUpdate(T product) throws SQLException;

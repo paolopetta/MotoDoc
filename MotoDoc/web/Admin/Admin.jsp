@@ -9,16 +9,14 @@
 <html>
 <head>
     <title>Admin</title>
+    <link rel="stylesheet" href="../StyleAdmin.css">
 </head>
 <body>
 <%@ include file= "../_header.jsp" %>
-<p>Ciao</p>
 
-<form action="<%=response.encodeURL("AdminServlet")%>" method="POST">
+<div class="container">
+<form action="${pageContext.request.contextPath}/AdminServlet?action=insert" method="POST">
     <fieldset>
-        <legend><b>Aggiungi un prodotto</b></legend>
-        <input type="hidden" name="action" value="insert">
-
         <label>Nome:</label><br>
         <input name="name" type="text" maxlength="20" placeholder="Inserisci nome" required><br>
 
@@ -50,6 +48,7 @@
         <input type="reset" value="Reset">
     </fieldset>
 </form>
-
+</div>
+<%@ include file= "../_footer.jsp" %>
 </body>
 </html>
