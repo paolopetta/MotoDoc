@@ -16,7 +16,7 @@
     }*/
     ProductBean product = (ProductBean) request.getAttribute("Prodotto");
 
-    //String categoria= request.getParameter("categoria");
+    String categoria= request.getParameter("categoria");
 %>
 
 <% String pageTitle= "Home";
@@ -33,7 +33,13 @@
     <link rel="stylesheet" href="Style.css">
     <link href="./ProductStyle.css" rel="stylesheet" type="text/css">
 
+<%if(categoria == null){%>
+    <body onload="showProd('tutti', '${pageContext.request.contextPath}')">
 
+<%}else { %>
+    <body onload="showProd('<%=categoria%>', '${pageContext.request.contextPath}')">
+<% } %>
+<body onload="showProd()">
 <h1>Prodotti</h1>
 <form action="">
     <select name="categoria" onchange="showProd(this.value,'${pageContext.request.contextPath}')">
@@ -54,13 +60,10 @@
     </script>
 </div>
 
-
-<script type="text/javascript" src="Img.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-
+</body>
 
 
 

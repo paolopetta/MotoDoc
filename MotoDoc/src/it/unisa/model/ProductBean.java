@@ -19,6 +19,11 @@ public class ProductBean implements Serializable {
     int codice;
     String offerta;
     int quantita;
+    String misure;
+    String stagione;
+    String materiale;
+    String impiego;
+
 
 
     public ProductBean() {
@@ -34,6 +39,10 @@ public class ProductBean implements Serializable {
         codice= -1;
         offerta= "";
         quantita=0;
+        misure="";
+        stagione= "";
+        materiale= "";
+        impiego= "";
     }
 
 
@@ -131,11 +140,36 @@ public class ProductBean implements Serializable {
         this.quantita= quantita;
     }
 
+    public String getMisure(){return misure;}
+
+    public void setMisure(String misure){
+        this.misure= misure;
+    }
+
+    public String getStagione(){return stagione;}
+
+    public void setStagione(String stagione){
+        this.stagione= stagione;
+    }
+
+    public String getMateriale(){return materiale;}
+
+    public void setMateriale(String materiale){
+        this.materiale= materiale;
+    }
+
+    public String getImpiego(){return impiego;}
+
+    public void setImpiego(String impiego){
+        this.impiego= impiego;
+    }
+
     @Override
     public String toString() {
         return "ProductBean [Nome Prodotto=" + nome + ", Codice Prodotto=" + codiceProd + ", Descrizione=" + descrizione + ", Prezzo=" + prezzo
                 + ", Marca=" + marca + ", Disponibilità=" + disponibilità + ", Partita iva=" + p_iva + ", Codice Alfanumerico="
-                + codiceAlfanumerico + ", Codice=" + codice +", Quantitá=" + quantita + "]";
+                + codiceAlfanumerico + ", Codice=" + codice +", Quantitá=" + quantita + ",Misure="+ misure+ ",Stagione="
+                + stagione + ",Materiale="+ materiale + "Impiego=" + "]";
     }
 
     @Override
