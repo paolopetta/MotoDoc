@@ -9,14 +9,22 @@
 <html>
 <head>
     <title>Admin</title>
-    <link rel="stylesheet" href="../StyleAdmin.css">
+    <link rel="stylesheet" href="./StyleAdmin.css">
 </head>
+
 <body>
 <%@ include file= "../_header.jsp" %>
 
 <div class="container">
-<form action="${pageContext.request.contextPath}/AdminServlet?action=insert" method="POST">
+    <h2>Inserimento Prodotti</h2>
+    <form action="${pageContext.request.contextPath}/AdminServlet?action=insert&categoria=" method="POST">
     <fieldset>
+        <select name="categoria" id="selectCategoria" >
+            <option value="Carrozzeria" id="optionCarrozzeria" selected="selected">Carrozzeria</option>
+            <option value="Pneumatici" id="optionPneumatici">Pneumatici</option>
+            <option value="Meccanica" id="optionMeccanica">Meccanica</option>
+        </select><br>
+
         <label>Nome:</label><br>
         <input name="name" type="text" maxlength="20" placeholder="Inserisci nome" required><br>
 
@@ -44,6 +52,24 @@
         <label>Quantitá:</label><br>
         <input name="quantity" type="number" min="1" value="1" required><br>
 
+        <div class="aggiuntivi" id="meccanica">
+        <label>Impiego:</label><br>
+        <input name="use" type="text" maxlength="20" placeholder="Candela" required><br>
+        </div>
+
+        <div class="aggiuntivi" id="pneumatici">
+        <label>Misure:</label><br>
+        <input name="measure" type="text" maxlength="9" placeholder="150/70R16" required><br>
+
+        <label>Stagione:</label><br>
+        <input name="season" type="text" maxlength="20" placeholder="Invernali" required><br>
+        </div>
+
+        <div class="aggiuntivi" id="carrozzeria">
+        <label>Materiale:</label><br>
+        <input name="material" type="text" maxlength="20" placeholder="Carbonio" required><br>
+        </div>
+
         <input type="submit" value="Inserisci">
         <input type="reset" value="Reset">
     </fieldset>
@@ -52,3 +78,5 @@
 <%@ include file= "../_footer.jsp" %>
 </body>
 </html>
+
+<script src="${pageContext.servletContext.contextPath}/js/Admin.js"></script>

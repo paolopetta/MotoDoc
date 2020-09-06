@@ -333,7 +333,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
         PreparedStatement preparedStatement = null;
 
         String insertSQL = "INSERT INTO Prodotto" +
-                " (codiceProd, nome, descrizione, img, prezzo, marca, disponibilità, p_iva, codiceAlfanumerico, codice, offerta) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "(codiceProd, nome, descrizione, img, prezzo, marca, disponibilità, p_iva, codiceAlfanumerico, codice, offerta) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         try {
             connection = DriverManagerConnectionPool.getConnection();
@@ -366,6 +366,98 @@ public class ProductModelDM implements ProductModel<ProductBean> {
             }
         }
     }
+
+    public void doSaveCarr(ProductBean product) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String insertSQL = "INSERT INTO carrozzeria" +
+                "(codiceProd, materiale) VALUES (?, ?);";
+
+        try {
+            connection = DriverManagerConnectionPool.getConnection();
+            preparedStatement = connection.prepareStatement(insertSQL);
+
+            preparedStatement.setString(1, product.getCodiceProd());
+            preparedStatement.setString(2, product.getMateriale());
+
+            System.out.println("doSaveCarr: "+ preparedStatement.toString());
+            preparedStatement.executeUpdate();
+
+            connection.commit();
+
+        } finally {
+            try {
+                if(preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                DriverManagerConnectionPool.releaseConnection(connection);
+            }
+        }
+    }
+
+    public void doSavePneu(ProductBean product) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String insertSQL = "INSERT INTO pneumatici" +
+                "(codiceProd, misura , stagione) VALUES (?, ?, ?);";
+
+        try {
+            connection = DriverManagerConnectionPool.getConnection();
+            preparedStatement = connection.prepareStatement(insertSQL);
+
+            preparedStatement.setString(1, product.getCodiceProd());
+            preparedStatement.setString(2, product.getMisure());
+            preparedStatement.setString(2, product.getStagione());
+
+            System.out.println("doSavePneu: "+ preparedStatement.toString());
+            preparedStatement.executeUpdate();
+
+            connection.commit();
+
+        } finally {
+            try {
+                if(preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                DriverManagerConnectionPool.releaseConnection(connection);
+            }
+        }
+    }
+
+    public void doSaveMecc(ProductBean product) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        String insertSQL = "INSERT INTO meccanica" +
+                "(codiceProd, impiego ) VALUES (?, ?);";
+
+        try {
+            connection = DriverManagerConnectionPool.getConnection();
+            preparedStatement = connection.prepareStatement(insertSQL);
+
+            preparedStatement.setString(1, product.getCodiceProd());
+            preparedStatement.setString(2, product.getImpiego());
+
+
+            System.out.println("doSaveMecc: "+ preparedStatement.toString());
+            preparedStatement.executeUpdate();
+
+            connection.commit();
+
+        } finally {
+            try {
+                if(preparedStatement != null)
+                    preparedStatement.close();
+            } finally {
+                DriverManagerConnectionPool.releaseConnection(connection);
+            }
+        }
+    }
+
+
+
 
     @Override
     public void doUpdate(ProductBean product) throws SQLException {
