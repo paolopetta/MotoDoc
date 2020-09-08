@@ -461,14 +461,22 @@ public class ProductModelDM implements ProductModel<ProductBean> {
 
     @Override
     public void doUpdate(ProductBean product) throws SQLException {
-        // TODO Auto-generated method stub
+
 
     }
 
     @Override
     public void doDelete(ProductBean product) throws SQLException {
-        // TODO Auto-generated method stub
-
+        int codiceProd= product.getCodice();
+        try (Connection con = DriverManagerConnectionPool.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("DELETE FROM prodotto WHERE codiceProd=?");
+            ps.setInt(1, codiceProd);
+            if (ps.executeUpdate() != 1) {
+                throw new RuntimeException("DELETE error.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
