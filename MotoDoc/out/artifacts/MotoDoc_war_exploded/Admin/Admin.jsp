@@ -83,7 +83,7 @@
         <form action="${pageContext.request.contextPath}/AdminServlet" method="POST">
             <fieldset>
                 <label>Codice:</label><br>
-                <input name="codProd" type="number" maxlength="5" placeholder="Inserisci codice" required><br>
+                <input name="codProdEl" type="number" maxlength="5" placeholder="Inserisci codice" required><br>
                 <input type="submit" value="elimina">
             </fieldset>
         </form>
