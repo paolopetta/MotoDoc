@@ -14,9 +14,6 @@ public class ProductBean implements Serializable {
     double prezzo;
     String marca;
     String disponibilità;
-    String p_iva;
-    String codiceAlfanumerico;
-    int codice;
     String offerta;
     int quantita;
     String misure;
@@ -34,9 +31,6 @@ public class ProductBean implements Serializable {
         prezzo=0;
         marca="";
         disponibilità="";
-        p_iva="";
-        codiceAlfanumerico= "";
-        codice= -1;
         offerta= "";
         quantita=0;
         misure="";
@@ -102,29 +96,6 @@ public class ProductBean implements Serializable {
         this.disponibilità = disponibilità;
     }
 
-    public String getP_iva() {
-        return p_iva;
-    }
-
-    public void setP_iva(String p_iva) {
-        this.p_iva = p_iva;
-    }
-
-    public String getCodiceAlfanumerico() {
-        return codiceAlfanumerico;
-    }
-
-    public void setCodiceAlfanumerico(String codiceAlfanumerico) {
-        this.codiceAlfanumerico = codiceAlfanumerico;
-    }
-
-    public int getCodice() {
-        return codice;
-    }
-
-    public void setCodice(int codice) {
-        this.codice = codice;
-    }
 
     public boolean isEmpty() {
         return codiceProd.equals("-1");
@@ -167,8 +138,8 @@ public class ProductBean implements Serializable {
     @Override
     public String toString() {
         return "ProductBean [Nome Prodotto=" + nome + ", Codice Prodotto=" + codiceProd + ", Descrizione=" + descrizione + ", Prezzo=" + prezzo
-                + ", Marca=" + marca + ", Disponibilità=" + disponibilità + ", Partita iva=" + p_iva + ", Codice Alfanumerico="
-                + codiceAlfanumerico + ", Codice=" + codice +", Quantitá=" + quantita + ",Misure="+ misure+ ",Stagione="
+                + ", Marca=" + marca + ", Disponibilità=" + disponibilità +
+                 "Quantitá=" + quantita + ",Misure="+ misure+ ",Stagione="
                 + stagione + ",Materiale="+ materiale + "Impiego=" + "]";
     }
 

@@ -26,7 +26,7 @@ public class AdminServlet extends HttpServlet {
         String action = request.getParameter("action");
         System.out.println("Dentro AdminServlet");
 
-        if(action.equals("insert")) {
+        if(action != null && action.equals("insert")  ) {
             String name = request.getParameter("name");
             String codProd = request.getParameter("codProd");
             String link = request.getParameter("img");
@@ -66,18 +66,33 @@ public class AdminServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
             request.setAttribute("message", "Prodotto "+ bean.getNome()+" Aggiunto");
+            response.sendRedirect(request.getContextPath()+"/prodotti");
         }
 
-        if(action.equals("elimina")){
+        if(action != null && action.equals("delete")){
             String codProd = request.getParameter("codProdEl");
             ProductBean product= null;
             try {
-                product =model.doRetrieveByKey(codProd);
-                model.doDelete(product);
+                product = model.doRetrieveByKey(codProd);
+                if(codProd.contains("P")){
+                    model.doDelete(product, "pneumatici");
+                    model.doDelete(product, "prodotto");
+                }
+                else if(codProd.contains("M")){
+                    model.doDelete(product, "meccanica");
+                    model.doDelete(product, "prodotto");
+                }
+                else if(codProd.contains("C")){
+                    model.doDelete(product, "carrozzeria");
+                    model.doDelete(product, "prodotto");
+                }
+                else throw new SQLException();
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
             request.setAttribute("message", "Prodotto "+ product.getNome()+" Eliminato");
+            response.sendRedirect(request.getContextPath()+"/prodotti");
         }
     }
 }

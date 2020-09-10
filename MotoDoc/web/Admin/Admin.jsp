@@ -19,8 +19,7 @@
     <div class="row">
         <div class="col-sm">
         <h2>Inserimento Prodotti</h2>
-        <form action="${pageContext.request.contextPath}/AdminServlet" method="POST">
-        <fieldset>
+        <form action="${pageContext.request.contextPath}/AdminServlet" method="POST" onsubmit="console.log('ciao')">
             <select name="categoria" id="selectCategoria" >
                 <option value="Carrozzeria" id="optionCarrozzeria" selected="selected">Carrozzeria</option>
                 <option value="Pneumatici" id="optionPneumatici">Pneumatici</option>
@@ -31,7 +30,7 @@
             <input name="name" type="text" maxlength="20" placeholder="Inserisci nome" required><br>
 
             <label>Codice:</label><br>
-            <input name="codProd" type="number" maxlength="5" placeholder="Inserisci codice" required><br>
+            <input name="codProd" type="text" maxlength="5" placeholder="Inserisci codice" required><br>
 
             <label>Link img:</label><br>
             <input name="img" type="text" maxlength="200" placeholder="Inserisci link img" required><br>
@@ -52,29 +51,29 @@
             <input name="offer" type="text" maxlength="1" placeholder="Inserisci Offerta (y o n)" required><br>
 
             <label>Quantitá:</label><br>
-            <input name="quantity" type="number" min="1" value="1" required><br>
+            <input name="quantity" type="number" min="1" value="1" ><br>
 
             <div class="aggiuntivi" id="meccanica">
             <label>Impiego:</label><br>
-            <input name="use" type="text" maxlength="20" placeholder="Candela" required><br>
+            <input name="use" type="text" maxlength="20" placeholder="Candela" ><br>
             </div>
 
             <div class="aggiuntivi" id="pneumatici">
             <label>Misure:</label><br>
-            <input name="measure" type="text" maxlength="9" placeholder="150/70R16" required><br>
+            <input name="measure" type="text" maxlength="9" placeholder="150/70R16"><br>
 
             <label>Stagione:</label><br>
-            <input name="season" type="text" maxlength="20" placeholder="Invernali" required><br>
+            <input name="season" type="text" maxlength="20" placeholder="Invernali"><br>
             </div>
 
             <div class="aggiuntivi" id="carrozzeria">
             <label>Materiale:</label><br>
-            <input name="material" type="text" maxlength="20" placeholder="Carbonio" required><br>
+            <input name="material" type="text" maxlength="20" placeholder="Carbonio"><br>
             </div>
+            <input name="action" value="insert" hidden>
 
-            <input type="submit" value="Inserisci">
+            <button type="Submit">Invia</button>
             <input type="reset" value="Reset">
-            </fieldset>
         </form>
     </div>
 
@@ -83,8 +82,9 @@
         <form action="${pageContext.request.contextPath}/AdminServlet" method="POST">
             <fieldset>
                 <label>Codice:</label><br>
-                <input name="codProdEl" type="number" maxlength="5" placeholder="Inserisci codice" required><br>
-                <input type="submit" value="elimina">
+                <input name="codProdEl" type="text" maxlength="5" placeholder="Inserisci codice" required><br>
+
+                <input type="submit" name="action" value="delete">
             </fieldset>
         </form>
 

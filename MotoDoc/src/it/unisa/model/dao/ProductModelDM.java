@@ -26,7 +26,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
         try {
             connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
-            preparedStatement.setInt(1, Integer.parseInt(codiceProd));
+            preparedStatement.setString(1, codiceProd);
 
             System.out.println("doRetrieveByKey:" + preparedStatement.toString());
             ResultSet rs = preparedStatement.executeQuery();
@@ -39,9 +39,6 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setPrezzo(rs.getDouble("prezzo"));
                 bean.setMarca(rs.getString("marca"));
                 bean.setDisponibilità(rs.getString("disponibilità"));
-                bean.setP_iva(rs.getString("p_iva"));
-                bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
-                bean.setCodice(rs.getInt("codice"));
                 bean.setQuantita(1);
 
             }
@@ -88,10 +85,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setPrezzo(rs.getDouble("prezzo"));
                 bean.setMarca(rs.getString("marca"));
                 bean.setDisponibilità(rs.getString("disponibilità"));
-                bean.setP_iva(rs.getString("p_iva"));
-                bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
                 bean.setOfferta(rs.getString("offerta"));
-                bean.setCodice(rs.getInt("codice"));
 
 
                 products.add(bean);
@@ -145,10 +139,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setPrezzo(rs.getDouble("prezzo"));
                 bean.setMarca(rs.getString("marca"));
                 bean.setDisponibilità(rs.getString("disponibilità"));
-                bean.setP_iva(rs.getString("p_iva"));
-                bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
                 bean.setOfferta(rs.getString("offerta"));
-                bean.setCodice(rs.getInt("codice"));
 
                 offerte.add(bean);
             }
@@ -195,10 +186,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setPrezzo(rs.getDouble("prezzo"));
                 bean.setMarca(rs.getString("marca"));
                 bean.setDisponibilità(rs.getString("disponibilità"));
-                bean.setP_iva(rs.getString("p_iva"));
-                bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
                 bean.setOfferta(rs.getString("offerta"));
-                bean.setCodice(rs.getInt("codice"));
 
                 pneumatici.add(bean);
             }
@@ -250,10 +238,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setPrezzo(rs.getDouble("prezzo"));
                 bean.setMarca(rs.getString("marca"));
                 bean.setDisponibilità(rs.getString("disponibilità"));
-                bean.setP_iva(rs.getString("p_iva"));
-                bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
                 bean.setOfferta(rs.getString("offerta"));
-                bean.setCodice(rs.getInt("codice"));
 
                 carrozzerie.add(bean);
             }
@@ -304,10 +289,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setPrezzo(rs.getDouble("prezzo"));
                 bean.setMarca(rs.getString("marca"));
                 bean.setDisponibilità(rs.getString("disponibilità"));
-                bean.setP_iva(rs.getString("p_iva"));
-                bean.setCodiceAlfanumerico(rs.getString("codiceAlfanumerico"));
                 bean.setOfferta(rs.getString("offerta"));
-                bean.setCodice(rs.getInt("codice"));
 
                 meccanica.add(bean);
             }
@@ -333,7 +315,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
         PreparedStatement preparedStatement = null;
 
         String insertSQL = "INSERT INTO Prodotto" +
-                "(codiceProd, nome, descrizione, img, prezzo, marca, disponibilità, p_iva, codiceAlfanumerico, codice, offerta) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                "(codiceProd, nome, descrizione, img, prezzo, marca, disponibilità,offerta) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
         try {
             connection = DriverManagerConnectionPool.getConnection();
@@ -346,10 +328,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
             preparedStatement.setDouble(5, product.getPrezzo());
             preparedStatement.setString(6, product.getMarca());
             preparedStatement.setString(7, product.getDisponibilità());
-            preparedStatement.setString(8, product.getP_iva());
-            preparedStatement.setString(9, product.getCodiceAlfanumerico());
-            preparedStatement.setInt(10, product.getCodice());
-            preparedStatement.setString(11, product.getOfferta());
+            preparedStatement.setString(8, product.getOfferta());
 
 
             System.out.println("doSave: "+ preparedStatement.toString());
@@ -466,16 +445,18 @@ public class ProductModelDM implements ProductModel<ProductBean> {
     }
 
     @Override
-    public void doDelete(ProductBean product) throws SQLException {
-        int codiceProd= product.getCodice();
+    public void doDelete(ProductBean product, String table) throws SQLException {
+        String codiceProd = product.getCodiceProd();
         try (Connection con = DriverManagerConnectionPool.getConnection()) {
-            PreparedStatement ps = con.prepareStatement("DELETE FROM prodotto WHERE codiceProd=?");
-            ps.setInt(1, codiceProd);
-            if (ps.executeUpdate() != 1) {
-                throw new RuntimeException("DELETE error.");
-            }
+            String sql = "DELETE FROM "+ table+ " WHERE codiceProd=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, codiceProd);
+            ps.executeUpdate();
+            con.commit();
+             ps.close();
+
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 

@@ -35,7 +35,7 @@ public class Cart {
         //items.remove(item);
 
         for(ProductBean it: items) {
-            if(it.equals(item)) {
+            if(it.getCodiceProd().equals(item.getCodiceProd())) {
                 items.remove(it);
                 break;
             }

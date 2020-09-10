@@ -70,14 +70,14 @@
     <!--<button onclick="window.location.href='http://localhost:8080/MotoDoc_war_exploded/prodotti'">Continua lo Shopping</button>-->
 </table>
 
-<button onclick="window.location.href='http://localhost:8080/MotoDoc_war_exploded/prodotti'" class="btn btn-secondary btn-sm" >Continua lo Shopping</button>
+<button onclick="window.location.href='${pageContext.request.contextPath}/prodotti'" class="btn btn-secondary btn-sm" >Continua lo Shopping</button>
 <%
 if(prodCarrello.size() > 0) {
 %>
 
 <button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=clearCart")%>'" class="btn btn-secondary btn-sm">Clear</button>
 <!--<a href="<%//=response.encodeURL("CartServlet?action=clearCart")%>">Clear</a>-->
-<button onclick="window.location.href=''" class="btn btn-secondary btn-sm">Buy</button>   <!-- da inserire il link-->
+<button onclick='' class="btn btn-secondary btn-sm">Buy</button>   <!-- da inserire il link-->
 <%  } %>
 
 <%@ include file= "_footer.jsp" %>

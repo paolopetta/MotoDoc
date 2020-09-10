@@ -85,7 +85,7 @@ public class CartServlet extends HttpServlet {
                     String id = request.getParameter("id");
                     ProductBean bean = model.doRetrieveByKey(id);
                     if(bean != null && !bean.isEmpty()) {
-                        model.doDelete(bean);
+                        model.doDelete(bean, "prodotto");
                         request.setAttribute("message", "Product "+ bean.getNome()+" deleted");
                     }
                 } else if(action.equals("update")) {
