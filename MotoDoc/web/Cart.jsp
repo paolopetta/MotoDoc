@@ -62,14 +62,14 @@
     <% 		}
     } else {
     %>
-    <tr><td colspan="2">Il tuo carrello è vuoto</td></tr>
+    <tr><td colspan="12" align="center">Il tuo carrello è vuoto</td></tr>
 
     <%
         }
     %>
     <!--<button onclick="window.location.href='http://localhost:8080/MotoDoc_war_exploded/prodotti'">Continua lo Shopping</button>-->
 </table>
-
+<div id="bottoni">
 <button onclick="window.location.href='${pageContext.request.contextPath}/prodotti'" class="btn btn-secondary btn-sm" >Continua lo Shopping</button>
 <%
 if(prodCarrello.size() > 0) {
@@ -77,8 +77,10 @@ if(prodCarrello.size() > 0) {
 
 <button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=clearCart")%>'" class="btn btn-secondary btn-sm">Clear</button>
 <!--<a href="<%//=response.encodeURL("CartServlet?action=clearCart")%>">Clear</a>-->
-<button onclick='' class="btn btn-secondary btn-sm">Buy</button>   <!-- da inserire il link-->
+<button onclick='alert("Acquisto avvenuto con successo")' class="btn btn-secondary btn-sm">Buy</button>   <!-- da inserire il link-->
 <%  } %>
+
+</div>
 
 <%@ include file= "_footer.jsp" %>
 
