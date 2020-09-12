@@ -41,12 +41,7 @@
                     <a class="nav-link" href="CartServlet">Carrello</a>
                 </li>
             </ul>
-            <div id="form" align="center">
-            <form class="form-inline my-2 my-lg-0" >
-                <input class="form-control mr-sm-2" type="search" placeholder="Inizia la ricerca" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerca</button>
-            </form>
-            </div>
+
             <% if(user != null){%>
             <a class="nav-link" id= "login" href="${pageContext.request.contextPath}/Admin/Admin.jsp">Ciao <%=user.getNome()%> <span class="sr-only">(current)</span></a>
             <a class="nav-link" id= "login" href="${pageContext.request.contextPath}/login?action=logout">Logout </a>

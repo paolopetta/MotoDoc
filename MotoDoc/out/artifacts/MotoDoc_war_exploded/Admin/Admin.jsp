@@ -78,13 +78,13 @@
     </div>
 
     <div class="col-sm">
-        <h2>Eliminazione Prodotti</h2>
+        <h2 style="color:orangered;">Eliminazione Prodotti</h2>
         <form action="${pageContext.request.contextPath}/AdminServlet" method="POST">
             <fieldset>
                 <label>Codice:</label><br>
-                <input name="codProdEl" type="text" maxlength="5" placeholder="Inserisci codice" required><br>
+                <input name="codProdEl" type="text" maxlength="5" placeholder="Cxxxx" required><br>
 
-                <input type="submit" name="action" value="delete">
+                <input type="submit" name="action" value="Delete">
             </fieldset>
         </form>
 
