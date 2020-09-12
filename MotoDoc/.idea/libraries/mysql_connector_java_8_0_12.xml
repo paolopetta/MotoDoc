@@ -4,6 +4,7 @@
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-8.0.12.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/catalina.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/Apache Software Foundation/Tomcat 9.0/lib/gson-2.8.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/gson-2.8.5.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

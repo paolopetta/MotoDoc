@@ -21,10 +21,7 @@ function showProd(cat, contextPath) {
 function addRow(contextPath, data){ //dati json
     let row= document.createElement('DIV') //creo il div
     row.className = 'row row-cols-1 row-cols-md-4'; // assegno il nome della classe
-    /*var result= []
-    for(var i in data){
-        result.push()
-    }*/
+
     data.forEach(function(element, index){
         let col= document.createElement('DIV')
         col.className = 'col mb-4'
@@ -33,7 +30,7 @@ function addRow(contextPath, data){ //dati json
         let img= document.createElement('IMG')
         img.className= 'card-img-top'
         img.setAttribute('src', element['img'])
-        img.setAttribute('width', '500')
+        img.setAttribute('width', '300')
         img.setAttribute('height', '300')
         let body= document.createElement('DIV')
         body.className = 'card-body'
@@ -44,6 +41,7 @@ function addRow(contextPath, data){ //dati json
         let paragraf= document.createElement('P')
         paragraf.className= 'card-text'
         paragraf.innerText = element['prezzo']
+        paragraf.setAttribute('align', 'center')
         var link= "CartServlet?action=addCart&id=" + element['codiceProd']
         let button= document.createElement('A')
         button.setAttribute('href', link)

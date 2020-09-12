@@ -38,7 +38,7 @@
                     <a class="nav-link" href="ChiSiamo.jsp">Chi Siamo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="CartServlet">Carrello</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/CartServlet">Carrello</a>
                 </li>
             </ul>
             <div id="form" align="center">

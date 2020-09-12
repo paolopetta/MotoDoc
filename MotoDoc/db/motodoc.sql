@@ -119,21 +119,28 @@ insert into Scaffale (codice, codiceAlfanumerico)
 values (123, 'A'), (124, 'A'), (125, 'A'),(126, 'A'),(127, 'A'), (145, 'B'), (146, 'B'), (147, 'B'), (148, 'B'), (149, 'B');
 */
 insert into Prodotto (codiceProd, nome, descrizione, img, prezzo, marca, disponibilità, offerta)
-values ('P2452', 'Gomme','pilot', 'https://aecbmesvcm.cloudimg.io/cdno/n/webp.png-lossless/https://blobs.dgadteamdev.com/b2c-experience-production/attachments/cjfv2om9u0rg40hqmmc9xb11o-moto-tyres-pilot-power-3-persp.full.png', 55.00, 'Michelin', 'y','y'),
+values ('P2452', 'Gomme','pilot', 'https://i.imgur.com/6ojNILX.jpg', 55.00, 'Michelin', 'y','y'),
     ('P1574', 'Gomme Pirelli','free', 'https://d3nv2arudvw7ln.cloudfront.net/images/870/855/diablo_rosso_III_3_4,0.jpg', 50.00, 'Pirelli', 'y','n'),
+       ('P1575', 'Gomme Dunlop','free','https://i.imgur.com/KrBxc9N.jpg', 50.00, 'Dunlop', 'y','n'),
+       ('P1576', 'Gomme Power','free','https://i.imgur.com/3sQ46HN.jpg', 50.00, 'Power', 'y','n'),
         ('M1577', 'Candela', 'candela motore', 'https://images-na.ssl-images-amazon.com/images/I/61Lj6AA7BeL._AC_SX466_.jpg',15.00, 'NGK', 'y','n'),
+       ('M1578', 'Filtro Aria', 'filtro aria', 'https://i.imgur.com/Rkft5ah.jpg',25.00, 'BMC', 'y','y'),
         ('M1478', 'Cambio','cambio elettronico', 'https://www.carpimoto.it/Images/Products/Detail/Dynojet_Quick_Shifter_Sensor_Cambio_Elettronico_E4-103.jpg',200.50, 'Hirace', 'n','n'),
         ('C1457', 'Fianchetto duke','fianchetto', 'https://www.motoricambiservice.com/ebay/readyproebayimages/CARENA-CODINO-SINISTRA-KTM-390-DUKE-ABS-2017-2019-9300804110028-LEFT-SIDE-REAR_462479.jpg',50.00, 'Hirace', 'y','n'),
-        ('M1745', 'Serbatoio','serbatoio ktm', 'https://static.bakeca.it/immagini/edf/edf788f7f5a206a5402962374cc575ca.jpg',150.00, 'Hirace', 'n','n'),
-    ('C1744', 'Cavalletto','cavalletto per z900', 'https://images.wemoto.com/full/CENTRESTAND/10060403.jpg',25.00, 'Hirace', 'y','n'),
-        ('C1845', 'Parafango','parafango per vespa', 'https://www.ricambimotopalermo.it/wp-content/uploads/imported/PARAFANGO-VESPA-PX-FRENO-A-DISCO-RMS-142680130-161241378094.jpg',75.00, 'Hirace', 'y','y');
+       ('C1458', 'Specchietti','Duke', 'https://i.imgur.com/Xla8xXu.jpg',50.00, 'Hirace', 'y','y'),
+       ('M1745', 'Serbatoio','serbatoio ktm', 'https://static.bakeca.it/immagini/edf/edf788f7f5a206a5402962374cc575ca.jpg',150.00, 'Hirace', 'n','n'),
+    ('C1744', 'Cavalletto','cavalletto per z900', 'https://i.imgur.com/Uk05TQ2.jpg',25.00, 'Hirace', 'y','n'),
+       ('C1846', 'Codino Duke','codino per duke', 'https://i.imgur.com/Rvl46ek.jpg',65.00, 'Hirace', 'y','n'),
+       ('C1847', 'Codino Fazer','codino per fazer', 'https://i.imgur.com/MBU1rkE.jpg',95.00, 'Hirace', 'y','n'),
+       ('C1848', 'Cupolino','Cupolino d epoca', 'https://i.imgur.com/POH57Lk.jpg',95.00, 'Hirace', 'y','y'),
+        ('C1845', 'Parafango','parafango per vespa', 'https://www.ricambimotopalermo.it/wp-content/uploads/imported/PARAFANGO-VESPA-PX-FRENO-A-DISCO-RMS-142680130-161241378094.jpg',75.00, 'Hirace', 'y','n');
 
 
 insert into Pneumatici(misura, stagione, codiceProd)
-values ('155\75R15', 'estiva', 'P2452'), ('165\55R15', 'invernale', 'P1574');
+values ('155\75R15', 'estiva', 'P2452'), ('165\55R15', 'invernale', 'P1574'), ('165\55R15', 'invernale', 'P1575'), ('165\55R15', 'invernale', 'P1576');
 
 insert into Meccanica (impiego, codiceProd)
-values ('candela', 'M1577'), ('cambio', 'M1478'), ('cavalletto', 'M1745');
+values ('candela', 'M1577'), ('cambio', 'M1478'), ('cavalletto', 'M1745'), ('Filtro', 'M1577');
 
 insert into Carrozzeria (materiale, codiceProd)
-values ('carbonio', 'C1457'), ('alluminio', 'C1744'), ('alluminio', 'C1845');
+values ('carbonio', 'C1457'), ('alluminio', 'C1744'), ('alluminio', 'C1845'), ('alluminio', 'C1458'), ('carbonio', 'C1846'), ('carbonio', 'C1847'), ('plexiglass', 'C1848');

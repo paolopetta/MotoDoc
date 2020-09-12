@@ -23,9 +23,11 @@
     request.setAttribute("pageTitle", pageTitle);
 %>
 <%@ include file= "_header.jsp" %>
+<title>Prodotti</title>
+
 <link rel="stylesheet" href="Style.css">
 
-    <title>Prodotti</title>
+    <h1 align="center" style="color: orangered">Prodotti</h1>
 
     <script type="text/javascript" src="prodotti.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -40,8 +42,7 @@
     <body onload="showProd('<%=categoria%>', '${pageContext.request.contextPath}')">
 <% } %>
 <body onload="showProd()">
-<h1>Prodotti</h1>
-<form action="">
+<form id="formProd" action="">
     <select name="categoria" onchange="showProd(this.value,'${pageContext.request.contextPath}')">
         <!--ho dovuto inserire un altra voce perché l'evento é onchange-->
         <option value="#">Seleziona una categoria:</option>
@@ -52,7 +53,6 @@
     </select>
 </form>
 
-<h2>Prodotti</h2>
 
 <div id="showProd">
     <script>
