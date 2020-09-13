@@ -6,17 +6,21 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <html>
 <head>
     <title>Title</title>
-
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 <%@ include file= "_header.jsp" %>
 
-<p><%=request.getAttribute("message")%></p>
+<p id="message"><%=request.getAttribute("message")%></p>
 
-<a class="btn btn-primary" href="login.jsp" role="button">Accedi</a>
+<div id="tasto">
+    <a class="btn btn-secondary btn-sm" href="login.jsp" role="button">Accedi</a>
+</div>
 
 <%@ include file="_footer.jsp" %>
 </body>
