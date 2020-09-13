@@ -73,10 +73,12 @@ public class Login extends HttpServlet {
                         request.setAttribute("error", "password");
                         requestDispatcher.forward(request, response);
                     }
+
                 }
                 else { // utente non esiste
                     RequestDispatcher requestDispatcher= request.getServletContext().getRequestDispatcher("/login.jsp");
                     request.setAttribute("error", "notfound");
+                    requestDispatcher.forward(request,response);
                 }
             }
             response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/home.jsp"));

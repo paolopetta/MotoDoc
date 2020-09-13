@@ -10,8 +10,9 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Messaggio di registrazione</title>
     <link rel="stylesheet" href="Style.css">
+
 </head>
 <body>
 <%@ include file= "_header.jsp" %>

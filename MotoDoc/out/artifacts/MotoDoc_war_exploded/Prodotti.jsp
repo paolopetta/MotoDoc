@@ -10,10 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     Collection<?> products = (Collection<?>) request.getAttribute("products");
-    /*if(products == null ) {
-        response.sendRedirect(response.encodeRedirectURL("./Prodotti"));
-        return;
-    }*/
+
     ProductBean product = (ProductBean) request.getAttribute("Prodotto");
 
     String categoria= request.getParameter("categoria");
@@ -37,10 +34,12 @@
 
 <%if(categoria == null){%>
     <body onload="showProd('tutti', '${pageContext.request.contextPath}')">
+<%}
 
-<%}else { %>
+else { %>
     <body onload="showProd('<%=categoria%>', '${pageContext.request.contextPath}')">
 <% } %>
+
 <body onload="showProd()">
 <form id="formProd" action="">
     <select name="categoria" onchange="showProd(this.value,'${pageContext.request.contextPath}')">
@@ -76,30 +75,4 @@
 
 
 
-<%
-    /* if(products != null && products.size() > 0) {       //devo mettere al posto di products quello che viene chiesto
 
-         Iterator<?> it  = products.iterator();*/
-%>
-<!--
-<div class="row row-cols-1 row-cols-md-4" >
-
-<%
-    /* while(it.hasNext()) {
-         ProductBean bean = (ProductBean)it.next();*/
-%>
-
-<div class="col mb-4">
-<div class="card">
-<img src="<%//=bean.getImg()%>" class="card-img-top" alt="..." width="500" height="300">
-<div class="card-body">
-<h5 class="card-title" align="center"><%/*=bean.getNome()*/%></h5>
-<p class="card-text" align="center"><%/*=bean.getPrezzo()*/%></p>
-<a href="<%/*=response.encodeURL("CartServlet?action=addCart&id=" + bean.getCodiceProd())*/%>" class="btn btn-primary" align="center">Aggiungi al carrello</a>
-</div>
-</div>
-</div>
-
-<% 	//	} %>
-</div> -->
-<%//}%>   <!--chiusura if-->

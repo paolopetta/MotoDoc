@@ -32,14 +32,14 @@
     margin-left: 43%;
 }
 
-
-
-
 #bottoni{
     text-align: center;
     margin-top: 50px;
     margin-bottom: 100px;
+}
 
+.table{
+    padding-top: 50px;
 }
 #message{
     text-align: center;

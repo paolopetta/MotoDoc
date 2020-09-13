@@ -24,7 +24,7 @@ public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String action = request.getParameter("action");
-        System.out.println("Dentro AdminServlet");
+        //System.out.println("Dentro AdminServlet");
 
         if(action != null && action.equals("insert")  ) {
             String name = request.getParameter("name");

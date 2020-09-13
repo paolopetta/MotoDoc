@@ -77,14 +77,20 @@ if(prodCarrello.size() > 0) {
 
 <button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=clearCart")%>'" class="btn btn-secondary btn-sm">Clear</button>
 <!--<a href="<%//=response.encodeURL("CartServlet?action=clearCart")%>">Clear</a>-->
-<button onclick='alert("Acquisto avvenuto con successo")' class="btn btn-secondary btn-sm">Buy</button>   <!-- da inserire il link-->
+<button  class="btn btn-secondary btn-sm" id="acquista">Buy</button>   <!-- da inserire il link-->
 <%  } %>
 
 </div>
 
 <%@ include file= "_footer.jsp" %>
 
+<script>
 
+      $("#acquista").onclick(function(){
+            alert("Acquisto avvenuto con successo")
+            window.location.href='<%=response.encodeURL("CartServlet?action=clearCart")%>
+      })
+</script>
 
 
 

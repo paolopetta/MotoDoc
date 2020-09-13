@@ -63,18 +63,3 @@ function addRow(contextPath, data){ //dati json
 
 }
 
-/*
-<div class="row row-cols-1 row-cols-md-4">
-    <div class="col mb-4">
-        <div class="card" >
-            <img src="<%=bean.getImg()%>" class="card-img-top" alt="..." width="500" height="300">
-            <div class="card-body">
-                <h5 class="card-title" align="center"><%=bean.getNome()%></h5>
-                <p class="card-text" align="center">€ <%=bean.getPrezzo()%></p>
-                <a href="<%=response.encodeURL("CartServlet?action=addCart&id=" + bean.getCodiceProd())%>" class="btn btn-primary" align="center">Aggiungi al carrello</a>
-            </div>
-        </div>
-    </div>
-    <% 	} %>
-</div>
-*/
