@@ -7,10 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="_header.jsp" %>
+<head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <link rel="stylesheet" href="Style.css">
 <link href="./ProductStyle.css" rel="stylesheet" type="text/css">
-
+</head>
+<body>
 <style>
     .w3-container{ margin: 15px 50px;
         line-height: 2.0;
@@ -70,3 +72,4 @@
         </div>
     </section>
 <script src="${pageContext.servletContext.contextPath}/js/Validate.js"></script>
+</body>

@@ -22,13 +22,15 @@
         return;
     }
 %>
+<html>
+<head>
+    <title>Carrello</title>
+    <%@ include file= "_header.jsp" %>
+    <style type="text/css"> @import url(Style.css);</style>
+    <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.js"></script>
 
-<% String pageTitle= "Carrello";
-    request.setAttribute("pageTitle", pageTitle);
-%>
-<%@ include file= "_header.jsp" %>
-<style type="text/css"> @import url(Style.css);</style>
-
+</head>
+<body>
 <h2 align="center" style="color: orangered">Carrello</h2>
 
 <%
@@ -70,27 +72,40 @@
     <!--<button onclick="window.location.href='http://localhost:8080/MotoDoc_war_exploded/prodotti'">Continua lo Shopping</button>-->
 </table>
 <div id="bottoni">
-<button onclick="window.location.href='${pageContext.request.contextPath}/prodotti'" class="btn btn-secondary btn-sm" >Continua lo Shopping</button>
-<%
-if(prodCarrello.size() > 0) {
-%>
+    <button onclick="window.location.href='${pageContext.request.contextPath}/prodotti'" class="btn btn-secondary btn-sm" >Continua lo Shopping</button>
+    <%
+        if(prodCarrello.size() > 0) {
+    %>
 
-<button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=clearCart")%>'" class="btn btn-secondary btn-sm">Clear</button>
-<!--<a href="<%//=response.encodeURL("CartServlet?action=clearCart")%>">Clear</a>-->
-<button  class="btn btn-secondary btn-sm" id="acquista">Buy</button>   <!-- da inserire il link-->
-<%  } %>
+    <button onclick="window.location.href='<%=response.encodeURL("CartServlet?action=clearCart")%>'" class="btn btn-secondary btn-sm">Clear</button>
+    <!--<a href="<%//=response.encodeURL("CartServlet?action=clearCart")%>">Clear</a>-->
+    <script>
+        function buy(){
+            alert("Acquisto avvenuto con successo")
+            $.ajax({
+                type: 'POST',
+                url: ' ${pageContext.request.contextPath}/CartServlet',
+                data:{
+                    action: 'clearCart'
+                },
+                success:function() {
+                    location.reload(true)
+                }
+            })
+        }
+    </script>
+    <button  class="btn btn-secondary btn-sm" id="acquista" onclick="buy()">Buy</button>   <!-- da inserire il link-->
+    <%  } %>
 
 </div>
 
 <%@ include file= "_footer.jsp" %>
 
-<script>
 
-      $("#acquista").onclick(function(){
-            alert("Acquisto avvenuto con successo")
-            window.location.href='<%=response.encodeURL("CartServlet?action=clearCart")%>
-      })
-</script>
+</body>
+
+</html>
+
 
 
 
