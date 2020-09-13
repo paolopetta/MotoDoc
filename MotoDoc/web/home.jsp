@@ -111,6 +111,7 @@
     <%@ include file= "_footer.jsp" %>
 </body>
 
+<!-- Script che permette di opacizzare le immagini delle categorie -->
     <script type="text/javascript">
         $(document).ready(function(){
             $(".bottom-Cat1").hover(function(){

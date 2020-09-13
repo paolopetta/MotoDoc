@@ -11,14 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-/*
-*********************************************************************************************************
-*                                                                                                       *
-*                                                                                                       *
-*   dal div categorie passare tramite url la categoria per aprire la pagina prodotti con la cat giusta  *
-*                                                                                                       *
-*********************************************************************************************************
-*/
 @WebServlet("/prodotti")
 public class Prodotti extends HttpServlet {
 

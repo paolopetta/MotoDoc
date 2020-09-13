@@ -8,7 +8,6 @@ var emailOk = false;
 function validaUsername() {
     var input = document.forms['registration']['username'];
     if (input.value.length >= 6 && input.value.match(/^[0-9a-zA-Z]+$/)) {
-        // verifica se esiste un utente con lo stesso username
         input.style.border = borderOk;
         usernameOk = true;
             } else {
