@@ -16,9 +16,6 @@
     String categoria= request.getParameter("categoria");
 %>
 
-<% String pageTitle= "Home";
-    request.setAttribute("pageTitle", pageTitle);
-%>
 <%@ include file= "_header.jsp" %>
 <title>Prodotti</title>
 

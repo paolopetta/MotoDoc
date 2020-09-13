@@ -23,9 +23,7 @@
     }
 %>
 
-<% String pageTitle= "Carrello";
-    request.setAttribute("pageTitle", pageTitle);
-%>
+<title>Carrello</title>
 <%@ include file= "_header.jsp" %>
 <style type="text/css"> @import url(Style.css);</style>
 
