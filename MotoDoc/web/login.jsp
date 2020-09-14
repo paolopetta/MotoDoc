@@ -50,7 +50,7 @@
     <form action="login?action=login" method="post">
         <h2 class="text-center">Log in</h2>
         <div class="form-group">
-            <label for="email"><b>Username</b></label>
+            <label for="email"><b>E-mail</b></label>
             <input type="text" class="form-control" placeholder="Inserisci l'email" name="email" id="email" required>
         </div>
         <div class="form-group">
