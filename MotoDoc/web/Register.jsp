@@ -71,5 +71,6 @@
             </div>
         </div>
     </section>
+</div>
 <script src="${pageContext.servletContext.contextPath}/js/Validate.js"></script>
 </body>

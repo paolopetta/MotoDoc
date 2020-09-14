@@ -31,7 +31,7 @@
 
 </head>
 <body>
-<h2 align="center" style="color: orangered">Carrello</h2>
+<h2 align="center" style="color: orangered; padding: 60px">Carrello</h2>
 
 <%
     List<ProductBean> prodCarrello = carrello.getItems();
@@ -94,16 +94,24 @@
             })
         }
     </script>
-    <button  class="btn btn-secondary btn-sm" id="acquista" onclick="buy()">Buy</button>   <!-- da inserire il link-->
-    <%  } %>
+    <%if(userBean != null){%>
+    <button  class="btn btn-secondary btn-sm" id="acquista" onclick="buy()" >Buy</button>   <!-- da inserire il link-->
+    <%}%><%  } %>
 
 </div>
 
 <%@ include file= "_footer.jsp" %>
 
-
 </body>
-
+<script>
+    document.onload = function() {
+        var nome = null
+        user = "<%=userBean%>"
+        console.log('Utente2 ' + user)
+        if (nome == null) document.getElementById('acquista').disabled = true
+        if (user != null) document.getElementById('acquista').disabled = false
+    }
+</script>
 </html>
 
 
