@@ -26,32 +26,13 @@
   <component name="ChangeListManager">
     <list default="true" id="129c05c4-10cb-4d9b-8db2-238bc295c846" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/Cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/Cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/Carrozzeria.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/Pneumatici.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/Prodotti.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/Prodotti.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/META-INF/MotoDoc.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/control/filter/AuthFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/control/filter/AuthFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/control/servlet/AdminServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/control/servlet/AdminServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/control/servlet/CartServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/control/servlet/CartServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/model/dao/ProductModelDM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/WEB-INF/classes/it/unisa/model/dao/ProductModelDM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/_blank.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/js/Validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/js/Validate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/prodotti.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/prodotti.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/control/filter/AuthFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/control/filter/AuthFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/control/servlet/AdminServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/control/servlet/AdminServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/control/servlet/CartServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/control/servlet/CartServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/model/dao/ProductModelDM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MotoDoc/it/unisa/model/dao/ProductModelDM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unisa/control/filter/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unisa/control/filter/AuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unisa/control/servlet/AdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unisa/control/servlet/AdminServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unisa/control/servlet/CartServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unisa/control/servlet/CartServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/it/unisa/model/dao/ProductModelDM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/it/unisa/model/dao/ProductModelDM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Carrozzeria.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Pneumatici.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Prodotti.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Prodotti.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/ProductView.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/prodotti.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/prodotti.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/ProductView.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/Register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/Register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MotoDoc_war_exploded/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,6 +249,7 @@
       <workItem from="1599985675097" duration="7514000" />
       <workItem from="1600003961002" duration="9168000" />
       <workItem from="1600013750259" duration="774000" />
+      <workItem from="1600067734227" duration="1875000" />
     </task>
     <task id="LOCAL-00001" summary="Modificato il DB, aggiunto Carattere per i codiceProd, reso funzionante aggiunta ed eliminazione">
       <created>1599731202381</created>
