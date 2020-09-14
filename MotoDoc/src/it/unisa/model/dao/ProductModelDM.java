@@ -141,6 +141,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setDisponibilità(rs.getString("disponibilità"));
                 bean.setOfferta(rs.getString("offerta"));
 
+
                 offerte.add(bean);
             }
         } finally {
@@ -239,6 +240,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setMarca(rs.getString("marca"));
                 bean.setDisponibilità(rs.getString("disponibilità"));
                 bean.setOfferta(rs.getString("offerta"));
+                bean.setMateriale(rs.getString("materiale"));
 
                 carrozzerie.add(bean);
             }
@@ -290,6 +292,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
                 bean.setMarca(rs.getString("marca"));
                 bean.setDisponibilità(rs.getString("disponibilità"));
                 bean.setOfferta(rs.getString("offerta"));
+                bean.setImpiego(rs.getString("impiego"));
 
                 meccanica.add(bean);
             }

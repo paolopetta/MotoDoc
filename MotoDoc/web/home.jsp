@@ -22,8 +22,10 @@
     request.setAttribute("pageTitle", pageTitle);
 %>
 <%@ include file= "_header.jsp" %>
+<head>
 <title>MotoDoc</title>
 <link rel="stylesheet" href="Style.css">
+</head>
 <body>
     <!-- Categorie -->
     <div class="container" align="center">

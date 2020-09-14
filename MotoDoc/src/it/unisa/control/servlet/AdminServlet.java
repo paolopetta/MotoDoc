@@ -69,7 +69,7 @@ public class AdminServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath()+"/prodotti");
         }
 
-        if(action != null && action.equals("delete")){
+        if(action != null && action.equals("Delete")){
             String codProd = request.getParameter("codProdEl");
             ProductBean product= null;
             try {

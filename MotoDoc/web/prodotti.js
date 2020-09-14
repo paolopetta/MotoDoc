@@ -38,9 +38,29 @@ function addRow(contextPath, data){ //dati json
         h5.className = 'card-title'
         h5.innerText = element['nome']
         h5.setAttribute('align', 'center')
+        let marca= document.createElement('P')
+        marca.className= 'card-text'
+        marca.innerText = element['marca']
+        marca.setAttribute('align', 'center')
+
+        let misura= document.createElement('P')
+        misura.className= 'card-text'
+        misura.innerText = element['misure']
+        misura.setAttribute('align', 'center')
+
+        let materiale= document.createElement('P')
+        materiale.className= 'card-text'
+        materiale.innerText = element['materiale']
+        materiale.setAttribute('align', 'center')
+
+        let impiego= document.createElement('P')
+        impiego.className= 'card-text'
+        impiego.innerText = element['impiego']
+        impiego.setAttribute('align', 'center')
+
         let paragraf= document.createElement('P')
         paragraf.className= 'card-text'
-        paragraf.innerText = element['prezzo']
+        paragraf.innerText = '€' + element['prezzo']
         paragraf.setAttribute('align', 'center')
         var link= "CartServlet?action=addCart&id=" + element['codiceProd']
         let button= document.createElement('A')
@@ -51,6 +71,11 @@ function addRow(contextPath, data){ //dati json
 
 
         body.appendChild(h5)
+        body.appendChild(marca)
+        if(~element['codiceProd'].indexOf('P')) body.appendChild(misura)
+        if(~element['codiceProd'].indexOf('C')) body.appendChild(materiale)
+        if(~element['codiceProd'].indexOf('M')) body.appendChild(impiego)
+        body.appendChild(materiale)
         body.appendChild(paragraf)
         body.appendChild(button)
         card.appendChild(img)
