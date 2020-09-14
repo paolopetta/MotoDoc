@@ -17,10 +17,11 @@
 %>
 
 <%@ include file= "_header.jsp" %>
+<head>
 <title>Prodotti</title>
 
 <link rel="stylesheet" href="Style.css">
-
+</head>
     <h1 align="center" style="color: orangered">Prodotti</h1>
 
     <script type="text/javascript" src="prodotti.js"></script>
